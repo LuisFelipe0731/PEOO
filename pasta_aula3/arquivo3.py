@@ -6,8 +6,3 @@ def A_triangulo(b,h):
 def Media_aritmetica(a,b):
     print((a+b)/2)
 
-
-
-A_triangulo(9,10)
-
-Media_aritmetica(20,11)

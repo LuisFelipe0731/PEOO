@@ -1,3 +1,3 @@
 nome = input("Digite seu Nome: ")
 
-print(nome)
+print(f"nome: {nome}")

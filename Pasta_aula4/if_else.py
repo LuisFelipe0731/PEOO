@@ -2,8 +2,10 @@ bas = input().split()
 a = float(bas[0])
 b = float(bas[1])
 c = float(bas[2])
-if a or b or c <= 0:
+
+if a <= 0:
     print("Impossivel calcular")
+    
     
 delta = (b**2) - (4*a*c)
 

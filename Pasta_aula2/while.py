@@ -1,6 +1,6 @@
 num = 1
 
 while num < 100:
-    print(num)
+    print(num, end = " ")
 
     num += 1

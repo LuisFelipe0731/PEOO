@@ -1,14 +1,11 @@
-""" Comentario legal """
-def Num_Menor(x,y):
-    if x < y:
+num = input().split()
+
+a = int(num[0])
+b = int(num[1])
+c = int(num[2])
+d = int(num[3])
+
+for x in num:
+    div = x % 2
+    if div == 0:
         print(x)
-    if y < x:
-        print(y)
-def A_circulo(raio):
-    pi = 3.14
-    print(pi * (raio**2))   
-
-def Frete(m,d):
-
-Num_Menor(8,900)
-A_circulo(4)

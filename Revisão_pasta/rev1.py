@@ -1,1 +1,2 @@
-print(1 + 2 + 3 * 4)
+for x in range(0,31,2):
+    print(x)

@@ -1,13 +1,8 @@
-si = []
-sim = True
+class Aluno:
+    def __init__(self,matricula,ano):
+        self.matricula = matricula
+        self.ano = ano
 
-while sim:
-    num = int(input())
-    si.append(num)
 
-    sim = input("Deseja continuar? ")
-
-    if sim == 'n':
-        sim = False
-
-print(si)
+luis = Aluno(20231011110028,2023)
+        

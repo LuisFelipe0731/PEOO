@@ -1,6 +1,5 @@
 sim = True
 lista1 = []
-ano = ''
 while sim:
     dic = {}
     nome = input("Digite um nome: ")

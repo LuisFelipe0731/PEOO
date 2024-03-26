@@ -19,5 +19,5 @@ while sim:
     
     if sim == 'n':
         sim = False
-for x in lista1:
-    print(x)
+for y in lista1:
+    print(y)

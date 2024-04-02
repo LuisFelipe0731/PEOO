@@ -7,3 +7,6 @@ class Triangulo:
         return (self.b * self.h)/2
 
 junior = Triangulo()
+junior.h = 60
+
+print(junior.b)

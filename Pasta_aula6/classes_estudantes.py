@@ -7,4 +7,3 @@ class Triangulo:
         return (self.b * self.h)/2
 
 junior = Triangulo()
-

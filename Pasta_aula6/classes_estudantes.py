@@ -8,5 +8,6 @@ class Triangulo:
 
 junior = Triangulo()
 junior.h = 60
+junior.b = 67
 
-print(junior.b)
+print(junior.Area_tri())

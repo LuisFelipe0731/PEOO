@@ -1,3 +1,3 @@
-class Estudante:
+class Mouse:
     def __init__(self):
-        self.matricula = 2023
+        pass

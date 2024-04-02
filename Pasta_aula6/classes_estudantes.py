@@ -6,7 +6,5 @@ class Triangulo:
     def Area_tri(self):
         return (self.b * self.h)/2
 
-
 junior = Triangulo()
 
-junior.Area_tri()

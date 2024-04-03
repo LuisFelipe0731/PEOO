@@ -21,10 +21,10 @@ class Circulo:
         return (self.pi *(self.raio**2))
 
     def circunferencia(self):
-        return (2*self.pi*self.raio)
+        return (2 * self.pi * self.raio)
 
 dudu = Circulo()
 
-dudu.raio = 5
+dudu.raio = 2.5 
 
-print(dudu.circunferencia())
+print(dudu.area_circ())

@@ -28,3 +28,7 @@ dudu = Circulo()
 dudu.raio = 2.5 
 
 print(dudu.area_circ())
+
+class Conta_banco:
+    def __init__(self):
+        pass

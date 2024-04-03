@@ -11,3 +11,20 @@ junior.h = 60
 junior.b = 67
 
 print(junior.Area_tri())
+
+class Circulo:
+    def __init__(self):
+        self.raio = 0
+        self.pi = 3.14
+    
+    def area_circ(self):
+        return (self.pi *(self.raio**2))
+
+    def circunferencia(self):
+        return (2*self.pi*self.raio)
+
+dudu = Circulo()
+
+dudu.raio = 5
+
+print(dudu.circunferencia())

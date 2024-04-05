@@ -28,17 +28,19 @@ class Conta_banco:
         self.titular = ''
         self.saldo = 0
         self.num_conta = ''
+    
     def Deposistar(self,num):
         self.saldo += num
     
     def Saque(self,saque):
        self.saldo -= saque
 
-orion = Conta_banco()
+ori = Conta_banco()
+ori.titular = 'pedro'
+ori.num_conta = '302321007'
+ori.saldo = 20
 
-orion.saldo = 20
+ori.Deposistar(75)
+ori.Saque(100)
 
-orion.Deposistar(75)
-orion.Saque(100)
-
-print(orion.saldo)
+print(ori.titular,ori.num_conta,ori.saldo)

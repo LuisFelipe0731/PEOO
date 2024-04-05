@@ -36,9 +36,9 @@ class Conta_banco:
 
 orion = Conta_banco()
 
-orion.saldo = 500
+orion.saldo = 20
 
 orion.Deposistar(75)
-orion.Saque(15)
+orion.Saque(100)
 
 print(orion.saldo)

@@ -23,12 +23,22 @@ class Circulo:
     def circunferencia(self):
         return (2 * self.pi * self.raio)
 
-dudu = Circulo()
-
-dudu.raio = 2.5 
-
-print(dudu.area_circ())
-
 class Conta_banco:
     def __init__(self):
-        pass
+        self.titular = ''
+        self.saldo = 0
+        self.num_conta = ''
+    def Deposistar(self,num):
+        self.saldo += num
+    
+    def Saque(self,saque):
+       self.saldo -= saque
+
+orion = Conta_banco()
+
+orion.saldo = 500
+
+orion.Deposistar(75)
+orion.Saque(15)
+
+print(orion.saldo)

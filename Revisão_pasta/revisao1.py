@@ -18,7 +18,7 @@ class Corrida:
         self.dist = 1 #metros
         self.horas = 0
         self.minutos = 0
-        self.segundos = 1
+        self.segundos = 0
     def Pace(self):
         t = self.horas * 60 + self.minutos + self.minutos / 60
         d = self.dist / 1000

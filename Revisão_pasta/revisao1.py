@@ -1,15 +1,15 @@
 #aula 11 - revisão
 #re-introdução à POO
-class triangulo: #Classe
+class Triangulo: #Classe
     def __init__(self):
         self.b = 0
         self.h = 0
-    def calc_area(self):
+    def Calc_area(self):
         return self.b * self.h/2
     
-ju = triangulo() #Objeto
+ju = Triangulo() #Objeto
 
-ju.h = 3
-ju.b = 5
+ju.h = float(input("Informe o valor da altura: "))
+ju.b = float(input("Informe o valor da base: "))
 
-print(ju.calc_area())\
+print(ju.Calc_area())

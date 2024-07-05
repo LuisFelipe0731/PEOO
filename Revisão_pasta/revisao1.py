@@ -12,4 +12,4 @@ ju = triangulo() #Objeto
 ju.h = 3
 ju.b = 5
 
-print(ju.calc_area())
+print(ju.calc_area())\

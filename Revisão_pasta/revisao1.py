@@ -7,13 +7,6 @@ class Triangulo: #Classe
     def Calc_area(self):
         return self.b * self.h/2
     
-ju = Triangulo() #Objeto
-
-ju.h = float(input("Informe o valor da altura: "))
-ju.b = float(input("Informe o valor da base: "))
-
-print(ju.Calc_area())
-
 class Aluno:
     def __init__(self):
         self.nome = ""

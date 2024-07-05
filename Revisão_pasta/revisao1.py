@@ -12,3 +12,22 @@ class Aluno:
         self.nome = ""
         self.matricula = ""
         self.email = ""
+
+class Corrida:
+    def __init__(self):
+        self.dist = 1 #metros
+        self.horas = 0
+        self.minutos = 0
+        self.segundos = 1
+    def Pace(self):
+        t = self.horas * 60 + self.minutos + self.minutos / 60
+        d = self.dist / 1000
+        return t/d
+    
+c = Corrida()
+
+c.dist = float(input("Distancia: "))
+c.horas = int(input())
+c.minutos = int(input())
+c.segundos = int(input())
+print(c.Pace())

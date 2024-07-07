@@ -35,6 +35,22 @@ class Conta_banco:
     def Saque(self,saque):
        self.saldo -= saque
 
+class Viagem:
+    def __init__(self):
+        self.km = 0
+        self.horas = 0
+        self.minutos = 0
+    def Velocidade(self):
+        t = self.horas + (self.minutos/60)
+        return self.km/t
 
+dudu = Conta_banco()
+dudu.titular = 'Eduardo'
+dudu.num_conta = '5505043'
+dudu.Deposistar(500)
+dudu.Saque(90)
+print(dudu.titular)
+print(dudu.num_conta)
+print(dudu.saldo)
 
 

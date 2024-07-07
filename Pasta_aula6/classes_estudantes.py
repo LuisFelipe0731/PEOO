@@ -35,12 +35,6 @@ class Conta_banco:
     def Saque(self,saque):
        self.saldo -= saque
 
-ori = Conta_banco()
-ori.titular = 'pedro'
-ori.num_conta = '302321007'
-ori.saldo = 20
 
-ori.Deposistar(75)
-ori.Saque(100)
 
-print(ori.titular,ori.num_conta,ori.saldo)
+

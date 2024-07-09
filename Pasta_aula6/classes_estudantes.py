@@ -43,6 +43,10 @@ class Viagem:
     def Velocidade(self):
         t = self.horas + (self.minutos/60)
         return self.km/t
+class Cinema:
+    def __init__(self):
+        self.horario = 0
+        self.dia = ''
 
 dudu = Conta_banco()
 dudu.titular = 'Eduardo'

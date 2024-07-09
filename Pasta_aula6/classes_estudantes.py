@@ -48,19 +48,15 @@ class Cinema:
         self.horario = 0
         self.dia = ''
     def valor_ingresso(self):
-        valor_ingresso = 16
-        if self.dia == 'segunda' or self.dia == 'terça':
+        valor_ingresso = 16.00
+        if self.dia == 'segunda' or self.dia == 'terça' or self.dia == 'quinta':
             return valor_ingresso
+        if self.dia == 'sexta' or self.dia == 'sabado' or self.dia = 'domingo':
+            return valor_ingresso + 4
 
 
 
-dudu = Conta_banco()
-dudu.titular = 'Eduardo'
-dudu.num_conta = '5505043'
-dudu.Deposistar(500)
-dudu.Saque(90)
-print(dudu.titular)
-print(dudu.num_conta)
-print(dudu.saldo)
-
+dud = Cinema()
+dud.dia = 'quinta'
+print(dud.valor_ingresso())
 

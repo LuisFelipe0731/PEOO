@@ -5,9 +5,21 @@ class Triangulo: #classe entidade
         
         self.__b = 0  #atributos encapsulados
         self.__h = 0
+    def set_b(self, valor): # Set e Get
+        if valor >= 0:
+            self.__b = valor
+    def get_b(self):
+        return self.__b
+    
+    def set_h(self, valor): 
+        if valor >= 0:
+            self.__b = valor
+    def get_h(self):
+        return self.__b
     
     def calc_area(self): #método
         return self.__b * self.__h / 2
+    
     
 class UI: #Classe de entrada e saida
     

@@ -7,9 +7,9 @@ class Triangulo: #classe entidade
         return self.b * self.h / 2
     
 class UI: #Classe de entrada e saida
-    @staticmethod
+    @staticmethod #Não é um objeto
     def main():
-        x = Triangulo()
+        x = Triangulo() #Entidade
         x.b = 10
         x.h = 20
         print(x.calc_area())

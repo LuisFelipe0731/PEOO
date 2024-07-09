@@ -8,12 +8,16 @@ class Triangulo: #classe entidade
     def set_b(self, valor): # Set e Get
         if valor >= 0:
             self.__b = valor
+        else:
+            raise ValueError
     def get_b(self):
         return self.__b
     
     def set_h(self, valor): #Set: amarmazena um valor
         if valor >= 0:
             self.__h = valor
+        else:
+            raise ValueError
     def get_h(self): #Get: retorna um valor
         return self.__h
     

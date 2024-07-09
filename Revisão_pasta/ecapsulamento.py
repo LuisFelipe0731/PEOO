@@ -11,11 +11,11 @@ class Triangulo: #classe entidade
     def get_b(self):
         return self.__b
     
-    def set_h(self, valor): 
+    def set_h(self, valor): #Set: amarmazena um valor
         if valor >= 0:
-            self.__b = valor
-    def get_h(self):
-        return self.__b
+            self.__h = valor
+    def get_h(self): #Get: retorna um valor
+        return self.__h
     
     def calc_area(self): #método
         return self.__b * self.__h / 2
@@ -29,8 +29,9 @@ class UI: #Classe de entrada e saida
         
         x = Triangulo() #Entidade
         
-        x.b = float(input("Informe o valor da base: "))
-        x.h = float(input("Informe o valor da altura: "))
+        x.set_b(float(input("Informe o valor de b: ")))
+        x.set_h(float(input("Informe o valor de h: ")))
+        
         print(x.calc_area())
     
 UI.main() #Rodar o programa

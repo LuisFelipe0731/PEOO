@@ -50,18 +50,26 @@ class Cinema:
     def valor_ingresso(self):
         valor_ingresso = 16.00
         if self.dia == 'segunda' or self.dia == 'terça' or self.dia == 'quinta':
-            return valor_ingresso
-        
+            if self.horario > 16:
+                return valor_ingresso + 8
+            else:
+                return valor_ingresso
+
         if self.dia == 'sexta' or self.dia == 'sabado' or self.dia == 'domingo':
-            return valor_ingresso + 4
+            if self.horario > 16:
+                return valor_ingresso + 12
+            else:   
+                return valor_ingresso + 4
         
-        if self.dia == 'quarta':
+        elif self.dia == 'quarta':
             return valor_ingresso / 2
+        
         
 
 
 
 dud = Cinema()
-dud.dia = 'quinta'
+dud.horario = 10
+dud.dia = 'quarta'
 print(dud.valor_ingresso())
 

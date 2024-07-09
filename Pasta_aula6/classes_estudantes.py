@@ -47,6 +47,12 @@ class Cinema:
     def __init__(self):
         self.horario = 0
         self.dia = ''
+    def valor_ingresso(self):
+        valor_ingresso = 16
+        if self.dia == 'segunda' or self.dia == 'terça':
+            return valor_ingresso
+
+
 
 dudu = Conta_banco()
 dudu.titular = 'Eduardo'

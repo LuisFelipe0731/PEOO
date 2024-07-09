@@ -51,8 +51,10 @@ class Cinema:
         valor_ingresso = 16.00
         if self.dia == 'segunda' or self.dia == 'terça' or self.dia == 'quinta':
             return valor_ingresso
-        if self.dia == 'sexta' or self.dia == 'sabado' or self.dia = 'domingo':
+        if self.dia == 'sexta' or self.dia == 'sabado' or self.dia == 'domingo':
             return valor_ingresso + 4
+        else:
+            return valor_ingresso / 2
 
 
 

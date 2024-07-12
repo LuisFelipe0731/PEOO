@@ -33,7 +33,7 @@ class UI: #Classe de entrada e saida
         
         x = Triangulo() #Entidade
         
-        x.set_b(float(input("Informe o valor dE b: ")))
+        x.set_b(float(input("Informe o valor de b: ")))
         x.set_h(float(input("Informe o valor de h: ")))
         
         print(x.calc_area())

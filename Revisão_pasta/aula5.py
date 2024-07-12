@@ -25,3 +25,12 @@ class Corrida:
         t = self.__horas * 60 + self.__minutos + self.__segundos/60
         d = self.__distancia/1000
         return t/d
+
+class UI:
+    @staticmethod
+    def main():
+        y = Corrida()
+        y.set_distancia(int(input()))
+        y.set_tempo(input())
+        print(y.pace())
+UI.main()

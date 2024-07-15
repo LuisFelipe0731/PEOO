@@ -25,3 +25,11 @@ class UI:
     @staticmethod
     
     def main():
+        x = Circulo() 
+        
+        x.set_raio(float(input("Informe o valor do raio: ")))
+       
+        print(x.Area_circ())
+        print(x.Circunferencia())
+    
+UI.main()

@@ -68,8 +68,8 @@ class Cinema:
 
 
 
-dud = Cinema()
-dud.horario = 10
-dud.dia = 'quarta'
-print(dud.valor_ingresso())
+adu = Circulo()
+adu.raio = 10
 
+print(adu.area_circ())
+print(adu.circunferencia())

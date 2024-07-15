@@ -46,7 +46,7 @@ class Viagem:
 class Cinema:
     def __init__(self):
         self.horario = 0
-        self.dia = ''
+        self.dia = ' '
     def valor_ingresso(self):
         valor_ingresso = 16.00
         if self.dia == 'segunda' or self.dia == 'terça' or self.dia == 'quinta':

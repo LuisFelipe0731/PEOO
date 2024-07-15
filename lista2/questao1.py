@@ -1,22 +1,11 @@
-class Circulo:
+class Viagem:
     def __init__(self):
-        self.__raio = 0
-        self.__pi = 3.14
-    
-    def set_raio(self,valor):
-        if valor > 0:
-            self.__raio = valor
-        else:
-            raise ValueError
-    
-    def get_raio(self):
-        return self.__raio
-    
-    def Area_circ(self):
-        return (self.__pi *(self.__raio**2))
-
-    def Circunferencia(self):
-        return (2 * self.__pi * self.__raio)
+        self.km = 0
+        self.horas = 0
+        self.minutos = 0
+    def Velocidade(self):
+        t = self.horas + (self.minutos/60)
+        return self.km/t
 
 
 
@@ -25,7 +14,7 @@ class UI:
     @staticmethod
     
     def main():
-        x = Circulo() 
+        x = Viagem() 
         
         x.set_raio(float(input("Informe o valor do raio: ")))
        

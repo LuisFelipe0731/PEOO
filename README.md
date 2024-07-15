@@ -1,2 +1,2 @@
 # PEOO - Infoweb
-Arquivos usados na aula de PEOO.
+Arquivos  e atividades da aula de PEOO.

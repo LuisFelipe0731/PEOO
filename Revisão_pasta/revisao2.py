@@ -41,5 +41,5 @@ class UI:
         
         x.set_data(input("Digite uma data: "))
 
-        print(f"Sua conta é {x.boleto()} na data de {x.get_data()}")
+        print(f"Sua conta é {x.boleto()} para pagar na data de {x.get_data()}")
 UI.main()

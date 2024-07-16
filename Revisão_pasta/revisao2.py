@@ -23,7 +23,7 @@ class Agua:
     
     def boleto(self):
         consumo_mim = 38.00
-        if self.__consumo == 10:
+        if self.__consumo <= 10:
             return consumo_mim
         
         if self.__consumo > 10 and self.__consumo <= 20:

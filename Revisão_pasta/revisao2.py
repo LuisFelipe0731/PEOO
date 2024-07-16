@@ -39,5 +39,5 @@ class UI:
         x.set_consumo(int(input("Digite o consumo de agua: ")))
         x.set_data(input("Digite uma data: "))
 
-        print(x.boleto())
+        print(f"Sua conta é {x.boleto()} na data de {x.get_data()}")
 UI.main()

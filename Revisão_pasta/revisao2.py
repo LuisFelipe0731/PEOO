@@ -30,4 +30,9 @@ class Agua:
 class UI:
     @staticmethod
     def main():
-    
+        x = Agua()
+        x.set_consumo(int(input("Digite o consumo de agua: ")))
+        x.set_data(input("Digite uma data: "))
+
+        print(x.boleto())
+UI.main()

@@ -5,5 +5,8 @@ class Conta_banco:
         self.__saldo = 0
     
     def set_titular(self, nome):
-        
+        self.__titular = nome
+    def get_titluar(self):
+        return self.__titular
+
         

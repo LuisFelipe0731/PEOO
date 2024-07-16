@@ -36,7 +36,9 @@ class UI:
     @staticmethod
     def main():
         x = Agua()
+        
         x.set_consumo(int(input("Digite o consumo de agua: ")))
+        
         x.set_data(input("Digite uma data: "))
 
         print(f"Sua conta é {x.boleto()} na data de {x.get_data()}")

@@ -19,23 +19,14 @@ class Viagem:
     def get_tempo(self):
         return f"{self.__horas}:{self.__minutos}"
     def Velocidade_media(self):
-        tt = self.__horas + (self.__minutos/60)
-        return self.__km/tt
-
-
-
+        t = self.__horas + (self.__minutos/60)
+        return self.__km/t
 
 class UI:
-    @staticmethod
-    
+    @staticmethod   
     def main():
-        x = Viagem() 
-        
+        x = Viagem()         
         x.set_km(float(input("Informe a distantica da viagem: ")))
-        x.set_tempo(input("Informe o tempo da viagem: "))
-        print(x.get_km())
+        x.set_tempo(input("Informe o tempo da viagem: "))        
         print(x.Velocidade_media())
-       
-        
-    
 UI.main()

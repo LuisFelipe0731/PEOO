@@ -25,4 +25,4 @@ class Retagulo:
     def Calculo_area(self):
         return self.__h * self.__b
     def Calculo_diagonal(self):
-        
+        return (self.__b**2 + self.__h**2) **0.5

@@ -21,3 +21,8 @@ class Retagulo:
             raise ValueError
     def get_altura(self):
         return self.__h
+    
+    def Calculo_area(self):
+        return self.__h * self.__b
+    def Calculo_diagonal(self):
+        

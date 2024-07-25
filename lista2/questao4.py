@@ -26,3 +26,10 @@ class Retagulo:
         return self.__h * self.__b
     def Calculo_diagonal(self):
         return (self.__b**2 + self.__h**2) **0.5
+    
+    def __str__(self):
+        return f"Área: {self.Calculo_area}, Diagonal: {self.Calculo_diagonal}"
+
+class UI:
+    @staticmethod
+    def main():

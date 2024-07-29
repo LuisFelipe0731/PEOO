@@ -30,6 +30,46 @@ class Retagulo:
     def __str__(self):
         return f"Área: {self.Calculo_area}, Diagonal: {self.Calculo_diagonal}"
 
-class UI:
-    @staticmethod
-    def main():
+class Frete:
+    def __init__(self,d,p):
+        self.__d = 0
+        self.__p = 0
+        self.set_distancia(d)
+        self.set_peso(p)
+    
+    def set_distancia(self,km):
+        if km > 0:
+            self.__d = km
+        else:
+            raise ValueError
+    def get_distancia(self):
+        return self.__d
+    
+    def set_peso(self,peso):
+        if peso > 0:
+            self.__p = peso
+        else:
+            raise ValueError
+    def get_peso(self):
+        return self.__p
+
+    def calcular_frete(self):
+        centavo = 0.01
+        return centavo * (self.__p/self.__d)
+
+    def __str__(self):
+        return f"O frete: {self.calcular_frete}R$"
+
+class Equacao_do_2_grau:
+    def __init__(self,a,b,c):
+        self.__a = 0
+        self.__b = 0
+        self.__c = 0
+
+    def set_a(self,num):
+        if num > 0
+
+    def set_b(self,num):
+
+    def set_c(self,num):        
+        

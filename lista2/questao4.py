@@ -30,6 +30,60 @@ class Retagulo:
     def __str__(self):
         return f"Área: {self.Calculo_area}, Diagonal: {self.Calculo_diagonal}"
 
-class UI:
-    @staticmethod
-    def main():
+class Frete:
+    def __init__(self,d,p):
+        self.__d = 0
+        self.__p = 0
+        self.set_distancia(d)
+        self.set_peso(p)
+    
+    def set_distancia(self,km):
+        if km > 0:
+            self.__d = km
+        else:
+            raise ValueError
+    def get_distancia(self):
+        return self.__d
+    
+    def set_peso(self,peso):
+        if peso > 0:
+            self.__p = peso
+        else:
+            raise ValueError
+    def get_peso(self):
+        return self.__p
+
+    def calcular_frete(self):
+        centavo = 0.01
+        return centavo * (self.__p/self.__d)
+
+    def __str__(self):
+        return f"O frete: {self.calcular_frete}R$"
+
+class Equacao_do_2_grau:
+    def __init__(self,a,b,c):
+        self.__a = a
+        self.__b = b
+        self.__c = c
+    
+    def calcular_delta(self):
+        return (self.__b**2) - (4 * self.__a * self.__c)
+    
+    def TemRaiz(self):
+        if self.calcular_delta() > 0:
+            return "Tem duas raizes"
+        if self.calcular_delta() == 0:
+            return "tem apenas uma raiz"
+        else:
+            raise ValueError
+    def raiz1(self):
+        return (-self.__b + (self.calcular_delta() ** 0.5)) / 2*self.__a
+    
+    def raiz2(self):
+        return (-self.__b - (self.calcular_delta() ** 0.5)) / 2*self.__a
+
+    def __str__(self):
+        return f"Delta: {self.calcular_delta()} Raiz 1: {self.raiz1()} Raiz 2: {self.raiz2()}"
+
+
+        

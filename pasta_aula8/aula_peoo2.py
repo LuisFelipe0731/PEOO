@@ -47,7 +47,7 @@ class UI:
                 UI.proximo(b)
             if op == 3:
                 UI.sorteados(b)
-        print("Adeus")
+        print("Acabo")
     
     @staticmethod
     def iniciar_jogo(b):

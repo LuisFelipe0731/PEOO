@@ -69,11 +69,20 @@ class Equacao_do_2_grau:
     def calcular_delta(self):
         return (self.__b**2) - (4 * self.__a * self.__c)
     
+    def TemRaiz(self):
+        if self.calcular_delta() > 0:
+            return "Tem duas raizes"
+        if self.calcular_delta() == 0:
+            return "tem apenas uma raiz"
+        else:
+            raise ValueError
     def raiz1(self):
         return (-self.__b + (self.calcular_delta() ** 0.5)) / 2*self.__a
     
     def raiz2(self):
         return (-self.__b - (self.calcular_delta() ** 0.5)) / 2*self.__a
+
+    def __str__(self):
 
 
         

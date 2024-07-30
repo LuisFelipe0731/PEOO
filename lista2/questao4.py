@@ -83,6 +83,7 @@ class Equacao_do_2_grau:
         return (-self.__b - (self.calcular_delta() ** 0.5)) / 2*self.__a
 
     def __str__(self):
+        return f"Delta: {self.calcular_delta()} Raiz 1: {self.raiz1()} Raiz 2: {self.raiz2()}"
 
 
         

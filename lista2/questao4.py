@@ -62,14 +62,18 @@ class Frete:
 
 class Equacao_do_2_grau:
     def __init__(self,a,b,c):
-        self.__a = 0
-        self.__b = 0
-        self.__c = 0
+        self.__a = a
+        self.__b = b
+        self.__c = c
+    
+    def calcular_delta(self):
+        return (self.__b**2) - (4 * self.__a * self.__c)
+    
+    def raiz1(self):
+        return (-self.__b + (self.calcular_delta() ** 0.5)) / 2*self.__a
+    
+    def raiz2(self):
+        return (-self.__b - (self.calcular_delta() ** 0.5)) / 2*self.__a
 
-    def set_a(self,num):
-        if num > 0
 
-    def set_b(self,num):
-
-    def set_c(self,num):        
         

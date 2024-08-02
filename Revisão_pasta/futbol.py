@@ -1,7 +1,7 @@
 class Jogador:
     def __init__(self):
         self.__nome = " "
-        self.__camisa = 0
+        self.__camisa = " "
         self.__n_gols = 0
     
     def set_nome(self, a):
@@ -11,7 +11,7 @@ class Jogador:
             raise ValueError
 
     def set_camisa(self,num):
-        if num > 0:
+        if num != " ":
             self.__camisa = num
         else:
             raise ValueError

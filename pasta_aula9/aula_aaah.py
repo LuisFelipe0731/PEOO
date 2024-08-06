@@ -1,5 +1,5 @@
 import datetime
-#aula - datas
+#aula do dia 06/08/2024 - datas
 
 aula_de_gilbert = datetime.datetime(2024, 8, 6, 14, 30)
 

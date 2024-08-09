@@ -82,9 +82,9 @@ class UI:
         y = datetime.strptime(d,"%d/%m/%Y")
         
         e = input("Informe a duração(mm:ss): ")
-        x = e.split(":")
-        min = int(x[0])
-        seg = int(x[1])
+        z = e.split(":")
+        min = int(z[0])
+        seg = int(z[1])
 
         duracao1 = timedelta(minutes=min,seconds=seg)
 

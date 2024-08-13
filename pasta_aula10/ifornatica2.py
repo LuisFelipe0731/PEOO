@@ -15,4 +15,5 @@ class Boleto:
         self.__data_pagamento = data3
         self.__pagamento = pagamento
     
-    def
+    def Pagar(self, valor):
+        

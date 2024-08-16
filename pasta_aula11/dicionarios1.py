@@ -6,7 +6,8 @@ class Cliente:
         return f"{self.id} - {self.nome}"
     
 a = Cliente(2215, "Eduardo")
+b = Cliente(445641, "Cavalo")
 
-print(a)
+lista = [a,b]
 
-print(a.__dict__)
+print(vars(a))

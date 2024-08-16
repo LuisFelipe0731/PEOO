@@ -1,3 +1,5 @@
+import json
+
 class Cliente:
     def __init__(self, id, nome):
         self.id = id
@@ -9,5 +11,5 @@ a = Cliente(2215, "Eduardo")
 b = Cliente(445641, "Cavalo")
 
 lista = [a,b]
-
-print(vars(a))
+with open("Clientes.json", mode = "w") as arquivo:
+    json.dump(lista,arquivo,default = vars)

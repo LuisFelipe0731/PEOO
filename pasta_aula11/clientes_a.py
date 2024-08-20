@@ -14,16 +14,28 @@ class Clientes:
 
     @classmethod
     def Inserir (cls, cliente):
+        cls.Abrir()
         cls.objetos.append(cliente)
+        cls.Salvar()
     
     @classmethod
     def Listar (cls):
+        cls.Abrir()
         return cls.objetos
     
     @classmethod
     def Salvar(cls):
         with open("clientes2.json", mode="w") as arquivo:
-            json.dump()
+            json.dump(cls.objetos, arquivo, default=vars)
+    
+    @classmethod
+    def Abrir(cls):
+        cls.objetos = []
+        with open("clientes2.json", Mode="r") as arquivo:
+            texto = json.load(arquivo)
+            for obj in texto:
+
+
 
     
 class UI:

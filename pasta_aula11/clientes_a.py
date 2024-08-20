@@ -39,6 +39,7 @@ class Clientes:
         with open("clientes2.json", Mode="r") as arquivo:
             texto = json.load(arquivo)
             for obj in texto:
+                
 
 
 

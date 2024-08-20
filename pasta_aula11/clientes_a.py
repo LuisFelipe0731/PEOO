@@ -20,6 +20,7 @@ class Clientes:
             if c.id > m:
                 m  = c.id
         cliente.id = m + 1
+        
         cls.objetos.append(cliente)
         cls.Salvar()
     
@@ -39,7 +40,7 @@ class Clientes:
         with open("clientes2.json", Mode="r") as arquivo:
             texto = json.load(arquivo)
             for obj in texto:
-                
+
 
 
 

@@ -1,3 +1,5 @@
+import json
+
 class Cliente: #Aula de crud
     def __init__(self, id, nome, email, fone):
         self.id = id
@@ -14,8 +16,14 @@ class Clientes:
     def Inserir (cls, cliente):
         cls.objetos.append(cliente)
     
+    @classmethod
     def Listar (cls):
-        return cls.objetos[:]
+        return cls.objetos
+    
+    @classmethod
+    def Salvar(cls):
+        with open("clientes2.json", mode="w") as arquivo:
+            json.dump()
 
     
 class UI:

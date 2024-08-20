@@ -15,6 +15,10 @@ class Clientes:
     @classmethod
     def Inserir (cls, cliente):
         cls.Abrir()
+        m = 0
+        for c in cls.objetos:
+            if c.id > m:
+                m  = c.id
         cls.objetos.append(cliente)
         cls.Salvar()
     

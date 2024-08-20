@@ -1,4 +1,4 @@
-class Cliente:
+class Cliente: #Aula de crud
     def __init__(self, id, nome, email, fone):
         self.id = id
         self.nome = nome
@@ -8,11 +8,15 @@ class Cliente:
         return f"{self.nome} - {self.id} - {self.email} - {self.fone}"    
 
 class Clientes:
-    def __init__(self):
-        self.objetos = []
+    objetos = []
 
-    def Inserir (self, cliente):
-        self.objetos.append(cliente)
+    @classmethod
+    def Inserir (cls, cliente):
+        cls.objetos.append(cliente)
     
-    def Listar (self):
-        return self.objetos[:]
+    def Listar (cls):
+        return cls.objetos[:]
+    
+
+    
+    

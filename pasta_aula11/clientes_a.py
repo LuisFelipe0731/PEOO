@@ -16,6 +16,13 @@ class Clientes:
     
     def Listar (cls):
         return cls.objetos[:]
+
+    
+class UI:
+    @staticmethod
+    def menu():
+        print("")
+        return int(input("Digite um número: "))
     
 
     

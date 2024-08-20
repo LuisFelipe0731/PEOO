@@ -19,6 +19,7 @@ class Clientes:
         for c in cls.objetos:
             if c.id > m:
                 m  = c.id
+        cliente.id = m + 1
         cls.objetos.append(cliente)
         cls.Salvar()
     

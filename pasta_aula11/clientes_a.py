@@ -4,3 +4,5 @@ class Cliente:
         self.nome = nome
         self.email = email
         self.fone = fone
+    def __str__(self):
+        return f"{self.nome} - {self.id} - {self.email} - {self.fone}"    

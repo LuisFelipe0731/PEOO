@@ -23,13 +23,13 @@ class Horario:
         return f"{self.id} - {self.data} - {self.comfirmado}"
         
 class Serviço:
-   def __init__(self,id,descricao,valor,tempo):
-      self.id = id
-      self.desc = descricao
-      self.valor = valor
-      self.t = tempo
+    def __init__(self,id,descricao,valor,tempo):
+        self.id = id
+        self.desc = descricao
+        self.valor = valor
+        self.t = tempo
     def __str__(self):
-      return
+        return f"{self.id} - {self.desc} - {self.valor} - {self.t}"
        
 
 #listas de Objetos

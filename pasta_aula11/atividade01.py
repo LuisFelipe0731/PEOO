@@ -25,8 +25,11 @@ class Horario:
         
 
 class Serviço:
-   def __init__(self,id):
+   def __init__(self,id,descricao,valor,tempo):
       self.id = id
+      self.desc = descricao
+      self.valor = valor
+      self.t = tempo
 
 
 class Clientes:

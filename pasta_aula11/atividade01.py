@@ -90,4 +90,32 @@ class Clientes:
       pass
 
 class Horarios:
-   
+    horarios = []
+    @classmethod
+    def inserir(cls, obj):
+        cls.abrir()
+        m = 0                     
+        for c in cls.horarios:     
+            if c.id > m: m = c.id   
+        obj.id = m + 1  
+        cls.horarios.append(obj)
+        cls.salvar()
+    
+    @classmethod
+    def salvar(cls):  
+        with open("Horarios.json", mode = "w") as arquivo2:   # write
+            json.dump(cls.horarios, arquivo2, default = vars) 
+  
+    @classmethod
+    def abrir(cls):
+        cls.horarios = []
+        try: 
+            with open("Horarios.json", mode = "r") as arquivo2:   # read
+                texto1 = json.load(arquivo2)
+                for obj in texto1:
+                    c = Cliente(obj["id"], obj["nome"], obj["email"], obj["fone"])                    
+                    cls.horarios.append(c)
+        except FileNotFoundError:
+            pass
+  
+

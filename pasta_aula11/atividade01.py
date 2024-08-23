@@ -31,7 +31,7 @@ class Serviço:
       self.valor = valor
       self.t = tempo
 
-
+#listas de Objetos
 class Clientes:
   objetos = []  
   @classmethod

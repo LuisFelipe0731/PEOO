@@ -17,8 +17,8 @@ class Horario:
         self.id = id
         self.data = data
         self.comfirmado = comfirmado
-        id_cliente = 0
-        id_servico = 0
+        id_cliente = Cliente.id
+        id_servico = Serviço.id
     def __str__(self):
         return f"{self.id} - {self.data} - {self.comfirmado}"
         

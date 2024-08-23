@@ -18,6 +18,8 @@ class Horario:
         self.id = id
         self.data = data
         self.comfirmado = comfirmado
+        id_cliente = 0
+        id_servico = 0
     
     def __str__(self):
         return f"{self.id} - {self.data} - {self.comfirmado}"
@@ -94,10 +96,11 @@ class Horarios:
     @classmethod
     def inserir(cls, obj):
         cls.abrir()
-        m = 0                     
-        for c in cls.horarios:     
-            if c.id > m: m = c.id   
-        obj.id = m + 1  
+        n = 0                     
+        for h in cls.horarios:     
+            if h.id > n:
+               n = h.id   
+        obj.id = n + 1  
         cls.horarios.append(obj)
         cls.salvar()
     
@@ -113,8 +116,8 @@ class Horarios:
             with open("Horarios.json", mode = "r") as arquivo2:   # read
                 texto1 = json.load(arquivo2)
                 for obj in texto1:
-                    c = Cliente(obj["id"], obj["nome"], obj["email"], obj["fone"])                    
-                    cls.horarios.append(c)
+                    h = Horario(obj["id"], obj["data"], obj["comfirmado"])                    
+                    cls.horarios.append(h)
         except FileNotFoundError:
             pass
   

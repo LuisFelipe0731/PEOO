@@ -7,8 +7,7 @@ class Cliente:
         self.id = id
         self.nome = nome
         self.fone = fone
-        self.email = email
-    
+        self.email = email   
     def __str__(self):
         return f"{self.id} - {self.nome} - {self.fone} - {self.email}"
         
@@ -20,18 +19,18 @@ class Horario:
         self.comfirmado = comfirmado
         id_cliente = 0
         id_servico = 0
-    
     def __str__(self):
         return f"{self.id} - {self.data} - {self.comfirmado}"
         
-        
-
 class Serviço:
    def __init__(self,id,descricao,valor,tempo):
       self.id = id
       self.desc = descricao
       self.valor = valor
       self.t = tempo
+    def __str__(self):
+      return
+       
 
 #listas de Objetos
 class Clientes:

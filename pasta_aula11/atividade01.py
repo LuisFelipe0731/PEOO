@@ -146,8 +146,8 @@ class Serviços:
                 with open("Serviços.json", mode = "r") as arquivo3:   
                     texto2 = json.load(arquivo3)
                     for obj in texto2:
-                        s = Horario(obj["id"], obj["data"], obj["comfirmado"])                    
-                        cls.horarios.append(s)
+                        s = Serviço.obj(["id"], obj["descricao"], obj["valor"], obj["tempo"])                    
+                        cls.serv.append(s)
             except FileNotFoundError:
                 pass
     

@@ -90,35 +90,35 @@ class Clientes:
         except FileNotFoundError:
             pass
 
-    class Horarios:
-        horarios = []
-        @classmethod
-        def inserir(cls, obj):
-            cls.abrir()
-            n = 0                     
-            for h in cls.horarios:     
-                if h.id > n:
-                    n = h.id   
-            obj.id = n + 1  
-            cls.horarios.append(obj)
-            cls.salvar()
+class Horarios:
+    horarios = []
+    @classmethod
+    def inserir(cls, obj):
+        cls.abrir()
+        n = 0                     
+        for h in cls.horarios:     
+            if h.id > n:
+                n = h.id   
+        obj.id = n + 1  
+        cls.horarios.append(obj)
+        cls.salvar()
         
-        @classmethod
-        def salvar(cls):  
-            with open("Horarios.json", mode = "w") as arquivo2:  
-                json.dump(cls.horarios, arquivo2, default = vars) 
+    @classmethod
+    def salvar(cls):  
+        with open("Horarios.json", mode = "w") as arquivo2:  
+            json.dump(cls.horarios, arquivo2, default = vars) 
     
-        @classmethod
-        def abrir(cls):
-            cls.horarios = []
-            try: 
-                with open("Horarios.json", mode = "r") as arquivo2:   
-                    texto1 = json.load(arquivo2)
-                    for obj in texto1:
-                        h = Horario(obj["id"], obj["data"], obj["comfirmado"])                    
-                        cls.horarios.append(h)
-            except FileNotFoundError:
-                pass
+    @classmethod
+    def abrir(cls):
+        cls.horarios = []
+        try: 
+            with open("Horarios.json", mode = "r") as arquivo2:   
+                texto1 = json.load(arquivo2)
+                for obj in texto1:
+                    h = Horario(obj["id"], obj["data"], obj["comfirmado"])                    
+                    cls.horarios.append(h)
+        except FileNotFoundError:
+            pass
     
 class Serviços:
     serv = []

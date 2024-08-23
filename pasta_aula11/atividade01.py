@@ -17,8 +17,7 @@ class Horario:
         self.id = id
         self.data = data
         self.comfirmado = comfirmado
-        id_cliente = Cliente.id
-        id_servico = Serviço.id
+
     def __str__(self):
         return f"{self.id} - {self.data} - {self.comfirmado}"
         
@@ -155,13 +154,16 @@ class Serviços:
 class UI:
   @staticmethod
   def menu():
-    print("1 - Inserir cliente, 2 - listar clientes, 3 - atualizar cliente, 4 - excluir cliente, 9 - fim")
+    print("1 - Inserir cliente, 2 - listar clientes, 3 - atualizar cliente, 4 - excluir cliente")
+    print("5 - Inserir Horario,6,7,8")
+    print("9,10,11,12,13")
+
     return int(input("Informe uma opção: "))
 
   @staticmethod
   def main():
     op = 0
-    while op != 9: 
+    while op != 13: 
       op = UI.menu()
       if op == 1: UI.cliente_inserir()
       if op == 2: UI.cliente_listar()

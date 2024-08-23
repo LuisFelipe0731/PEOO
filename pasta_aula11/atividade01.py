@@ -155,7 +155,7 @@ class UI:
   @staticmethod
   def menu():
     print("1 - Inserir cliente, 2 - listar clientes, 3 - atualizar cliente, 4 - excluir cliente")
-    print("5 - Inserir Horario,6,7,8")
+    print("5 - Inserir Horario, 6 - Listar Horarios ,7,8")
     print("9,10,11,12,13")
 
     return int(input("Informe uma opção: "))

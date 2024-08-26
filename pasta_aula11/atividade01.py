@@ -156,8 +156,8 @@ class UI:
     @staticmethod
     def menu():
         print("1 - Inserir cliente, 2 - listar clientes, 3 - atualizar cliente, 4 - excluir cliente")
-        print("5 - Inserir Horario, 6 - Listar Horarios ,7,8")
-        print("9,10,11,12,13")
+        print("5 - Inserir Horario, 6 - Listar Horarios, 7 - Atualizar Horario, 8 - excluir horario")
+        print("9 - Inserir serviço, 10 listar serviços, 11 - atualizar seerviço,12 - excluir serviço, 13 - fim")
 
         return int(input("Informe uma opção: "))
     #Main
@@ -166,10 +166,21 @@ class UI:
         op = 0
         while op != 13: 
             op = UI.menu()
+            #Clientes - funçoes
             if op == 1: UI.cliente_inserir()
             if op == 2: UI.cliente_listar()
             if op == 3: UI.cliente_atualizar()
             if op == 4: UI.cliente_excluir()
+            #Horarios - funçoes
+            if op == 5: UI.horario_inserir()
+            if op == 6: UI.horario_listar()
+            if op == 7: UI.horario_atualizar()
+            if op == 8: UI.horario_excluir()
+            #Serviços - funçoes
+            if op == 9: UI.servico_inserir()
+            if op == 10: UI.servico_listar()
+            if op == 11: UI.servico_atualizar()
+            if op == 12: UI.servico_excluir()
     
     #Clientes
     @staticmethod

@@ -118,7 +118,7 @@ class Horarios:
     def atualizar(cls, obj):
         h = cls.listar_id(obj.id)
         if h != None:
-            h.daya = obj.data
+            h.data = obj.data
             h.comfirmado = obj.comfirmado
           
         cls.salvar()
@@ -177,17 +177,17 @@ class Serviços:
     def atualizar(cls, obj):
         s = cls.listar_id(obj.id)
         if s != None:
-            s.daya = obj.data
-            s.comfirmado = obj.comfirmado
-            s.tempo
+            s.descricao = obj.descricao
+            s.valor = obj.valor
+            s.tempo = obj.tempo
           
         cls.salvar()
     
     @classmethod
     def excluir(cls, obj):
-        h = cls.listar_id(obj.id)
-        if h != None: 
-            cls.serv.remove(h)
+        s = cls.listar_id(obj.id)
+        if s != None: 
+            cls.serv.remove(s)
         cls.salvar()
         
     @classmethod

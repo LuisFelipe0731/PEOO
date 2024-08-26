@@ -61,8 +61,8 @@ class Clientes:
         c = cls.listar_id(obj.id)
         if c != None:
             c.nome = obj.nome
-        c.email = obj.email
-        c.fone = obj.fone
+            c.email = obj.email
+            c.fone = obj.fone
         cls.salvar()   
     
     @classmethod
@@ -100,6 +100,34 @@ class Horarios:
                 n = h.id   
         obj.id = n + 1  
         cls.horarios.append(obj)
+        cls.salvar()
+    
+    @classmethod
+    def listar(cls):
+        cls.abrir()
+        return cls.horarios
+   
+    @classmethod
+    def listar_id(cls, id):
+        cls.abrir()
+        for h in cls.horarios:
+            if h.id == id: return h
+        return None
+
+    @classmethod
+    def atualizar(cls, obj):
+        h = cls.listar_id(obj.id)
+        if h != None:
+            h.daya = obj.data
+            h.comfirmado = obj.comfirmado
+          
+        cls.salvar()
+    
+    @classmethod
+    def excluir(cls, obj):
+        h = cls.listar_id(obj.id)
+        if h != None: 
+            cls.horarios.remove(h)
         cls.salvar()
         
     @classmethod
@@ -243,9 +271,9 @@ class UI:
     @staticmethod
     def horario_excluir():
         UI.horario_listar()
-        id = int(input("Informe o id do cliente a ser excluído: "))
-        c = Cliente(id, "", "", "")
-        Clientes.excluir(c)
+        id = int(input("Informe o id do horario a ser excluído: "))
+        h = Horario(id, "", "")
+        Clientes.excluir(h)
     
     #Serviços
 

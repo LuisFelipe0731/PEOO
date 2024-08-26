@@ -218,10 +218,11 @@ class UI:
     @staticmethod
     def horario_inserir():
         id = int(input("Informe o id: "))
-        data = input("Informe o nome: ")
+        data1 = input("Informe o horario do serviço (dd/mm hh:mm): ")
+        data2 = datetime.datetime.strptime(data1, "%d/%m %H:%M")
         comfirmacao = input("Comfirmaçao: ")
         
-        h = Horario(id, data, comfirmacao)
+        h = Horario(id, data2, comfirmacao)
         Horarios.inserir(h)
 
     @staticmethod

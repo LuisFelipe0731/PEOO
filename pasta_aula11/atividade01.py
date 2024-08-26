@@ -218,16 +218,16 @@ class UI:
     @staticmethod
     def horario_inserir():
         id = int(input("Informe o id: "))
-        nome = input("Informe o nome: ")
-        email = input("Informe o e-mail: ")
+        data = input("Informe o nome: ")
+        comfirmacao = input("Comfirmaçao: ")
         fone = input("Informe o fone: ")
-        c = Cliente(id, nome, email, fone)
-        Clientes.inserir(c)
+        h = Horario(id, nome, email, fone)
+        Clientes.inserir(h)
 
     @staticmethod
     def horario_listar():
-        for c in Clientes.listar():
-            print(c)
+        for h in Horarios.listar():
+            print(h)
 
     @staticmethod
     def horario_atualizar():

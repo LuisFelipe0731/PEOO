@@ -291,11 +291,12 @@ class UI:
     def horario_atualizar():
         UI.horario_listar()
         id = int(input("Informe o id do cliente a ser atualizado: "))
-        nome = input("Informe o novo nome: ")
-        email = input("Informe o novo e-mail: ")
-        fone = input("Informe o novo fone: ")
-        c = Cliente(id, nome, email, fone)
-        Clientes.atualizar(c)
+        data3 = input("Informe o novo horario(dd/mm hh:mm): ")
+        data4 = datetime.datetime.strptime(data3,"%d/%m %H:%M")
+        comfirm = input("Informe a nova comfirmação: ")
+
+        h = Horario(id,data4,comfirm)
+        Horarios.atualizar(h)
 
     @staticmethod
     def horario_excluir():
@@ -305,6 +306,55 @@ class UI:
         Clientes.excluir(h)
     
     #Serviços
+    def cliente_atualizar():
+        UI.cliente_listar()
+        id = int(input("Informe o id do cliente a ser atualizado: "))
+        nome = input("Informe o novo nome: ")
+        email = input("Informe o novo e-mail: ")
+        fone = input("Informe o novo fone: ")
+        c = Cliente(id, nome, email, fone)
+        Horarios.atualizar(c)
+
+    @staticmethod
+    def cliente_excluir():
+        UI.cliente_listar()
+        id = int(input("Informe o id do cliente a ser excluído: "))
+        c = Cliente(id, "", "", "")
+        Clientes.excluir(c)
+    
+    #Horarios
+    @staticmethod
+    def horario_inserir():
+        id = int(input("Informe o id: "))
+        data1 = input("Informe o horario do serviço (dd/mm hh:mm): ")
+        data2 = datetime.datetime.strptime(data1, "%d/%m %H:%M")
+        comfirmacao = input("Comfirmaçao: ")
+        
+        h = Horario(id, data2, comfirmacao)
+        Horarios.inserir(h)
+
+    @staticmethod
+    def horario_listar():
+        for h in Horarios.listar():
+            print(h)
+
+    @staticmethod
+    def horario_atualizar():
+        UI.horario_listar()
+        id = int(input("Informe o id do cliente a ser atualizado: "))
+        data3 = input("Informe o novo horario(dd/mm hh:mm): ")
+        data4 = datetime.datetime.strptime(data3,"%d/%m %H:%M")
+        comfirm = input("Informe a nova comfirmação: ")
+
+        h = Horario(id,data4,comfirm)
+        Horarios.atualizar(h)
+
+    @staticmethod
+    def horario_excluir():
+        UI.horario_listar()
+        id = int(input("Informe o id do horario a ser excluído: "))
+        h = Horario(id, "", "")
+        Clientes.excluir(h)
 
 UI.main()    
 

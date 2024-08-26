@@ -184,7 +184,7 @@ class UI:
     
     #Clientes
     @staticmethod
-    def horario_inserir():
+    def cliente_inserir():
         id = int(input("Informe o id: "))
         nome = input("Informe o nome: ")
         email = input("Informe o e-mail: ")
@@ -216,7 +216,7 @@ class UI:
     
     #Horarios
     @staticmethod
-    def cliente_inserir():
+    def horario_inserir():
         id = int(input("Informe o id: "))
         nome = input("Informe o nome: ")
         email = input("Informe o e-mail: ")
@@ -225,13 +225,13 @@ class UI:
         Clientes.inserir(c)
 
     @staticmethod
-    def cliente_listar():
+    def horario_listar():
         for c in Clientes.listar():
             print(c)
 
     @staticmethod
-    def cliente_atualizar():
-        UI.cliente_listar()
+    def horario_atualizar():
+        UI.horario_listar()
         id = int(input("Informe o id do cliente a ser atualizado: "))
         nome = input("Informe o novo nome: ")
         email = input("Informe o novo e-mail: ")
@@ -240,8 +240,8 @@ class UI:
         Clientes.atualizar(c)
 
     @staticmethod
-    def cliente_excluir():
-        UI.cliente_listar()
+    def horario_excluir():
+        UI.horario_listar()
         id = int(input("Informe o id do cliente a ser excluído: "))
         c = Cliente(id, "", "", "")
         Clientes.excluir(c)

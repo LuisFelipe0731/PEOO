@@ -220,9 +220,9 @@ class UI:
         id = int(input("Informe o id: "))
         data = input("Informe o nome: ")
         comfirmacao = input("Comfirmaçao: ")
-        fone = input("Informe o fone: ")
-        h = Horario(id, nome, email, fone)
-        Clientes.inserir(h)
+        
+        h = Horario(id, data, comfirmacao)
+        Horarios.inserir(h)
 
     @staticmethod
     def horario_listar():

@@ -154,21 +154,50 @@ class Serviços:
     def inserir(cls, obj):
         cls.abrir()
         x = 0                     
-        for s in cls.horarios:     
+        for s in cls.serv:     
             if s.id > x:
                 x = s.id   
         obj.id = x + 1  
         cls.serv.append(obj)
         cls.salvar()
+    
+    @classmethod
+    def listar(cls):
+        cls.abrir()
+        return cls.serv
+   
+    @classmethod
+    def listar_id(cls, id):
+        cls.abrir()
+        for s in cls.serv:
+            if s.id == id: return s
+        return None
+
+    @classmethod
+    def atualizar(cls, obj):
+        s = cls.listar_id(obj.id)
+        if s != None:
+            s.daya = obj.data
+            s.comfirmado = obj.comfirmado
+            s.tempo
+          
+        cls.salvar()
+    
+    @classmethod
+    def excluir(cls, obj):
+        h = cls.listar_id(obj.id)
+        if h != None: 
+            cls.serv.remove(h)
+        cls.salvar()
         
     @classmethod
     def salvar(cls):  
             with open("Serviços.json", mode = "w") as arquivo3:  
-                json.dump(cls.horarios, arquivo3, default = vars) 
+                json.dump(cls.serv, arquivo3, default = vars) 
     
     @classmethod
     def abrir(cls):
-            cls.horarios = []
+            cls.serv = []
             try: 
                 with open("Serviços.json", mode = "r") as arquivo3:   
                     texto2 = json.load(arquivo3)

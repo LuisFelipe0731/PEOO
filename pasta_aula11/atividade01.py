@@ -172,11 +172,11 @@ class UI:
 
   @staticmethod
   def cliente_inserir():
-    #id = int(input("Informe o id: "))
+    id = int(input("Informe o id: "))
     nome = input("Informe o nome: ")
     email = input("Informe o e-mail: ")
     fone = input("Informe o fone: ")
-    c = Cliente(0, nome, email, fone)
+    c = Cliente(id, nome, email, fone)
     Clientes.inserir(c)
 
   @staticmethod

@@ -21,7 +21,7 @@ class Horario:
     def __str__(self):
         return f"{self.id} - {self.data} - {self.comfirmado}"
         
-class Serviço:
+class Servico:
     def __init__(self,id,descricao,valor,tempo):
         self.id = id
         self.desc = descricao
@@ -147,7 +147,7 @@ class Horarios:
         except FileNotFoundError:
             pass
     
-class Serviços:
+class Servicos:
     serv = []
    
     @classmethod
@@ -202,7 +202,7 @@ class Serviços:
                 with open("Serviços.json", mode = "r") as arquivo3:   
                     texto2 = json.load(arquivo3)
                     for obj in texto2:
-                        s = Serviço.obj(["id"], obj["descricao"], obj["valor"], obj["tempo"])                    
+                        s = Servico.obj(["id"], obj["descricao"], obj["valor"], obj["tempo"])                    
                         cls.serv.append(s)
             except FileNotFoundError:
                 pass
@@ -306,55 +306,41 @@ class UI:
         Clientes.excluir(h)
     
     #Serviços
-    def cliente_atualizar():
-        UI.cliente_listar()
-        id = int(input("Informe o id do cliente a ser atualizado: "))
-        nome = input("Informe o novo nome: ")
-        email = input("Informe o novo e-mail: ")
-        fone = input("Informe o novo fone: ")
-        c = Cliente(id, nome, email, fone)
-        Horarios.atualizar(c)
-
     @staticmethod
-    def cliente_excluir():
-        UI.cliente_listar()
-        id = int(input("Informe o id do cliente a ser excluído: "))
-        c = Cliente(id, "", "", "")
-        Clientes.excluir(c)
-    
-    #Horarios
-    @staticmethod
-    def horario_inserir():
+    def servico_inserir():
         id = int(input("Informe o id: "))
-        data1 = input("Informe o horario do serviço (dd/mm hh:mm): ")
-        data2 = datetime.datetime.strptime(data1, "%d/%m %H:%M")
-        comfirmacao = input("Comfirmaçao: ")
+        desc = input("Insira uma descrição para o serviço: ")
+        valor = float(input("Insira o valor: "))
+        tempo1 = input("Insira o tempo de duração(hh:mm):")
+        tempo2 = datetime.datetime.strptime(tempo1, "%H:%M")
+     
+
         
-        h = Horario(id, data2, comfirmacao)
-        Horarios.inserir(h)
+        s = Servico(id, desc, valor, tempo2)
+        Servicos.inserir(s)
 
     @staticmethod
-    def horario_listar():
-        for h in Horarios.listar():
-            print(h)
+    def servico_listar():
+        for s in Servicos.listar():
+            print(s)
 
     @staticmethod
-    def horario_atualizar():
-        UI.horario_listar()
-        id = int(input("Informe o id do cliente a ser atualizado: "))
-        data3 = input("Informe o novo horario(dd/mm hh:mm): ")
-        data4 = datetime.datetime.strptime(data3,"%d/%m %H:%M")
-        comfirm = input("Informe a nova comfirmação: ")
-
-        h = Horario(id,data4,comfirm)
-        Horarios.atualizar(h)
+    def servico_atualizar():
+        UI.servico_listar()
+        id = int(input("Informe o id do serviço a ser atualizado: "))
+        desc = input("Nova descrição: ")
+        valor = float(input("Novo valor: "))
+        t1 = input("Nova duração(hh:mm): ")
+        t2 = datetime.datetime.strptime(t1,"%H:%M")
+        s = Servico(id,desc,valor,t2)
+        Servicos.atualizar(s)
 
     @staticmethod
-    def horario_excluir():
-        UI.horario_listar()
-        id = int(input("Informe o id do horario a ser excluído: "))
-        h = Horario(id, "", "")
-        Clientes.excluir(h)
+    def servico_excluir():
+        UI.servico_listar()
+        id = int(input("Informe o id do servico a ser excluído: "))
+        s = Servico(id, "", "","")
+        Servicos.excluir(s)
 
 UI.main()    
 

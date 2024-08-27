@@ -61,11 +61,11 @@ class Pacientes:
     
     @classmethod
     def atualizar(cls, obj):
-        c = cls.listar_id(obj.id)
-        if c != None:
-        c.nome = obj.nome
-        c.email = obj.email
-        c.fone = obj.fone
+        p = cls.listar_id(obj.id)
+        if p != None:
+            p.nome = obj.nome
+            p.email = obj.email
+            p.fone = obj.fone
         cls.salvar()   
     
     @classmethod

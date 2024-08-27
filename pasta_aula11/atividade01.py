@@ -19,7 +19,7 @@ class Horario:
         self.comfirmado = comfirmado
 
     def __str__(self):
-        return f"{self.id} - {self.data.strftime("%d/%m %H:%M")} - {self.comfirmado}"
+        return f"{self.id} - {self.data.strftime('%d/%m %H:%M')} - {self.comfirmado}"
         
 class Servico:
     def __init__(self,id,descricao,valor,tempo):
@@ -28,7 +28,7 @@ class Servico:
         self.valor = valor
         self.t = tempo
     def __str__(self):
-        return f"{self.id} - {self.desc} - {self.valor} - {self.t.strftime("%H:%M")}"
+        return f"{self.id} - {self.desc} - {self.valor} - {self.t.strftime('%H:%M')}"
        
 
 #listas de Objetos

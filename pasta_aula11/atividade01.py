@@ -207,7 +207,6 @@ class Servicos:
             except FileNotFoundError:
                 pass
 
-
 class UI:
     #Menu
     @staticmethod
@@ -342,10 +341,4 @@ class UI:
         s = Servico(id, "", "","")
         Servicos.excluir(s)
 
-UI.main()    
-
-
-
-
-
-    
+UI.main() 

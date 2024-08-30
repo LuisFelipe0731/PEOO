@@ -48,17 +48,20 @@ class Pacientes: #Lista de Objetos
             p.nome = obj.nome
             p.fone = obj.fone
             p.nasc = obj.nasc
-       cls.salvar()   
+        cls.salvar()   
+    
     @classmethod
     def excluir(cls, obj):
         p = cls.listar_id(obj.id)
         if p != None: 
-        cls.pacientes.remove(p)
+            cls.pacientes.remove(p)
         cls.salvar()   
+    
     @classmethod
     def salvar(cls):
         with open("pacientes.json", mode = "w") as arquivo:   # write
             json.dump(cls.objetos, arquivo, default = Paciente.to_json) 
+    
     @classmethod
     def abrir(cls):
         cls.pacientes = []
@@ -117,6 +120,10 @@ class UI:
         Pacientes.atualizar(p)
 
     def excluir_paciente():
+        UI.paciente_listar()
+        id = int(input("Informe o id do paciente a ser excluido: "))
+        p = Paciente(id,"","","")
+        Pacientes.excluir(p)
 
 UI.main()
 

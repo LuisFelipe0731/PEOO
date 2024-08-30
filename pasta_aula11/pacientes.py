@@ -104,7 +104,18 @@ class UI:
     
     @staticmethod
     def atualizar_paciente():
-        
+        UI.paciente_listar()
+        id = int(input("Informe o id do paciente a ser atualizado: "))
+        nome = input("Novo nome: ")
+        fone = input("Novo telefone: ")
+        t = input("Nova data de nascimento (dd/mm/aaaa): ")
+        nasc = datetime.datetime.strptime(t,"%d/%m/%Y")
+        p = Paciente(id,nome,fone,nasc)
+
+        Pacientes.atualizar(p)
+
     def excluir_paciente():
+
+UI.main()
 
         

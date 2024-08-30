@@ -71,7 +71,7 @@ class Pacientes: #Lista de Objetos
                 for obj in texto:
                     p = Paciente(obj["id"], datetime.strptime(obj["nascimento"], "%d/%m/%Y"))
 
-                    cls.objetos.append(p)
+                    cls.pacientes.append(p)
         except FileNotFoundError:
             pass
     

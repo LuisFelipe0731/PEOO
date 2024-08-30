@@ -64,9 +64,47 @@ class Pacientes: #Lista de Objetos
             with open("pacientes.json", mode = "r") as arquivo:   # read
                 texto = json.load(arquivo)
                 for obj in texto:
-                    p = Paciente(obj["id"], datetime.strptime(obj["nascimento"], "%d/%m/%Y %H:%M"))
+                    p = Paciente(obj["id"], datetime.strptime(obj["nascimento"], "%d/%m/%Y"))
 
-                    cls.objetos.append(c)
+                    cls.objetos.append(p)
         except FileNotFoundError:
             pass
     
+class UI:
+    @staticmethod
+    def menu():
+        print("Cadastro de Pacientes")
+        print("  1 - Inserir, 2 - listar, 3 - atualizar, 4 - excluir, 5 - Fim")
+        return int(input("Informe uma opção: "))
+
+    @staticmethod
+    def main():
+        op = 0
+        while op != 5:
+            op = UI.menu()
+            if op == 1: UI.paciente_inserir()
+            if op == 2: UI.paciente_listar()
+            if op == 3: UI.atualizar_paciente()
+            if op == 4: UI.excluir_paciente()
+    
+    @staticmethod
+    def paciente_inserir():
+        id = int(input("Digite o id: "))
+        nome = input("Digite o nome")
+        fone = input("Digite o telefone: ")
+        t = input("Informe a data de nascimento (dd/mm/aaaa):")
+        nasc = datetime.datetime.strptime(t,"%d/%m/%Y")
+        p = Paciente(id, nome, fone, nasc)
+        Pacientes.inserir(p)
+    
+    @staticmethod
+    def paciente_listar():
+        for p in Pacientes.listar():
+            print(p)
+    
+    @staticmethod
+    def atualizar_paciente():
+        
+    def excluir_paciente():
+
+        

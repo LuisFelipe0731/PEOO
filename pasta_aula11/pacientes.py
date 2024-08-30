@@ -45,8 +45,10 @@ class Pacientes: #Lista de Objetos
     def atualizar(cls, obj):
         p = cls.listar_id(obj.id)
         if p != None:
-       
-        cls.salvar()   
+            p.nome = obj.nome
+            p.fone = obj.fone
+            p.nasc = obj.nasc
+       cls.salvar()   
     @classmethod
     def excluir(cls, obj):
         p = cls.listar_id(obj.id)

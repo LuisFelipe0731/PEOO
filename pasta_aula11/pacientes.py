@@ -28,7 +28,7 @@ class Pacientes: #Lista de Objetos
         for p in cls.pacientes:      
             if p.id > m: m = p.id   
         obj.id = m + 1  
-        cls.objetos.append(obj)
+        cls.pacientes.append(obj)
         cls.salvar()
     
     @classmethod
@@ -60,7 +60,7 @@ class Pacientes: #Lista de Objetos
     @classmethod
     def salvar(cls):
         with open("pacientes.json", mode = "w") as arquivo:   # write
-            json.dump(cls.objetos, arquivo, default = Paciente.to_json) 
+            json.dump(cls.pacientes, arquivo, default = Paciente.to_json) 
     
     @classmethod
     def abrir(cls):
@@ -95,7 +95,7 @@ class UI:
     @staticmethod
     def paciente_inserir():
         id = int(input("Digite o id: "))
-        nome = input("Digite o nome")
+        nome = input("Digite o nome: ")
         fone = input("Digite o telefone: ")
         t = input("Informe a data de nascimento (dd/mm/aaaa):")
         nasc = datetime.datetime.strptime(t,"%d/%m/%Y")

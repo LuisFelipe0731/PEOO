@@ -15,7 +15,7 @@ class Paciente:
         dic["id"] = self.id  
         dic["nome"] = self.nome 
         dic["fone"] = self.fone 
-        dic["nascimento"] = self.nasc   
+        dic["nascimento"] = self.nasc.strftime('%d/%m/%Y')   
         return dic
 
 class Pacientes: #Lista de Objetos

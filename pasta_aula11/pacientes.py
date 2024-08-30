@@ -32,36 +32,36 @@ class Pacientes: #Lista de Objetos
         cls.salvar()
     @classmethod
     def listar(cls):
-    cls.abrir()
-    return cls.objetos
-  @classmethod
-  def listar_id(cls, id):
-    cls.abrir()
+        cls.abrir()
+        return cls.objetos
+    @classmethod
+    def listar_id(cls, id):
+        cls.abrir()
     for c in cls.objetos:
       if c.id == id: return c
     return None 
-  @classmethod
-  def atualizar(cls, obj):
-    c = cls.listar_id(obj.id)
+    @classmethod
+    def atualizar(cls, obj):
+        c = cls.listar_id(obj.id)
     if c != None:
        c.data = obj.data
        c.confirmado = obj.confirmado
        c.id_cliente = obj.id_cliente
        c.id_servico = obj.id_servico
     cls.salvar()   
-  @classmethod
-  def excluir(cls, obj):
-    c = cls.listar_id(obj.id)
+    @classmethod
+    def excluir(cls, obj):
+        c = cls.listar_id(obj.id)
     if c != None: 
       cls.objetos.remove(c)
       cls.salvar()   
-  @classmethod
-  def salvar(cls):
-    with open("horarios.json", mode = "w") as arquivo:   # write
-        json.dump(cls.objetos, arquivo, default = Horario.to_json) 
-  @classmethod
-  def abrir(cls):
-    cls.objetos = []
+    @classmethod
+    def salvar(cls):
+        with open("horarios.json", mode = "w") as arquivo:   # write
+            json.dump(cls.objetos, arquivo, default = Horario.to_json) 
+    @classmethod
+    def abrir(cls):
+        cls.objetos = []
     try: 
       with open("horarios.json", mode = "r") as arquivo:   # read
         texto = json.load(arquivo)

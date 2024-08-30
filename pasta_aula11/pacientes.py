@@ -69,7 +69,7 @@ class Pacientes: #Lista de Objetos
             with open("pacientes.json", mode = "r") as arquivo:   # read
                 texto = json.load(arquivo)
                 for obj in texto:
-                    p = Paciente(obj["id"], datetime.datetime.strptime(obj["nascimento"], "%d/%m/%Y"))
+                    p = Paciente(obj["id"], obj["nome"], obj["fone"],datetime.datetime.strptime(obj["nascimento"], "%d/%m/%Y"))
 
                     cls.pacientes.append(p)
         except FileNotFoundError:

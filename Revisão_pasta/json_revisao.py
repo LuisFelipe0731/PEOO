@@ -7,6 +7,7 @@ class Aluno: #objeto
         self.nome = nome
         self.curso = curso
         self.data_de_matricula = data
+    
     def __str__(self):
         return f"{self.matricula} - {self.nome} - {self.curso} - {self.data_de_matricula}"
 
@@ -36,9 +37,25 @@ class Alunos: #Lista de Objetos
         return cls.alunos
     
     @classmethod
-    def salvar(cls):
+    def salvar(cls): #salvar/criar arquivo .json
+        with open("alunos.json", mode = 'w') as arquivo:
+            json.dump(cls.alunos, arquivo, default = Aluno.json)
+
     
     @classmethod
     def abrir(cls):
+        cls.alunos = []
+        try:
+            with open("alunos.json", mode = 'r') as arquivo:
+                texto = json.load(arquivo)
+                for obj in texto:
+                    a = Aluno()
+
+                    cls.alunos.append(a)
+        except FileNotFoundError:
+            pass
+
+
+
 
 

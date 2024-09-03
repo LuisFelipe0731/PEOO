@@ -12,4 +12,13 @@ class Aluno: #objeto
 
     def json(self):
         dic = {}
-        
+        dic["matricula"] = self.matricula
+        dic["nome"] = self.nome
+        dic["curso"] = self.curso
+        dic["data de matricula"] = self.data_de_matricula.strftime('%d/%m/%Y')
+        return dic
+
+class Alunos: #Lista de Objetos
+    alunos = []
+    
+

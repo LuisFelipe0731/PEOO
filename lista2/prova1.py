@@ -63,7 +63,7 @@ class Avaliacoes:
     @classmethod
     def salvar(cls): #salvar/criar arquivo .json
         with open("avaliacoes.json", mode = 'w') as arquivo:
-            json.dump(cls.alunos, arquivo, default = Avaliacao.to_json)
+            json.dump(cls.avaliacoes, arquivo, default = Avaliacao.to_json)
 
     
     @classmethod

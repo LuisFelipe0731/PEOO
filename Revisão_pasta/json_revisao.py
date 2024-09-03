@@ -43,7 +43,7 @@ class Alunos: #Lista de Objetos
 
     
     @classmethod
-    def abrir(cls):
+    def abrir(cls): #abrir arquivo .json
         cls.alunos = []
         try:
             with open("alunos.json", mode = 'r') as arquivo:

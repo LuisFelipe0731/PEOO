@@ -78,23 +78,31 @@ class Avaliacoes:
                     cls.avaliacoes.append(a)
         except FileNotFoundError:
             pass
+    @classmethod
+    def proximos_dias(cls,dias):
+        cls.abrir()
+        for a in cls.avaliacoes:
+            a.data - dias
+            return a
+
 
 class UI:
     @staticmethod
     def menu():
         print("Cadastro de Avaliações")
-        print("  1 - Inserir, 2 - listar, 3 - atualizar, 4 - excluir, 5 - Fim")
+        print("  1 - Inserir, 2 - listar, 3 - atualizar, 4 - excluir, 5 - proximos dias, 6 - Fim")
         return int(input("Informe uma opção: "))
 
     @staticmethod
     def main():
         op = 0
-        while op != 5:
+        while op != 6:
             op = UI.menu()
             if op == 1: UI.avaliacao_inserir()
             if op == 2: UI.avaliacao_listar()
             if op == 3: UI.atualizar_avaliacao()
             if op == 4: UI.excluir_avaliacao()
+            if op == 5: UI.proximos_dias()
     
     @staticmethod
     def avaliacao_inserir():
@@ -128,5 +136,9 @@ class UI:
         id = int(input("Informe o id da avaliação a ser excluido: "))
         a = Avaliacao(id,"","","")
         Avaliacoes.excluir(a)
+    def proximos_dias():
+        d = input("Digite uma data(dd/mm/aaaa)")
+        dia = datetime.datetime.strptime(d,"%d/%m/%Y")
+        Avaliacoes.proximos_dias(dia)
 
 UI.main()

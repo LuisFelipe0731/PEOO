@@ -49,7 +49,7 @@ class Alunos: #Lista de Objetos
             with open("alunos.json", mode = 'r') as arquivo:
                 texto = json.load(arquivo)
                 for obj in texto:
-                    a = Aluno()
+                    a = Aluno(obj["matricula"], obj["nome"], obj["curso"], datetime.datetime.strptime(obj["data de matricula"], '%d/%m/%Y'))
 
                     cls.alunos.append(a)
         except FileNotFoundError:

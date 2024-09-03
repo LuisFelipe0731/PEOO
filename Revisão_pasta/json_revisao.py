@@ -20,5 +20,19 @@ class Aluno: #objeto
 
 class Alunos: #Lista de Objetos
     alunos = []
+    @classmethod
+    def inserir(cls,obj):
+        cls.abrir()
+        m = 0
+        for a in cls.alunos:
+            if a.id > m: m = a.id
+        obj.id = m + 1
+        cls.alunos.append(obj)
+        cls.salvar()
     
+    @classmethod
+    def listar(cls):
+        cls.abrir()
+        return cls.alunos
+
 

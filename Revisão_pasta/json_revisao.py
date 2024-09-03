@@ -34,5 +34,11 @@ class Alunos: #Lista de Objetos
     def listar(cls):
         cls.abrir()
         return cls.alunos
+    
+    @classmethod
+    def salvar(cls):
+    
+    @classmethod
+    def abrir(cls):
 
 

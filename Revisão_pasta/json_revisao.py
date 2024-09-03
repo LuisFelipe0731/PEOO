@@ -8,4 +8,8 @@ class Aluno: #objeto
         self.curso = curso
         self.data_de_matricula = data
     def __str__(self):
+        return f"{self.matricula} - {self.nome} - {self.curso} - {self.data_de_matricula}"
+
+    def json(self):
+        dic = {}
         

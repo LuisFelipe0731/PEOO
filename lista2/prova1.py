@@ -70,7 +70,7 @@ class Avaliacoes:
     def abrir(cls): #abrir arquivo .json
         cls.avaliacoes = []
         try:
-            with open("alunos.json", mode = 'r') as arquivo:
+            with open("avaliacoes.json", mode = 'r') as arquivo:
                 texto = json.load(arquivo)
                 for obj in texto:
                     a = Avaliacao(obj["id"], obj["disciplina"], obj["local"], datetime.datetime.strptime(obj["data"], '%d/%m/%Y'))
@@ -100,8 +100,8 @@ class UI:
     def avaliacao_inserir():
         id = int(input("Digite o id: "))
         disci = input("Digite a disciplina: ")
-        local = input("Digite o locla: ")
-        t = input("Informe a data de aplicação da avaliação(dd/mm/aaaa):")
+        local = input("Digite o local: ")
+        t = input("Informe a data de aplicação da avaliação(dd/mm/aaaa): ")
         data = datetime.datetime.strptime(t,"%d/%m/%Y")
         a = Avaliacao(id, disci, local, data)
         Avaliacoes.inserir(a)
@@ -116,8 +116,8 @@ class UI:
         UI.avaliacao_listar()
         id = int(input("Digite o id da avaliação a ser atualizada: "))
         disci = input("Digite a disciplina: ")
-        local = input("Digite o locla: ")
-        t = input("Informe a data de aplicação da avaliação(dd/mm/aaaa):")
+        local = input("Digite o local: ")
+        t = input("Informe a data de aplicação da avaliação(dd/mm/aaaa): ")
         data = datetime.datetime.strptime(t,"%d/%m/%Y")
         a = Avaliacao(id, disci, local, data)
 

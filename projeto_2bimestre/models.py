@@ -15,14 +15,14 @@ class Professsor:
 
 #Curso
 class Curso:
-    def __init__(self, id, nome, diretoria, tempo_de_conclusao):
+    def __init__(self, id, nome, diretoria, data_de_conclusao):
         self.id = id
         self.nome = nome
         self.diretoria = diretoria
-        self.t = tempo_de_conclusao
+        self.t = data_de_conclusao
     
     def __str__(self):
-        return f"{self.id} - {self.nome} - {self.diretoria} - {self.t.strftime('%d/%m/%Y %H:%M')}"
+        return f"{self.id} - {self.nome} - {self.diretoria} - {self.t.strftime('%d/%m/%Y')}"
     
     def to_json(self):
         dic = {}
@@ -30,7 +30,7 @@ class Curso:
         dic["id"] = self.id
         dic["nome"] = self.nome
         dic["diretoria"] = self.diretoria
-        dic["tempo de conclusâo"] = self.t.strftime('%d/%m/%Y %H:%M')
+        dic["data de conclusão"] = self.t.strftime('%d/%m/%Y')
         return dic
 
 #Diretoria
@@ -107,28 +107,28 @@ class Professores:
 
 
 #cursos
-class Professores:
-    professores = []
+class Cursos:
+    cursos = []
     
     @classmethod
     def inserir(cls, obj):
         cls.abrir()
         m = 0                     
-        for c in cls.professores:     
+        for c in cls.cursos:     
             if c.id > m: m = c.id   
             obj.id = m + 1  
-            cls.professores.append(obj)
+            cls.cursos.append(obj)
             cls.salvar()
     
     @classmethod
     def listar(cls):
         cls.abrir()
-        return cls.professores
+        return cls.cursos
     
     @classmethod
     def listar_id(cls, id):
         cls.abrir()
-        for c in cls.professores:
+        for c in cls.cursos:
             if c.id == id: return c
         return None 
     
@@ -145,22 +145,22 @@ class Professores:
     def excluir(cls, obj):
         c = cls.listar_id(obj.id)
         if c != None: 
-        cls.professores.remove(c)
+        cls.cursos.remove(c)
         cls.salvar()   
     
     @classmethod
     def salvar(cls):  
-        with open("professores.json", mode = "w") as arquivo:   
-            json.dump(cls.professores, arquivo, default = vars) 
+        with open("cursos.json", mode = "w") as arquivo:   
+            json.dump(cls.cursos, arquivo, default = Curso.to_json) 
     
     @classmethod
     def abrir(cls):
-        cls.professores = []
+        cls.cursos = []
         try: 
-            with open("professores.json", mode = "r") as arquivo:  
+            with open("cursos.json", mode = "r") as arquivo:  
                 texto = json.load(arquivo)
                 for obj in texto:
-                    c = Professsor(obj["id"], obj["nome"], obj["diretoria"], obj["materia"])             
-                cls.professores.append(c)
+                    c = Cursos(obj["id"], obj["nome"], obj["diretoria"], datetime.strptime(obj["data de conclusão"], "%d/%m/%Y"))             
+                cls.cursos.append(c)
         except FileNotFoundError:
             pass

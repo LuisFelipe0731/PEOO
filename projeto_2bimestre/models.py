@@ -100,7 +100,7 @@ class Professores:
             with open("professores.json", mode = "r") as arquivo:  
                 texto = json.load(arquivo)
                 for obj in texto:
-                    c = Professsor(obj[)             
+                    c = Professsor(obj["id"], obj["nome"], obj["diretoria"], obj["materia"])             
                 cls.professores.append(c)
         except FileNotFoundError:
             pass

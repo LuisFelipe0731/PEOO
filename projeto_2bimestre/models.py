@@ -76,10 +76,10 @@ class Professores:
     def atualizar(cls, obj):
         c = cls.listar_id(obj.id)
         if c != None:
-        c.nome = obj.nome
-        c.email = obj.email
-        c.fone = obj.fone
-        cls.salvar()   
+            c.nome = obj.nome          
+            c.diretoria = obj.diretoria
+            c.materia = obj.materia     
+            cls.salvar()   
     
     @classmethod
     def excluir(cls, obj):
@@ -100,7 +100,7 @@ class Professores:
             with open("professores.json", mode = "r") as arquivo:  
                 texto = json.load(arquivo)
                 for obj in texto:
-                    c = Professsor(obj["id"], obj["nome"], obj["email"], obj["fone"])             
+                    c = Professsor(obj[)             
                 cls.professores.append(c)
         except FileNotFoundError:
             pass

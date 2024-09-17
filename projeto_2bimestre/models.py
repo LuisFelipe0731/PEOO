@@ -9,7 +9,7 @@ class Professsor:
         self.diretoria = diretoria
         self.materia = materia
     def __str__(self):
-        return f""
+        return f"{self.id} - {self.nome} - {self.diretoria} - {self.materia}"
 
 #Curso
 class Curso:
@@ -32,11 +32,10 @@ class Curso:
 
 #Diretoria
 class Diretoria:
-    def __init__(self, id, nome, cursos):
+    def __init__(self, id, nome):
         self.id = id
         self.nome = nome
-        self.cursos = cursos
         self.id_professor = 0
         self.id_curso = 0
     def __str__(self):
-        return f""
+        return f"{self.id} - {self.nome}"

@@ -166,28 +166,28 @@ class Cursos:
             pass
 
 #Diretoria
-class Professores:
-    professores = []
+class Diretorias:
+    diretorias = []
     
     @classmethod
     def inserir(cls, obj):
         cls.abrir()
         m = 0                     
-        for c in cls.professores:     
+        for c in cls.diretorias:     
             if c.id > m: m = c.id   
         obj.id = m + 1  
-        cls.professores.append(obj)
+        cls.diretorias.append(obj)
         cls.salvar()
     
     @classmethod
     def listar(cls):
         cls.abrir()
-        return cls.professores
+        return cls.diretorias
     
     @classmethod
     def listar_id(cls, id):
         cls.abrir()
-        for c in cls.professores:
+        for c in cls.diretorias:
             if c.id == id: return c
         return None 
     
@@ -196,30 +196,30 @@ class Professores:
         c = cls.listar_id(obj.id)
         if c != None:
             c.nome = obj.nome          
-            c.diretoria = obj.diretoria
-            c.materia = obj.materia     
         cls.salvar()   
     
     @classmethod
     def excluir(cls, obj):
         c = cls.listar_id(obj.id)
         if c != None: 
-            cls.professores.remove(c)
+            cls.diretorias.remove(c)
         cls.salvar()   
     
     @classmethod
     def salvar(cls):  
-        with open("professores.json", mode = "w") as arquivo:   
-            json.dump(cls.professores, arquivo, default = vars) 
+        with open("diretorias.json", mode = "w") as arquivo:   
+            json.dump(cls.diretorias, arquivo, default = vars) 
     
     @classmethod
     def abrir(cls):
-        cls.professores = []
+        cls.diretorias = []
         try: 
-            with open("professores.json", mode = "r") as arquivo:  
+            with open("diretorias.json", mode = "r") as arquivo:  
                 texto = json.load(arquivo)
                 for obj in texto:
-                    c = Professsor(obj["id"], obj["nome"], obj["diretoria"], obj["materia"])             
-                cls.professores.append(c)
+                    c = Professsor(obj["id"], obj["nome"])      
+                    c.id_professor = obj["id_professor"]   
+                    c.id_curso = obj["id_curso"]    
+                cls.diretorias.append(c)
         except FileNotFoundError:
             pass

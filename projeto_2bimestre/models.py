@@ -56,9 +56,9 @@ class Professores:
         m = 0                     
         for c in cls.professores:     
             if c.id > m: m = c.id   
-            obj.id = m + 1  
-            cls.professores.append(obj)
-            cls.salvar()
+        obj.id = m + 1  
+        cls.professores.append(obj)
+        cls.salvar()
     
     @classmethod
     def listar(cls):
@@ -79,13 +79,13 @@ class Professores:
             c.nome = obj.nome          
             c.diretoria = obj.diretoria
             c.materia = obj.materia     
-            cls.salvar()   
+        cls.salvar()   
     
     @classmethod
     def excluir(cls, obj):
         c = cls.listar_id(obj.id)
         if c != None: 
-        cls.professores.remove(c)
+            cls.professores.remove(c)
         cls.salvar()   
     
     @classmethod
@@ -116,9 +116,9 @@ class Cursos:
         m = 0                     
         for c in cls.cursos:     
             if c.id > m: m = c.id   
-            obj.id = m + 1  
-            cls.cursos.append(obj)
-            cls.salvar()
+        obj.id = m + 1  
+        cls.cursos.append(obj)
+        cls.salvar()
     
     @classmethod
     def listar(cls):
@@ -138,14 +138,14 @@ class Cursos:
         if c != None:
             c.nome = obj.nome          
             c.diretoria = obj.diretoria
-            c.materia = obj.materia     
-            cls.salvar()   
+            c.t = obj.t     
+        cls.salvar()   
     
     @classmethod
     def excluir(cls, obj):
         c = cls.listar_id(obj.id)
         if c != None: 
-        cls.cursos.remove(c)
+            cls.cursos.remove(c)
         cls.salvar()   
     
     @classmethod

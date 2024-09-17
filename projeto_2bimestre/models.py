@@ -1,3 +1,5 @@
+from datetime import datetime
+import json
 #classes
 #Professor
 class Professsor:
@@ -17,7 +19,7 @@ class Curso:
         self.diretoria = diretoria
         self.t = tempo_de_conclusao
     def __str__(self):
-        return f""
+        return f"{self.id} - {self.nome} - {self.diretoria} - {self.t.strftime('%d/%m/%Y %H:%M')}"
     
     def to_json(self):
         dic = {}

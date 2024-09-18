@@ -1,4 +1,4 @@
-from models import Professor, Professores, Diretoria, Diretorias, Curso, Cursos
+from models import *
 #view
 
 #Professores

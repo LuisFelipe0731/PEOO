@@ -1,5 +1,4 @@
-import view
-
+from view import *
 #User Interface
 class UI:
     @classmethod

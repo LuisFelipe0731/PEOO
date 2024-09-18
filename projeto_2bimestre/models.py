@@ -3,7 +3,7 @@ import json
 #classes -->
 
 #Professor
-class Professsor:
+class Professor:
     def __init__(self, id, nome, diretoria, materia):
         self.id = id
         self.nome = nome
@@ -100,7 +100,7 @@ class Professores:
             with open("professores.json", mode = "r") as arquivo:  
                 texto = json.load(arquivo)
                 for obj in texto:
-                    c = Professsor(obj["id"], obj["nome"], obj["diretoria"], obj["materia"])             
+                    c = Professor(obj["id"], obj["nome"], obj["diretoria"], obj["materia"])             
                 cls.professores.append(c)
         except FileNotFoundError:
             pass
@@ -217,7 +217,7 @@ class Diretorias:
             with open("diretorias.json", mode = "r") as arquivo:  
                 texto = json.load(arquivo)
                 for obj in texto:
-                    c = Professsor(obj["id"], obj["nome"])      
+                    c = Diretoria(obj["id"], obj["nome"])      
                     c.id_professor = obj["id_professor"]   
                     c.id_curso = obj["id_curso"]    
                 cls.diretorias.append(c)

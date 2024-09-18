@@ -160,7 +160,7 @@ class Cursos:
             with open("cursos.json", mode = "r") as arquivo:  
                 texto = json.load(arquivo)
                 for obj in texto:
-                    c = Cursos(obj["id"], obj["nome"], obj["diretoria"], datetime.strptime(obj["data de conclusão"], "%d/%m/%Y"))             
+                    c = Curso(obj["id"], obj["nome"], obj["diretoria"], datetime.strptime(obj["data de conclusão"], "%d/%m/%Y"))             
                 cls.cursos.append(c)
         except FileNotFoundError:
             pass

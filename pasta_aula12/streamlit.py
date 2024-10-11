@@ -12,6 +12,7 @@ class RetanguloUI:
             st.write(f"Área = {r.calc_area()}")
             st.write(f"Diagonal = {r.calc_diagonal()}")
 
+RetanguloUI.main()
 
 
 

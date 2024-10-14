@@ -20,8 +20,8 @@ class Equacao2grau:
             return f"Nao possui raiz"
     
     def raiz1(self):
-        return -self.__b - (math.sqrt(self.Delta()))/ 2 * self.__a
+        return (-self.__b - math.sqrt(self.Delta()))/ 2 * self.__a
     
     def raiz2(self):
-        return -self.__b + (math.sqrt(self.Delta()))/ 2 * self.__a
+        return (-self.__b + math.sqrt(self.Delta()))/ 2 * self.__a
 

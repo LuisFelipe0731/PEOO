@@ -12,8 +12,15 @@ class Equacao2grau:
         return self.__b ** 2 - (4 * self.__a * self.__c)
 
     def Tem_raiz(self):
-
+        if self.Delta() > 0:
+            return f"Possui duas raizes"
+        if self.Delta() == 0:
+            return f"Possui apenas uma raiz"
+        else:
+            return f"Nao possui raiz"
     def raiz1(self):
-
+        return -self.__b - (math.sqrt(self.Delta()))/ 2 * self.__a
+    
     def raiz2(self):
+        return -self.__b + (math.sqrt(self.Delta()))/ 2 * self.__a
 

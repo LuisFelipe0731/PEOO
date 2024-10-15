@@ -1,5 +1,6 @@
 from equacao2grau import Equacao2grau
 import streamlit as st
+import pandas as pd
 
 class EquacaoUI:
     def main():

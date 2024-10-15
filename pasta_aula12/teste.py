@@ -28,12 +28,12 @@ class EquacaoUI:
             l = xmin
             #while
             while l < xmax:
-                y = 
+                y = l**2 - 5*l + 6
                 px.append(l)
                 py.append(y)
                 l = l + d
             l = xmax
-            y = 
+            y = l**2 - 5*l + 6
             px.append(l)
             py.append(y)
 

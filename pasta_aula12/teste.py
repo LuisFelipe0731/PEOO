@@ -18,13 +18,16 @@ class EquacaoUI:
             st.write(f" raiz 1: {x.raiz1()}")
             st.write(f"raiz 2: {x.raiz2()}")
             #grafico
-            xmin = 0
+            xmin = 
             xmax = 
             n = 100
             d = (xman - xmin)/n
             px = []
             py = []
-            while l = xmax
+            #while
+            while l < xmax:
+
+            
             #desenhar o grafico na tela
             dic = {"x": px, "y": py}
             c_data = pd.DataFrame(dic)

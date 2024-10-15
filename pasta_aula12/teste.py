@@ -14,8 +14,8 @@ class EquacaoUI:
             st.write(x)
             st.write(x.Delta())
             
-            st.write(x.raiz1())
-            st.write(x.raiz2())
+            st.write(f" raiz 1: {x.raiz1()}")
+            st.write(f"raiz 2: {x.raiz2()}")
 
 EquacaoUI.main()
 

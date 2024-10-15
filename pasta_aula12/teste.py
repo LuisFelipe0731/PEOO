@@ -18,14 +18,25 @@ class EquacaoUI:
             st.write(f" raiz 1: {x.raiz1()}")
             st.write(f"raiz 2: {x.raiz2()}")
             #grafico
-            xmin = 
-            xmax = 
+            xmin = 0
+            xmax = 30
             n = 100
-            d = (xman - xmin)/n
+            d = (xmax - xmin)/n
+            
             px = []
             py = []
+            l = xmin
             #while
             while l < xmax:
+                y = (x.__a *l)**2 + (x.__b * l) + (x.__c)
+                px.append(l)
+                py.append(y)
+                l = l + d
+            l = xmax
+            y = (x.__a *l)**2 + (x.__b * l) + (x.__c)
+            px.append(l)
+            py.append(y)
+
 
             
             #desenhar o grafico na tela

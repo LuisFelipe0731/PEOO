@@ -14,9 +14,11 @@ class EquacaoUI:
             
             st.write(x)
             st.write(x.Delta())
-            
-            st.write(f" raiz 1: {x.raiz1()}")
-            st.write(f"raiz 2: {x.raiz2()}")
+            x1 = x.raiz1()
+            x2 = x.raiz2()
+
+            st.write(f"Raiz 1: {x1} Raiz 2: {x2}")
+           
             #grafico
             xmin = 0
             xmax = 30

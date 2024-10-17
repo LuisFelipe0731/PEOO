@@ -2,14 +2,14 @@ import math
 
 class Equacao2grau:
     def __init__(self, a, b, c):
-        self.__a = a
-        self.__b = b
-        self.__c = c
+        self.a = a
+        self.b = b
+        self.c = c
     def __str__(self):
-        return f"A = {self.__a} B = {self.__b} C = {self.__c}"
+        return f"A = {self.a} B = {self.b} C = {self.c}"
 
     def Delta(self):
-        return self.__b ** 2 - (4 * self.__a * self.__c)
+        return self.b ** 2 - (4 * self.a * self.c)
 
     def Tem_raiz(self):
         if self.Delta() > 0:
@@ -20,8 +20,8 @@ class Equacao2grau:
             return f"Nao possui raiz"
     
     def raiz1(self):
-        return (-self.__b - math.sqrt(self.Delta()))/ (2 * self.__a)
+        return (-self.b - math.sqrt(self.Delta()))/ (2 * self.a)
     
     def raiz2(self):
-        return (-self.__b + math.sqrt(self.Delta()))/ (2 * self.__a)
+        return (-self.b + math.sqrt(self.Delta()))/ (2 * self.a)
 

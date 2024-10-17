@@ -8,16 +8,21 @@ class EquacaoUI:
         a = st.text_input("Digite o valor de A: ")
         b = st.text_input("Digite o valor de B: ")
         c = st.text_input("Digite o valor de C: ")
+
             
         if st.button("calcular"):
             x = Equacao2grau(int(a), int(b), int(c))
+            raizes = []
             
             st.write(x)
             st.write(x.Delta())
             x1 = x.raiz1()
             x2 = x.raiz2()
 
-            st.write(f"Raiz 1: {x1} Raiz 2: {x2}")
+            raizes.append(x1)
+            raizes.append(x2)
+
+            st.write(raizes)
            
             #grafico
             xmin = 0

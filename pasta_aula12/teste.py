@@ -25,8 +25,8 @@ class EquacaoUI:
             st.write(raizes)
            
             #grafico
-            xmin = 0
-            xmax = 30
+            xmin = min(raizes)
+            xmax = max(raizes)
             n = 100
             d = (xmax - xmin)/n
             
@@ -35,10 +35,11 @@ class EquacaoUI:
             l = xmin
             #while
             while l < xmax:
-                y = l**2 - 5*l + 6
+                y = 
                 px.append(l)
                 py.append(y)
                 l = l + d
+            
             l = xmax
             y = l**2 - 5*l + 6
             px.append(l)

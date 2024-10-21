@@ -27,5 +27,6 @@ class ClienteUI:
         nome = st.text_input("Informe o nome: ")
         email = st.text_input("Informe o email: ")
         fone = st.text_input("Informe o telefone: ")
+        clientes_inserir(nome, email, fone)
 
 indexUI.main()

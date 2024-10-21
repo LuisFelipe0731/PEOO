@@ -18,9 +18,7 @@ class ClienteUI:
 
         with inserir:
             ClienteUI.inserir_cliente()
-            
-                
-        
+             
         with atualizar:
         
         with excluir:
@@ -30,6 +28,15 @@ class ClienteUI:
         nome = st.text_input("Informe o nome: ")
         email = st.text_input("Informe o email: ")
         fone = st.text_input("Informe o telefone: ")
-        clientes_inserir(nome, email, fone)
+        if st.button("Inserir"):
+            clientes_inserir(nome, email, fone)
+    @staticmethod
+    def listar_clientes():
+    
+    @staticmethod
+    def atualizar_cliente():
+    
+    @staticmethod
+    def excluir_cliente():
 
 indexUI.main()

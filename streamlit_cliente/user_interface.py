@@ -7,6 +7,13 @@ class IndexUI:
     def main():
         ClienteUI.main()
 
+        
+class ClienteUI:
+    @staticmethod
+    def main():
+        st.header("Cadastro de clientes")
+        listar, inserir, atualizar, excluir = st.tabs(["Listar","Inserir","Atualizar","Excluir"])
+
         with listar:
 
         with inserir:
@@ -17,12 +24,6 @@ class IndexUI:
         with atualizar:
         
         with excluir:
-
-class ClienteUI:
-    @staticmethod
-    def main():
-        st.header("Cadastro de clientes")
-        listar, inserir, atualizar, excluir = st.tabs(["Listar","Inserir","Atualizar","Excluir"])
 
     @staticmethod
     def inserir_cliente():

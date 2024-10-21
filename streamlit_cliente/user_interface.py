@@ -5,12 +5,12 @@ from cliente import *
 class IndexUI:
     @staticmethod
     def main():
-        st.header("Cadastro de clientes")
-        listar, inserir, atualizar, excluir = st.tabs(["Listar","Inserir","Atualizar","Excluir"])
+        ClienteUI.main()
 
         with listar:
 
         with inserir:
+            ClienteUI.inserir_cliente()
             
                 
         
@@ -21,6 +21,8 @@ class IndexUI:
 class ClienteUI:
     @staticmethod
     def main():
+        st.header("Cadastro de clientes")
+        listar, inserir, atualizar, excluir = st.tabs(["Listar","Inserir","Atualizar","Excluir"])
 
     @staticmethod
     def inserir_cliente():

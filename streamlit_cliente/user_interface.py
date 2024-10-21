@@ -32,6 +32,13 @@ class ClienteUI:
             clientes_inserir(nome, email, fone)
     @staticmethod
     def listar_clientes():
+        for c in listar_clientes():
+            st.dataframe(
+                df,
+                column_config= {
+                    
+                }
+            )
     
     @staticmethod
     def atualizar_cliente():

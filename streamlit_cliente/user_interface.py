@@ -58,9 +58,12 @@ class ClienteUI:
     
     @staticmethod
     def atualizar_cliente():
+        lista_vazia = []
         for c in listar_clientes():
-            op = st.selectbox("Selecione um cliente para ser atualizado",(c))
-
+            lista_vazia.append(c)
+            
+        op = st.selectbox("Selecione um cliente para ser atualizado",(lista_vazia))
+        
         st.write(op)
         id = st.text_input("Informe o id do cliente: ")
         nome = st.text_input("Informe o novo nome: ")

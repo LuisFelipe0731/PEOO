@@ -71,7 +71,7 @@ class ClienteUI:
         fone = st.text_input("Informe o novo telefone: ")
         
         if st.button("Atualizar"):
-            clientes_atualizar(id, nome, email, fone)
+            clientes_atualizar(nome, email, fone)
 
         
     
@@ -86,7 +86,7 @@ class ClienteUI:
         st.write(op)
 
         if st.button("Excluir"):
-            clientes_excluir(id)
+            clientes_excluir()
         
         
 IndexUI.main()

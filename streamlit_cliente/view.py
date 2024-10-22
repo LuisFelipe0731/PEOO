@@ -7,10 +7,10 @@ def clientes_inserir(nome, email, fone):
 def listar_clientes():
     return Clientes.listar()
 
-def clientes_atualizar(id, nome, email, fone):
-    c = Cliente(id,nome,email,fone)
+def clientes_atualizar(nome, email, fone):
+    c = Cliente(0,nome,email,fone)
     Clientes.atualizar(c)
 
-def clientes_excluir(id):
-    c = Cliente(id,"","","")
+def clientes_excluir():
+    c = Cliente(0,"","","")
     Clientes.excluir(c)

@@ -62,10 +62,7 @@ class ClienteUI:
         op = st.selectbox(
             "Selecione um cliente para ser atualizado",(listar_clientes()))
 
-        for c in op:
-            return c
-
-        id = c.id
+        id = op.id
         nome = st.text_input("Informe o novo nome: ")
         email = st.text_input("Informe o novo email: ")
         fone = st.text_input("Informe o novo telefone: ")
@@ -80,10 +77,8 @@ class ClienteUI:
         op = st.selectbox(
             "Selecione um cliente para ser excluido",(listar_clientes()))
 
-        for c in op:
-            return c
         
-        id = c.id
+        id = op.id
         if st.button("Excluir"):
             clientes_excluir(id)
         

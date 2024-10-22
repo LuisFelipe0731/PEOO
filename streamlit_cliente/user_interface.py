@@ -15,13 +15,16 @@ class ClienteUI:
         listar, inserir, atualizar, excluir = st.tabs(["Listar","Inserir","Atualizar","Excluir"])
 
         with listar:
+            ClienteUI.listar_clientes()
 
         with inserir:
             ClienteUI.inserir_cliente()
              
         with atualizar:
+            ClienteUI.atualizar_cliente()
         
         with excluir:
+            ClienteUI.excluir_cliente()
 
     @staticmethod
     def inserir_cliente():
@@ -30,6 +33,7 @@ class ClienteUI:
         fone = st.text_input("Informe o telefone: ")
         if st.button("Inserir"):
             clientes_inserir(nome, email, fone)
+    
     @staticmethod
     def listar_clientes():
         for c in listar_clientes():

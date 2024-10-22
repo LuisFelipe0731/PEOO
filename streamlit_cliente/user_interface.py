@@ -79,6 +79,7 @@ class ClienteUI:
                 "Selecione um cliente para ser excluido",(c))
         id = c.id
         if st.button("Excluir"):
+            clientes_excluir(id)
         
-
-indexUI.main()
+        
+IndexUI.main()

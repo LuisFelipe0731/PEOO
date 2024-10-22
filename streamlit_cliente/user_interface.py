@@ -74,8 +74,11 @@ class ClienteUI:
     
     @staticmethod
     def excluir_cliente():
+        lista_vazia = []
         for c in listar_clientes():
-            op = st.selectbox("Selecione um cliente para ser excluido",(c))
+            lista_vazia.append(c)
+            
+        op = st.selectbox("Selecione um cliente para ser excluido",(lista_vazia))
 
         st.write(op)
         id = st.text_input("Informe o id do cliente: ")

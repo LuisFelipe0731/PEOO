@@ -58,9 +58,12 @@ class ClienteUI:
     
     @staticmethod
     def atualizar_cliente():
-        for c in listar_clientes():
-            op = st.selectbox(
-                "Selecione um cliente para ser atualizado",(c))
+        
+        op = st.selectbox(
+            "Selecione um cliente para ser atualizado",(listar_clientes()))
+
+        for c in op:
+            return c
 
         id = c.id
         nome = st.text_input("Informe o novo nome: ")
@@ -74,9 +77,12 @@ class ClienteUI:
     
     @staticmethod
     def excluir_cliente():
-        for c in listar_clientes():
-            op = st.selectbox(
-                "Selecione um cliente para ser excluido",(c))
+        op = st.selectbox(
+            "Selecione um cliente para ser excluido",(listar_clientes()))
+
+        for c in op:
+            return c
+        
         id = c.id
         if st.button("Excluir"):
             clientes_excluir(id)

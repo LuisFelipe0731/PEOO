@@ -1,6 +1,7 @@
 import streamlit as st
 from view import *
 from cliente import *
+import pandas as pd
 
 class IndexUI:
     @staticmethod
@@ -37,10 +38,21 @@ class ClienteUI:
     @staticmethod
     def listar_clientes():
         for c in listar_clientes():
+            df = pd.DataFrame(
+                {
+                    "id": [c.id],
+                    "nome": [c.nome],
+                    "email": [c.email],
+                    "fone":[c.fone]
+                }
+            )
             st.dataframe(
                 df,
                 column_config= {
-                    
+                    "id": "_id",
+                    "nome": "_nome",
+                    "email": "_email",
+                    "fone": "_fone"
                 }
             )
     

@@ -75,80 +75,139 @@ class Clientes:
     
 #horario
 class Horario:
-    def __init__(self, id, data):
+    def __init__(self,id,data):
         self.id = id
         self.data = data
-        self.confirmado = False
-        self.id_cliente = 0
-        self.id_servico = 0
+        self.comfirmado = False
+
     def __str__(self):
-        return f"{self.id} - {self.data.strftime('%d/%m/%Y %H:%M')}"
-    def to_json(self):
-        dic = {}
-        dic["id"] = self.id
-        dic["data"] = self.data.strftime('%d/%m/%Y %H:%M')
-        dic["confirmado"] = self.confirmado
-        dic["id_cliente"] = self.id_cliente
-        dic["id_servico"] = self.id_servico
-        return dic
-      #return { "id" : {self.id}, "data" : {self.data}, "confirmado" : {self.confirmado}, "id_cliente" : {self.id_cliente}, "id_servico" : {self.id_servico}' }
-    
+        return f"{self.id} - {self.data.strftime('%d/%m %H:%M')}"
+
 class Horarios:
-    objetos = []  # atributo estático
+    horarios = []
     @classmethod
     def inserir(cls, obj):
         cls.abrir()
-        m = 0                     # cálculo do maior id utilizado - começa com 0
-        for c in cls.objetos:     # percorre a lista de clientes - c é cada cliente
-            if c.id > m: m = c.id   # compara o id de c com m (maior)
-        obj.id = m + 1  
-        cls.objetos.append(obj)
+        n = 0                     
+        for h in cls.horarios:     
+            if h.id > n:
+                n = h.id   
+        obj.id = n + 1  
+        cls.horarios.append(obj)
         cls.salvar()
+    
     @classmethod
     def listar(cls):
         cls.abrir()
-        return cls.objetos
+        return cls.horarios
+   
     @classmethod
     def listar_id(cls, id):
         cls.abrir()
-        for c in cls.objetos:
-            if c.id == id: return c
-        return None 
+        for h in cls.horarios:
+            if h.id == id: return h
+        return None
+
     @classmethod
     def atualizar(cls, obj):
-        c = cls.listar_id(obj.id)
-        if c != None:
-            c.data = obj.data
-            c.confirmado = obj.confirmado
-            c.id_cliente = obj.id_cliente
-            c.id_servico = obj.id_servico
-        cls.salvar()   
+        h = cls.listar_id(obj.id)
+        if h != None:
+            h.data = obj.data
+            h.comfirmado = obj.comfirmado
+          
+        cls.salvar()
+    
     @classmethod
     def excluir(cls, obj):
-        c = cls.listar_id(obj.id)
-        if c != None: 
-            cls.objetos.remove(c)
-        cls.salvar()   
+        h = cls.listar_id(obj.id)
+        if h != None: 
+            cls.horarios.remove(h)
+        cls.salvar()
+        
     @classmethod
-    def salvar(cls):
-        with open("horarios.json", mode = "w") as arquivo:   # write
-            json.dump(cls.objetos, arquivo, default = Horario.to_json) 
+    def salvar(cls):  
+        with open("Horarios.json", mode = "w") as arquivo2:  
+            json.dump(cls.horarios, arquivo2, default = vars) 
+    
     @classmethod
     def abrir(cls):
-        cls.objetos = []
+        cls.horarios = []
         try: 
-            with open("horarios.json", mode = "r") as arquivo:   # read
-                texto = json.load(arquivo)
-                for obj in texto:
-                    c = Horario(obj["id"], datetime.strptime(obj["data"], "%d/%m/%Y %H:%M"))
-                    c.confirmado = obj["confirmado"]
-                    c.id_cliente = obj["id_cliente"]
-                    c.id_servico = obj["id_servico"]
-                    cls.objetos.append(c)
+            with open("Horarios.json", mode = "r") as arquivo2:   
+                texto1 = json.load(arquivo2)
+                for obj in texto1:
+                    h = Horario(obj["id"], obj["data"], obj["comfirmado"])                    
+                    cls.horarios.append(h)
         except FileNotFoundError:
             pass
+    
 
 #serviço
 class Servico:
-
+    def __init__(self,id,descricao,valor,tempo):
+        self.id = id
+        self.desc = descricao
+        self.valor = valor
+        self.t = tempo
+    def __str__(self):
+        return f"{self.id} - {self.desc} - {self.valor} - {self.t.strftime('%H:%M')}"
+       
 class Servicos:
+    serv = []
+   
+    @classmethod
+    def inserir(cls, obj):
+        cls.abrir()
+        x = 0                     
+        for s in cls.serv:     
+            if s.id > x:
+                x = s.id   
+        obj.id = x + 1  
+        cls.serv.append(obj)
+        cls.salvar()
+    
+    @classmethod
+    def listar(cls):
+        cls.abrir()
+        return cls.serv
+   
+    @classmethod
+    def listar_id(cls, id):
+        cls.abrir()
+        for s in cls.serv:
+            if s.id == id: return s
+        return None
+
+    @classmethod
+    def atualizar(cls, obj):
+        s = cls.listar_id(obj.id)
+        if s != None:
+            s.descricao = obj.descricao
+            s.valor = obj.valor
+            s.tempo = obj.tempo
+          
+        cls.salvar()
+    
+    @classmethod
+    def excluir(cls, obj):
+        s = cls.listar_id(obj.id)
+        if s != None: 
+            cls.serv.remove(s)
+        cls.salvar()
+        
+    @classmethod
+    def salvar(cls):  
+            with open("Serviços.json", mode = "w") as arquivo3:  
+                json.dump(cls.serv, arquivo3, default = vars) 
+    
+    @classmethod
+    def abrir(cls):
+            cls.serv = []
+            try: 
+                with open("Serviços.json", mode = "r") as arquivo3:   
+                    texto2 = json.load(arquivo3)
+                    for obj in texto2:
+                        s = Servico.obj(["id"], obj["descricao"], obj["valor"], obj["tempo"])                    
+                        cls.serv.append(s)
+            except FileNotFoundError:
+                pass

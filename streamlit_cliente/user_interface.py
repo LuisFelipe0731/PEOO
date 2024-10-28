@@ -34,59 +34,52 @@ class ClienteUI:
         fone = st.text_input("Informe o telefone: ")
         if st.button("Inserir"):
             clientes_inserir(nome, email, fone)
+            st.rerun()
     
     @staticmethod
     def listar_clientes():
-        for c in listar_clientes():
-            df = pd.DataFrame(
-                {
-                    "id": [c.id],
-                    "nome": [c.nome],
-                    "email": [c.email],
-                    "fone":[c.fone]
-                }
-            )
-            st.dataframe(
-                df,
-                column_config= {
-                    "id": "_id",
-                    "nome": "_nome",
-                    "email": "_email",
-                    "fone": "_fone"
-                }
-            )
+        lista = listar_clientes()
+        if len(lista) == 0:
+            st.write("Nenhum cliente foi adicionado ainda.")
+        
+        else:
+            dic = []
+            for c in lista:
+                dic.append(c.__dict__)
+                df = pd.DataFrame(dic)
+                st.dataframe(df)
     
     @staticmethod
     def atualizar_cliente():
-        lista_vazia = []
-        for c in listar_clientes():
-            lista_vazia.append(c)
+        lista = listar_clientes()
+        if len(lista) == 0:
+            st.write("Nenhum cliente foi adicionado ainda.")
+        
+        else:
+            op = st.selectbox("atualização de clientes", lista)
+            nome = st.text_input("Informe o novo nome: ", op.nome)
+            email = st.text_input("Informe o novo email: ", op.email)
+            fone = st.text_input("Informe o novo telefone: ", op.fone)
             
-        op = st.selectbox("Selecione um cliente para ser atualizado",(lista_vazia))
-        
-        st.write(op)
-    
-        nome = st.text_input("Informe o novo nome: ")
-        email = st.text_input("Informe o novo email: ")
-        fone = st.text_input("Informe o novo telefone: ")
-        
-        if st.button("Atualizar"):
-            clientes_atualizar(nome, email, fone)
+            if st.button("Atualizar"):
+                clientes_atualizar(op.id ,nome, email, fone)
+                st.rerun()
 
         
     
     @staticmethod
     def excluir_cliente():
-        lista_vazia = []
-        for c in listar_clientes():
-            lista_vazia.append(c)
-            
-        op = st.selectbox("Selecione um cliente para ser excluido",(lista_vazia))
+        lista = listar_clientes()
+        if len(lista) == 0:
+            st.write("Nenhum cliente foi adicionado ainda.")
+        
+        else:
+            op = st.selectbox("exclusão de clientes", lista)
+            if st.button("Excluir"):
+                clientes_excluir(op.id)
+                st.rerun()
 
-        st.write(op)
-
-        if st.button("Excluir"):
-            clientes_excluir()
+        
         
         
 IndexUI.main()

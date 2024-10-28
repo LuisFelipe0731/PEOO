@@ -28,9 +28,8 @@ class ClienteUI:
             ClienteUI.excluir_cliente()
 
     @staticmethod
-    @staticmethod
     def listar_clientes():
-        lista = listar_clientes()
+        lista = View_cliente.listar_clientes()
         if len(lista) == 0:
             st.write("Nenhum cliente foi adicionado ainda.")
         
@@ -46,12 +45,12 @@ class ClienteUI:
         email = st.text_input("Informe o email: ")
         fone = st.text_input("Informe o telefone: ")
         if st.button("Inserir"):
-            clientes_inserir(nome, email, fone)
+            View_cliente.clientes_inserir(nome, email, fone)
             st.rerun()
     
     @staticmethod
     def atualizar_cliente():
-        lista = listar_clientes()
+        lista = View_cliente.listar_clientes()
         if len(lista) == 0:
             st.write("Nenhum cliente foi adicionado ainda.")
         
@@ -62,21 +61,21 @@ class ClienteUI:
             fone = st.text_input("Informe o novo telefone: ", op.fone)
             
             if st.button("Atualizar"):
-                clientes_atualizar(op.id ,nome, email, fone)
+                View_cliente.clientes_atualizar(op.id ,nome, email, fone)
                 st.rerun()
 
         
     
     @staticmethod
     def excluir_cliente():
-        lista = listar_clientes()
+        lista = View_cliente.listar_clientes()
         if len(lista) == 0:
             st.write("Nenhum cliente foi adicionado ainda.")
         
         else:
             op = st.selectbox("exclusão de clientes", lista)
             if st.button("Excluir"):
-                clientes_excluir(op.id)
+                View_cliente.clientes_excluir(op.id)
                 st.rerun()
 
         

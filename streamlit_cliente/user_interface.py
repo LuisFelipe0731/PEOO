@@ -28,14 +28,6 @@ class ClienteUI:
             ClienteUI.excluir_cliente()
 
     @staticmethod
-    def inserir_cliente():
-        nome = st.text_input("Informe o nome: ")
-        email = st.text_input("Informe o email: ")
-        fone = st.text_input("Informe o telefone: ")
-        if st.button("Inserir"):
-            clientes_inserir(nome, email, fone)
-            st.rerun()
-    
     @staticmethod
     def listar_clientes():
         lista = listar_clientes()
@@ -48,6 +40,14 @@ class ClienteUI:
                 dic.append(c.__dict__)
                 df = pd.DataFrame(dic)
                 st.dataframe(df)
+    
+    def inserir_cliente():
+        nome = st.text_input("Informe o nome: ")
+        email = st.text_input("Informe o email: ")
+        fone = st.text_input("Informe o telefone: ")
+        if st.button("Inserir"):
+            clientes_inserir(nome, email, fone)
+            st.rerun()
     
     @staticmethod
     def atualizar_cliente():

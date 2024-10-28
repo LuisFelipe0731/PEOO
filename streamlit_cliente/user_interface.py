@@ -38,8 +38,8 @@ class ClienteUI:
             dic = []
             for c in lista:
                 dic.append(c.__dict__)
-                df = pd.DataFrame(dic)
-                st.dataframe(df)
+            df = pd.DataFrame(dic)
+            st.dataframe(df)
     
     def inserir_cliente():
         nome = st.text_input("Informe o nome: ")

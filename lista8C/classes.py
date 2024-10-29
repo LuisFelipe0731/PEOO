@@ -82,14 +82,13 @@ class Horario:
         self.comfirmado = False
 
     def __str__(self):
-        return f"{self.id} - {self.data.strftime('%d/%m %H:%M')}"
+        return f"{self.id} - {self.data.strftime('%d/%m %H:%M')} - {self.comfirmado}"
     
     def to_json(self):
         dic = {}
         dic["id"] = self.id  
-        dic["nome"] = self.nome 
-        dic["fone"] = self.fone 
-        dic["nascimento"] = self.nasc.strftime('%d/%m/%Y')   
+        dic["data"] = self.data.strftime('%d/%m %H:%M') 
+        dic["comfirmado"] = self.comfirmado  
         return dic
 
 class Horarios:
@@ -135,17 +134,18 @@ class Horarios:
         
     @classmethod
     def salvar(cls):  
-        with open("Horarios.json", mode = "w") as arquivo2:  
-            json.dump(cls.horarios, arquivo2, default = vars) 
+        with open("horarios.json", mode = "w") as arquivo:   # 
+            json.dump(cls.horarios, arquivo, default = Horario.to_json) 
     
     @classmethod
     def abrir(cls):
         cls.horarios = []
         try: 
-            with open("Horarios.json", mode = "r") as arquivo2:   
-                texto1 = json.load(arquivo2)
-                for obj in texto1:
-                    h = Horario(obj["id"], obj["data"], obj["comfirmado"])                    
+            with open("horarios.json", mode = "r") as arquivo:   # read
+                texto = json.load(arquivo)
+                for obj in texto:
+                    h = Horario(obj["id"], datetime.datetime.strptime(obj["data"], "%d/%m/ %H:%M"), obj["comfirmado"])
+
                     cls.horarios.append(h)
         except FileNotFoundError:
             pass
@@ -214,17 +214,18 @@ class Servicos:
         
     @classmethod
     def salvar(cls):  
-            with open("Serviços.json", mode = "w") as arquivo3:  
-                json.dump(cls.serv, arquivo3, default = vars) 
+        with open("pacientes.json", mode = "w") as arquivo:   # 
+            json.dump(cls.pacientes, arquivo, default = Horario.to_json) 
     
     @classmethod
     def abrir(cls):
-        cls.serv = []
+        cls.pacientes = []
         try: 
-            with open("Serviços.json", mode = "r") as arquivo3:   
-                texto2 = json.load(arquivo3)
-                for obj in texto2:
-                    s = Servico(obj["id"], obj["desc"], obj["valor"], obj["t"])                    
-                    cls.serv.append(s)
+            with open("pacientes.json", mode = "r") as arquivo:   # read
+                texto = json.load(arquivo)
+                for obj in texto:
+                    p = Paciente(obj["id"], obj["nome"], obj["fone"],datetime.datetime.strptime(obj["nascimento"], "%d/%m/%Y"))
+
+                    cls.pacientes.append(p)
         except FileNotFoundError:
             pass

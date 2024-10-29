@@ -158,10 +158,10 @@ class ServicoUI:
             ServicoUI.excluir_servico()
 
     @staticmethod
-    def listar_clientes():
-        lista = View_cliente.listar_clientes()
+    def listar_servicos():
+        lista = View_servico.listar_servicos()
         if len(lista) == 0:
-            st.write("Nenhum cliente foi adicionado ainda.")
+            st.write("Nenhum serviço foi adicionado ainda.")
         
         else:
             dic = []
@@ -170,7 +170,7 @@ class ServicoUI:
             df = pd.DataFrame(dic)
             st.dataframe(df)
     
-    def inserir_cliente():
+    def inserir_servico():
         nome = st.text_input("Informe o nome: ")
         email = st.text_input("Informe o email: ")
         fone = st.text_input("Informe o telefone: ")
@@ -179,7 +179,7 @@ class ServicoUI:
             st.rerun()
     
     @staticmethod
-    def atualizar_cliente():
+    def atualizar_servico():
         lista = View_cliente.listar_clientes()
         if len(lista) == 0:
             st.write("Nenhum cliente foi adicionado ainda.")
@@ -193,4 +193,21 @@ class ServicoUI:
             if st.button("Atualizar"):
                 View_cliente.clientes_atualizar(op.id ,nome, email, fone)
                 st.rerun()
+    
+    @staticmethod
+    def excluir_servico():
+        lista = View_cliente.listar_clientes()
+        if len(lista) == 0:
+            st.write("Nenhum cliente foi adicionado ainda.")
+        
+        else:
+            op = st.selectbox("atualização de clientes", lista)
+            nome = st.text_input("Informe o novo nome: ", op.nome)
+            email = st.text_input("Informe o novo email: ", op.email)
+            fone = st.text_input("Informe o novo telefone: ", op.fone)
+            
+            if st.button("Atualizar"):
+                View_cliente.clientes_atualizar(op.id ,nome, email, fone)
+                st.rerun()
+
 

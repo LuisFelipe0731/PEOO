@@ -3,12 +3,6 @@ from view import *
 from classes import *
 import pandas as pd
 
-class IndexUI:
-    @staticmethod
-    def main():
-        ClienteUI.main()
-
-        
 class ClienteUI:
     @staticmethod
     def main():
@@ -77,8 +71,3 @@ class ClienteUI:
             if st.button("Excluir"):
                 View_cliente.clientes_excluir(op.id)
                 st.rerun()
-
-        
-        
-        
-IndexUI.main()

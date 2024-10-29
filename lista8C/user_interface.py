@@ -104,7 +104,7 @@ class HorarioUI:
             st.dataframe(df)
     
     def inserir_horarios():
-        data = st.text_input("Informe a data: ")
+        data = st.text_input("Informe a data(dd/mm hh:mm): ")
         
         if st.button("Inserir"):
             View_horario.horarios_inserir(data)
@@ -118,7 +118,7 @@ class HorarioUI:
         
         else:
             op = st.selectbox("atualização de horarios", lista)
-            data = st.text_input("Informe a nova data: ", op.data)
+            data = st.text_input("Informe a nova data(dd/mm hh:mm): ", op.data)
 
             
             if st.button("Atualizar"):
@@ -134,7 +134,7 @@ class HorarioUI:
             st.write("Nenhum horario foi adicionado ainda.")
         
         else:
-            op = st.selectbox("exclusão de clientes", lista)
+            op = st.selectbox("exclusão de horarios", lista)
             if st.button("Excluir"):
-                View_cliente.clientes_excluir(op.id)
+                View_horario.horarios_excluir(op.id)
                 st.rerun()

@@ -69,7 +69,7 @@ class Clientes:
             with open("clientes.json", mode = "r") as arquivo:   # read
                 texto = json.load(arquivo)
                 for obj in texto:
-                    c = Cliente(obj["id"], obj["nome"], obj["email"], obj["fone"])            
+                    c = Cliente(obj["id"], obj["nome"], obj["email"], obj["fone"], obj["senha"])            
                     cls.objetos.append(c)
         except FileNotFoundError:
             pass
@@ -82,7 +82,15 @@ class Horario:
         self.comfirmado = False
 
     def __str__(self):
-        return f"{self.id} - {self.data.datetime.strftime('%d/%m %H:%M')}"
+        return f"{self.id} - {self.data.strftime('%d/%m %H:%M')}"
+    
+    def to_json(self):
+        dic = {}
+        dic["id"] = self.id  
+        dic["nome"] = self.nome 
+        dic["fone"] = self.fone 
+        dic["nascimento"] = self.nasc.strftime('%d/%m/%Y')   
+        return dic
 
 class Horarios:
     horarios = []
@@ -151,7 +159,15 @@ class Servico:
         self.valor = valor
         self.t = tempo
     def __str__(self):
-        return f"{self.id} - {self.desc} - {self.valor} - {self.t.datetime.strftime('%H:%M')}"
+        return f"{self.id} - {self.desc} - {self.valor} - {self.t.strftime('%H:%M')}"
+
+    def to_json(self):
+        dic = {}
+        dic["id"] = self.id  
+        dic["nome"] = self.nome 
+        dic["fone"] = self.fone 
+        dic["nascimento"] = self.nasc.strftime('%d/%m/%Y')   
+        return dic
        
 class Servicos:
     serv = []

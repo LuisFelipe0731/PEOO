@@ -202,12 +202,12 @@ class Servicos:
     
     @classmethod
     def abrir(cls):
-            cls.serv = []
-            try: 
-                with open("Serviços.json", mode = "r") as arquivo3:   
-                    texto2 = json.load(arquivo3)
-                    for obj in texto2:
-                        s = Servico.obj(["id"], obj["descricao"], obj["valor"], obj["tempo"])                    
-                        cls.serv.append(s)
-            except FileNotFoundError:
-                pass
+        cls.serv = []
+        try: 
+            with open("Serviços.json", mode = "r") as arquivo3:   
+                texto2 = json.load(arquivo3)
+                for obj in texto2:
+                    s = Servico.obj(["id"], obj["descricao"], obj["valor"], obj["tempo"])                    
+                    cls.serv.append(s)
+        except FileNotFoundError:
+            pass

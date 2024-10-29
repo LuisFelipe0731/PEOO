@@ -185,13 +185,13 @@ class ServicoUI:
             st.write("Nenhum serviço foi adicionado ainda.")
         
         else:
-            op = st.selectbox("atualização de clientes", lista)
-            nome = st.text_input("Informe o novo nome: ", op.nome)
-            email = st.text_input("Informe o novo email: ", op.email)
-            fone = st.text_input("Informe o novo telefone: ", op.fone)
+            op = st.selectbox("atualização de serviços", lista)
+            desc = st.text_input("Informe a descrição do serviço: ",op.desc)
+            valor = st.text_input("Informe o valor: ",op.valor)
+            tempo = st.text_input("Informe a duração(hh:mm): ",op.t)
             
             if st.button("Atualizar"):
-                View_servico.servicos_atualizar()
+                View_servico.servicos_atualizar(op.id,desc,valor,tempo)
                 st.rerun()
     
     @staticmethod

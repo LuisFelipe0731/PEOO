@@ -8,5 +8,7 @@ class IndexUI:
     @staticmethod
     def main():
         ClienteUI.main()
+        HorarioUI.main()
+        ServicoUI.main()
 
 IndexUI.main()

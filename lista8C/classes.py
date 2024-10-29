@@ -150,7 +150,7 @@ class Servico:
         self.valor = valor
         self.t = tempo
     def __str__(self):
-        return f"{self.id} - {self.desc} - {self.valor} - {self.t.strftime('%H:%M')}"
+        return f"{self.id} - {self.desc} - {self.valor} - {self.t.datetime.strftime('%H:%M')}"
        
 class Servicos:
     serv = []

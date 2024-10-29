@@ -82,12 +82,12 @@ class Horario:
         self.comfirmado = False
 
     def __str__(self):
-        return f"{self.id} - {self.data.strftime('%d/%m %H:%M')} - {self.comfirmado}"
+        return f"{self.id} - {self.data.datetime.datetime.strftime('%d/%m %H:%M')} - {self.comfirmado}"
     
     def to_json(self):
         dic = {}
         dic["id"] = self.id  
-        dic["data"] = self.data.strftime('%d/%m %H:%M') 
+        dic["data"] = self.data.datetime.datetime.strftime('%d/%m %H:%M') 
         dic["comfirmado"] = self.comfirmado  
         return dic
 
@@ -159,14 +159,14 @@ class Servico:
         self.valor = valor
         self.tempo = tempo
     def __str__(self):
-        return f"{self.id} - {self.desc} - {self.valor} - {self.tempo.strftime('%H:%M')}"
+        return f"{self.id} - {self.desc} - {self.valor} - {self.tempo.datetime.datetime.strftime('%H:%M')}"
 
     def to_json(self):
         dic = {}
         dic["id"] = self.id  
         dic["desc"] = self.desc 
         dic["valor"] = self.valor
-        dic["tempo"] = self.tempo.strftime('%H:%M') 
+        dic["tempo"] = self.tempo.datetime.datetime.strftime('%H:%M') 
         return dic
        
 class Servicos:

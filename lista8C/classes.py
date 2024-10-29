@@ -81,7 +81,7 @@ class Horario:
         self.comfirmado = False
 
     def __str__(self):
-        return f"{self.id} - {self.data.strftime('%d/%m %H:%M')}"
+        return f"{self.id} - {self.data.datetime.strftime('%d/%m %H:%M')}"
 
 class Horarios:
     horarios = []

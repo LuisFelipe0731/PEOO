@@ -201,13 +201,10 @@ class ServicoUI:
             st.write("Nenhum serviço foi adicionado ainda.")
         
         else:
-            op = st.selectbox("atualização de clientes", lista)
-            nome = st.text_input("Informe o novo nome: ", op.nome)
-            email = st.text_input("Informe o novo email: ", op.email)
-            fone = st.text_input("Informe o novo telefone: ", op.fone)
+            op = st.selectbox("exclusão de serviços", lista)
             
-            if st.button("Atualizar"):
-                View_servico.servicos_excluir()
+            if st.button("Excluir"):
+                View_servico.servicos_excluir(op.id)
                 st.rerun()
 
 

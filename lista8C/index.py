@@ -7,7 +7,15 @@ from user_interface import *
 class IndexUI:
     @staticmethod
     def main():
-        menu = st.sidebar.selectbox("selecione uma opção:",(ClienteUI.main(), HorarioUI.main(),ServicoUI.main()))
-        return menu
+        menu = st.sidebar.selectbox("menu",["Clientes", "Horarios", "Serviços"])
+        if menu == "Clientes":
+            ClienteUI.main()
+        
+        if menu == "Horarios":
+            HorarioUI.main()
+
+        if menu == "Serviços":
+            ServicoUI.main()
+
 
 IndexUI.main()

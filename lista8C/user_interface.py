@@ -38,7 +38,7 @@ class ClienteUI:
         nome = st.text_input("Informe o nome: ")
         email = st.text_input("Informe o email: ")
         fone = st.text_input("Informe o telefone: ")
-        if st.button("Inserir"):
+        if st.button("Inserir Cliente"):
             View_cliente.clientes_inserir(nome, email, fone)
             st.rerun()
     
@@ -54,7 +54,7 @@ class ClienteUI:
             email = st.text_input("Informe o novo email: ", op.email)
             fone = st.text_input("Informe o novo telefone: ", op.fone)
             
-            if st.button("Atualizar"):
+            if st.button("Atualizar Cliente"):
                 View_cliente.clientes_atualizar(op.id ,nome, email, fone)
                 st.rerun()
 
@@ -68,7 +68,7 @@ class ClienteUI:
         
         else:
             op = st.selectbox("exclusão de clientes", lista)
-            if st.button("Excluir"):
+            if st.button("Excluir Cliente"):
                 View_cliente.clientes_excluir(op.id)
                 st.rerun()
 
@@ -105,8 +105,7 @@ class HorarioUI:
     
     def inserir_horarios():
         data = st.text_input("Informe a data(dd/mm hh:mm): ")
-        
-        if st.button("Inserir"):
+        if st.button("Inserir Horario"):
             View_horario.horarios_inserir(data)
             st.rerun()
     
@@ -121,7 +120,7 @@ class HorarioUI:
             data = st.text_input("Informe a nova data(dd/mm hh:mm): ", op.data)
 
             
-            if st.button("Atualizar"):
+            if st.button("Atualizar Horario"):
                 View_horario.horarios_atualizar(op.id,data)
                 st.rerun()
 
@@ -135,7 +134,7 @@ class HorarioUI:
         
         else:
             op = st.selectbox("exclusão de horarios", lista)
-            if st.button("Excluir"):
+            if st.button("Excluir Horario"):
                 View_horario.horarios_excluir(op.id)
                 st.rerun()
 
@@ -174,7 +173,7 @@ class ServicoUI:
         desc = st.text_input("Informe a descrição do serviço: ")
         valor = st.text_input("Informe o valor: ")
         tempo = st.text_input("Informe a duração(hh:mm): ")
-        if st.button("Inserir"):
+        if st.button("Inserir serviço"):
             View_servico.servicos_inserir(desc,valor,tempo)
             st.rerun()
     
@@ -190,7 +189,7 @@ class ServicoUI:
             valor = st.text_input("Informe o valor: ",op.valor)
             tempo = st.text_input("Informe a duração(hh:mm): ",op.t)
             
-            if st.button("Atualizar"):
+            if st.button("Atualizar serviço"):
                 View_servico.servicos_atualizar(op.id,desc,valor,tempo)
                 st.rerun()
     
@@ -203,7 +202,7 @@ class ServicoUI:
         else:
             op = st.selectbox("exclusão de serviços", lista)
             
-            if st.button("Excluir"):
+            if st.button("Excluir serviço"):
                 View_servico.servicos_excluir(op.id)
                 st.rerun()
 

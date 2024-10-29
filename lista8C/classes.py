@@ -157,16 +157,16 @@ class Servico:
         self.id = id
         self.desc = descricao
         self.valor = valor
-        self.t = tempo
+        self.tempo = tempo
     def __str__(self):
-        return f"{self.id} - {self.desc} - {self.valor} - {self.t.strftime('%H:%M')}"
+        return f"{self.id} - {self.desc} - {self.valor} - {self.tempo.strftime('%H:%M')}"
 
     def to_json(self):
         dic = {}
         dic["id"] = self.id  
-        dic["nome"] = self.nome 
-        dic["fone"] = self.fone 
-        dic["nascimento"] = self.nasc.strftime('%d/%m/%Y')   
+        dic["desc"] = self.desc 
+        dic["valor"] = self.valor
+        dic["tempo"] = self.tempo.strftime('%H:%M') 
         return dic
        
 class Servicos:
@@ -214,18 +214,18 @@ class Servicos:
         
     @classmethod
     def salvar(cls):  
-        with open("pacientes.json", mode = "w") as arquivo:   # 
-            json.dump(cls.pacientes, arquivo, default = Horario.to_json) 
+        with open("serviço.json", mode = "w") as arquivo:   # 
+            json.dump(cls.serv, arquivo, default = Servico.to_json) 
     
     @classmethod
     def abrir(cls):
-        cls.pacientes = []
+        cls.serv = []
         try: 
-            with open("pacientes.json", mode = "r") as arquivo:   # read
+            with open("serviço.json", mode = "r") as arquivo:   # read
                 texto = json.load(arquivo)
                 for obj in texto:
-                    p = Paciente(obj["id"], obj["nome"], obj["fone"],datetime.datetime.strptime(obj["nascimento"], "%d/%m/%Y"))
+                    c = Servico(obj["id"], obj["desc"], obj["valor"],datetime.datetime.strptime(obj["tempo"], "%H:%M"))
 
-                    cls.pacientes.append(p)
+                    cls.serv.append(c)
         except FileNotFoundError:
             pass

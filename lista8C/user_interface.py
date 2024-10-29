@@ -71,3 +71,70 @@ class ClienteUI:
             if st.button("Excluir"):
                 View_cliente.clientes_excluir(op.id)
                 st.rerun()
+
+class HorarioUI:
+    @staticmethod
+    def main():
+        st.header("Cadastro de horarios")
+        listar, inserir, atualizar, excluir = st.tabs(["Listar","Inserir","Atualizar","Excluir"])
+
+        with listar:
+            HorarioUI.listar_horarios()
+
+        with inserir:
+            HorarioUI.inserir_horarios()
+             
+        with atualizar:
+            HorarioUI.atualizar_horarios()
+        
+        with excluir:
+            HorarioUI.excluir_horarios()
+
+    @staticmethod
+    def listar_horarios():
+        lista = View_horario.listar_horarios()
+        if len(lista) == 0:
+            st.write("Nenhum horario foi adicionado ainda.")
+        
+        else:
+            dic = []
+            for c in lista:
+                dic.append(c.__dict__)
+            df = pd.DataFrame(dic)
+            st.dataframe(df)
+    
+    def inserir_horarios():
+        data = st.text_input("Informe a data: ")
+        
+        if st.button("Inserir"):
+            View_horario.horarios_inserir(data)
+            st.rerun()
+    
+    @staticmethod
+    def atualizar_horarios():
+        lista = View_horario.listar_horarios()
+        if len(lista) == 0:
+            st.write("Nenhum horario foi adicionado ainda.")
+        
+        else:
+            op = st.selectbox("atualização de horarios", lista)
+            data = st.text_input("Informe a nova data: ", op.data)
+
+            
+            if st.button("Atualizar"):
+                View_horario.horarios_atualizar(op.id,data)
+                st.rerun()
+
+        
+    
+    @staticmethod
+    def excluir_horarios():
+        lista = View_horario.listar_horarios()
+        if len(lista) == 0:
+            st.write("Nenhum horario foi adicionado ainda.")
+        
+        else:
+            op = st.selectbox("exclusão de clientes", lista)
+            if st.button("Excluir"):
+                View_cliente.clientes_excluir(op.id)
+                st.rerun()

@@ -4,13 +4,13 @@ from datetime import datetime
 
 # Cliente
 class Cliente:
-    def __init__(self, id, nome, email, fone, data,senha):
+    def __init__(self, id, nome, email, fone, data):
         self.id = id
         self.nome = nome
         self.email = email
         self.fone = fone
         self.data = data
-        self.senha = senha
+        self.senha = 0
     def __str__(self):
         return f"{self.nome} - {self.email} - {self.fone} - {self.data}"
     
@@ -54,7 +54,6 @@ class Clientes:
             c.email = obj.email
             c.fone = obj.fone
             c.data = obj.data
-            c.senha = obj.senha
         cls.salvar()
 
     @classmethod
@@ -82,7 +81,8 @@ class Clientes:
             with open("clientes.json", mode="r") as arquivo:   # r - read
                 texto = json.load(arquivo)
                 for obj in texto:   
-                    c = Cliente(obj["id"], obj["nome"], obj["email"], obj["fone"], datetime.strptime(obj["data"], "%d/%m/%Y"), obj["senha"])
+                    c = Cliente(obj["id"], obj["nome"], obj["email"], obj["fone"], datetime.strptime(obj["data"], "%d/%m/%Y"))
+
                     cls.objetos.append(c)
         except FileNotFoundError:
             pass

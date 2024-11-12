@@ -4,26 +4,15 @@ from datetime import datetime
 
 # Cliente
 class Cliente:
-    def __init__(self, id, nome, email, fone, data):
+    def __init__(self, id, nome, email, fone, senha):
         self.id = id
         self.nome = nome
         self.email = email
         self.fone = fone
-        self.data = data
-        self.senha = 0
+        self.senha = senha
     def __str__(self):
-        return f"{self.nome} - {self.email} - {self.fone} - {self.data}"
+        return f"{self.nome} - {self.email} - {self.fone}"
     
-    def to_json(self):
-        dic = {}
-        dic["id"] = self.id
-        dic["nome"] = self.nome
-        dic["email"] = self.email
-        dic["email"] = self.fone
-        dic["data"] = self.data.strftime("%d/%m/%Y")
-        dic["senha"] = self.senha
-        return dic 
-
 
 # Clientes
 class Clientes:

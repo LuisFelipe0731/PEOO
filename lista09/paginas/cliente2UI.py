@@ -17,9 +17,14 @@ class ManterClienteUI:
         if len(clientes) == 0: 
             st.write("Nenhum cliente cadastrado")
         else:    
-            #for obj in clientes: st.write(obj)
             dic = []
-            for obj in clientes: dic.append(obj.__dict__)
+            
+            for obj in clientes:
+                perfil = View.perfil_listar_id(obj.id_perfil)
+                if cliente != None: cliente = cliente.nome
+                
+                dic.append({"id" : obj.id, "data" : obj.data, "confirmado" : obj.confirmado, "id_perfil" : cliente})
+            
             df = pd.DataFrame(dic)
             st.dataframe(df)
 

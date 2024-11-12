@@ -54,6 +54,7 @@ class Clientes:
             c.email = obj.email
             c.fone = obj.fone
             c.senha = obj.senha
+            c.id_perfil = obj.id_perfil
         cls.salvar()
 
     @classmethod

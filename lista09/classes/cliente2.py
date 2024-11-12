@@ -1,5 +1,6 @@
 import json
-import datetime
+from datetime import datetime
+
 
 # Cliente
 class Cliente:

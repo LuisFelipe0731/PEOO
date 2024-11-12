@@ -5,7 +5,7 @@ from paginas.agenda2 import AbrirAgendaUI
 from paginas.conta import AbrirContaUI
 from paginas.listar_horario import ListarHorarioUI
 from paginas.login import LoginUI
-from paginas.perfilUI import 
+from paginas.perfilUI import ManterPerfilUI
 from views import View
 
 import streamlit as st
@@ -21,7 +21,7 @@ class IndexUI:
         if op == "Cadastro de Clientes": ManterClienteUI.main()
         if op == "Cadastro de Horários": ManterHorarioUI.main()
         if op == "Cadastro de Serviços": ManterServicoUI.main()
-        if op == "Cadastro de Perfis": 
+        if op == "Cadastro de Perfis": ManterPerfilUI.main()
         if op == "Abrir Agenda do Dia": AbrirAgendaUI.main()
 
     def menu_cliente():

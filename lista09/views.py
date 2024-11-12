@@ -9,7 +9,7 @@ class View:
     def cliente_admin():
         for c in View.cliente_listar():
             if c.email == "admin": return
-        View.cliente_inserir("admin", "admin", "1234", "1234")
+        View.cliente_inserir("admin", "admin", "1234", "1234",0)
     
     #clientes
     def cliente_inserir(nome, email, fone, senha, id_perfil):

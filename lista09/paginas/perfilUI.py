@@ -28,7 +28,7 @@ class ManterPerfilUI:
         desc = st.text_input("Informe a descrição: ")
         beneficio = st.text_input("Informe o beneficio: ")
         if st.button("Inserir"):
-            View.perfil_inserir_inserir(nome,desc,beneficio)
+            View.perfil_inserir(nome,desc,beneficio)
             st.success("Perfil inserido com sucesso")
             time.sleep(2)
             st.rerun()

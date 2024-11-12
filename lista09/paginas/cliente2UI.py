@@ -23,7 +23,7 @@ class ManterClienteUI:
                 perfil = View.perfil_listar_id(obj.id_perfil)
                 if perfil != None: perfil = perfil.nome
                 
-                dic.append({"id" : obj.id, "data" : obj.data, "confirmado" : obj.confirmado, "perfil" : perfil})
+                dic.append({"id" : obj.id, "nome" : obj.nome, "email" : obj.email, "fone": obj.fone, "senha": obj.senha, "perfil" : perfil})
             
             df = pd.DataFrame(dic)
             st.dataframe(df)
@@ -33,7 +33,6 @@ class ManterClienteUI:
         nome = st.text_input("Informe o nome do cliente: ")
         email = st.text_input("Informe o e-mail: ")
         fone = st.text_input("Informe o fone: ")
-        data = st.text_input("Informe a data de nascimento(dd/mm/aaaa): ")
         senha = st.text_input("Informe a senha: ", type="password")
         perfil = st.selectbox("Informe o perfil: ", perfis, index = None)
         
@@ -55,7 +54,6 @@ class ManterClienteUI:
             nome = st.text_input("Informe o novo nome do cliente", op.nome)
             email = st.text_input("Informe o novo e-mail", op.email)
             fone = st.text_input("Informe o novo fone", op.fone)
-            data = st.text_input("Informe a nova data de nascimento(dd/mm/aaaa): ")
             senha = st.text_input("Informe a nova senha", op.senha, type="password")
             id_perfil = None if op.id_perfil in [0, None] else op.id_perfil
             perfil = st.selectbox("Informe o novo perfil", perfis, next((i for i, c in enumerate(perfis) if c.id == id_perfil), None))

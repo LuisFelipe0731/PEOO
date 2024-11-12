@@ -9,8 +9,8 @@ class View:
             if c.email == "admin": return
         View.cliente_inserir("admin", "admin", "1234", "1234")
 
-    def cliente_inserir(nome, email, fone, data, senha):
-        c = Cliente(0, nome, email, fone, data, senha)
+    def cliente_inserir(nome, email, fone, data):
+        c = Cliente(0, nome, email, fone, data)
         Clientes.inserir(c)
 
     def cliente_listar():
@@ -19,12 +19,12 @@ class View:
     def cliente_listar_id(id):
         return Clientes.listar_id(id)    
 
-    def cliente_atualizar(id, nome, email, fone, data, senha):
-        c = Cliente(id, nome, email, fone, data, senha)
+    def cliente_atualizar(id, nome, email, fone, data):
+        c = Cliente(id, nome, email, fone, data)
         Clientes.atualizar(c)
 
     def cliente_excluir(id):
-        c = Cliente(id, "", "", "", "","")
+        c = Cliente(id, "", "", "", "")
         Clientes.excluir(c)    
 
     def cliente_autenticar(email, senha):

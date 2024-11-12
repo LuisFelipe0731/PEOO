@@ -21,21 +21,26 @@ class ManterClienteUI:
             
             for obj in clientes:
                 perfil = View.perfil_listar_id(obj.id_perfil)
-                if cliente != None: cliente = cliente.nome
+                if perfil != None: perfil = perfil.nome
                 
-                dic.append({"id" : obj.id, "data" : obj.data, "confirmado" : obj.confirmado, "id_perfil" : cliente})
+                dic.append({"id" : obj.id, "data" : obj.data, "confirmado" : obj.confirmado, "perfil" : perfil})
             
             df = pd.DataFrame(dic)
             st.dataframe(df)
 
     def inserir():
+        perfis = View.perfil_listar()
         nome = st.text_input("Informe o nome do cliente: ")
         email = st.text_input("Informe o e-mail: ")
         fone = st.text_input("Informe o fone: ")
         data = st.text_input("Informe a data de nascimento(dd/mm/aaaa): ")
         senha = st.text_input("Informe a senha: ", type="password")
+        perfil = st.selectbox("Informe o perfil: ", perfis, index = None)
+        
         if st.button("Inserir"):
-            View.cliente_inserir(nome,email,fone,data,senha)
+            id_perfil = None
+            if id_perfil != None: id_perfil = perfil.id
+            View.cliente_inserir(nome,email,fone,data,senha,id_perfil)
             st.success("Cliente inserido com sucesso")
             time.sleep(2)
             st.rerun()
@@ -45,14 +50,19 @@ class ManterClienteUI:
         if len(clientes) == 0: 
             st.write("Nenhum cliente cadastrado")
         else:
+            perfis = View.perfil_listar()
             op = st.selectbox("Atualização de cliente", clientes)
             nome = st.text_input("Informe o novo nome do cliente", op.nome)
             email = st.text_input("Informe o novo e-mail", op.email)
             fone = st.text_input("Informe o novo fone", op.fone)
             data = st.text_input("Informe a nova data de nascimento(dd/mm/aaaa): ")
             senha = st.text_input("Informe a nova senha", op.senha, type="password")
+            id_perfil = None if op.id_perfil in [0, None] else op.id_perfil
+            perfil = st.selectbox("Informe o novo perfil", perfis, next((i for i, c in enumerate(perfis) if c.id == id_perfil), None))
             if st.button("Atualizar"):
-                View.cliente_atualizar(op.id, nome, email, fone, data, senha)
+                id_perfil = None
+                if id_perfil != None: id_perfil = perfil.id
+                View.cliente_atualizar(op.id, nome, email, fone, data, senha, id_perfil)
                 st.success("Cliente atualizado com sucesso")
                 time.sleep(2)
                 st.rerun()

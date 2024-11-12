@@ -10,6 +10,7 @@ class Cliente:
         self.email = email
         self.fone = fone
         self.senha = senha
+        self.id_perfil = 0
     def __str__(self):
         return f"{self.nome} - {self.email} - {self.fone}"
     
@@ -71,6 +72,7 @@ class Clientes:
                 texto = json.load(arquivo)
                 for obj in texto:   
                     c = Cliente(obj["id"], obj["nome"], obj["email"], obj["fone"], obj["senha"])
+                    c.id_perfil = obj["id_perfil"]
                     cls.objetos.append(c)
         except FileNotFoundError:
             pass

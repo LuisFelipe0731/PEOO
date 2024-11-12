@@ -14,6 +14,14 @@ class Cliente:
     def __str__(self):
         return f"{self.nome} - {self.email} - {self.fone}"
     def to_json(self):
+        dic = {}
+        dic["id"] = self.id
+        dic["nome"] = self.nome
+        dic["email"] = self.email
+        dic["fone"] = self.fone
+        dic["senha"] = self.senha
+        dic["id_perfil"] = self.id_perfil
+        return dic    
 
     
 
@@ -64,7 +72,7 @@ class Clientes:
     @classmethod
     def salvar(cls):
         with open("clientes.json", mode="w") as arquivo:   # w - write
-            json.dump(cls.objetos, arquivo, default = vars)
+            json.dump(cls.objetos, arquivo, default = Cliente.to_json)
 
     @classmethod
     def abrir(cls):

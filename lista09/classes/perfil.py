@@ -49,23 +49,22 @@ class Perfis:
     @classmethod
     def listar(cls):
         cls.abrir()
-        cls.objetos.sort(key=lambda cliente: cliente.nome)
+        cls.objetos.sort(key=lambda perfil: perfil.nome)
         return cls.objetos
 
     @classmethod
     def salvar(cls):
-        with open("clientes.json", mode="w") as arquivo:   # w - write
+        with open("perfis.json", mode="w") as arquivo:   # w - write
             json.dump(cls.objetos, arquivo, default = vars)
 
     @classmethod
     def abrir(cls):
         cls.objetos = []
         try:
-            with open("clientes.json", mode="r") as arquivo:   # r - read
+            with open("perfis.json", mode="r") as arquivo:   # r - read
                 texto = json.load(arquivo)
                 for obj in texto:   
-                    c = Cliente(obj["id"], obj["nome"], obj["email"], obj["fone"], obj["senha"])
-                    c.id_perfil = obj["id_perfil"]
+                    c = Perfil(obj["id"], obj["nome"], obj["desc"], obj["beneficio"])
                     cls.objetos.append(c)
         except FileNotFoundError:
             pass

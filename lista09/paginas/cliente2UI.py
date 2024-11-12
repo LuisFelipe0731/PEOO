@@ -39,7 +39,7 @@ class ManterClienteUI:
         if st.button("Inserir"):
             id_perfil = None
             if id_perfil != None: id_perfil = perfil.id
-            View.cliente_inserir(nome,email,fone,data,senha,id_perfil)
+            View.cliente_inserir(nome,email,fone,senha,id_perfil)
             st.success("Cliente inserido com sucesso")
             time.sleep(2)
             st.rerun()

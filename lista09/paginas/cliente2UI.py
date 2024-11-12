@@ -60,7 +60,7 @@ class ManterClienteUI:
             if st.button("Atualizar"):
                 id_perfil = None
                 if id_perfil != None: id_perfil = perfil.id
-                View.cliente_atualizar(op.id, nome, email, fone, data, senha, id_perfil)
+                View.cliente_atualizar(op.id, nome, email, fone, senha, id_perfil)
                 st.success("Cliente atualizado com sucesso")
                 time.sleep(2)
                 st.rerun()

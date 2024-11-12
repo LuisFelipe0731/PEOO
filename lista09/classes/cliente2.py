@@ -83,7 +83,7 @@ class Clientes:
                 texto = json.load(arquivo)
                 for obj in texto:   
                     c = Cliente(obj["id"], obj["nome"], obj["email"], obj["fone"], obj["senha"])
-                    c.id_perfil = obj["id_perfil"]
+                    c.id_perfil = obj['id_perfil']
                     cls.objetos.append(c)
         except FileNotFoundError:
             pass

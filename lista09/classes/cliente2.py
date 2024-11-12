@@ -61,7 +61,7 @@ class Clientes:
     @classmethod
     def salvar(cls):
         with open("clientes.json", mode="w") as arquivo:   # w - write
-            json.dump(cls.objetos, arquivo, default = Cliente.to_json)
+            json.dump(cls.objetos, arquivo, default = vars)
 
     @classmethod
     def abrir(cls):
@@ -70,8 +70,7 @@ class Clientes:
             with open("clientes.json", mode="r") as arquivo:   # r - read
                 texto = json.load(arquivo)
                 for obj in texto:   
-                    c = Cliente(obj["id"], obj["nome"], obj["email"], obj["fone"], datetime.strptime(obj["data"], "%d/%m/%Y"))
-
+                    c = Cliente(obj["id"], obj["nome"], obj["email"], obj["fone"], obj["senha"])
                     cls.objetos.append(c)
         except FileNotFoundError:
             pass

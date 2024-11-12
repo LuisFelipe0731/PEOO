@@ -13,6 +13,8 @@ class Cliente:
         self.id_perfil = 0
     def __str__(self):
         return f"{self.nome} - {self.email} - {self.fone}"
+    def to_json(self):
+
     
 
 # Clientes
@@ -43,7 +45,7 @@ class Clientes:
             c.nome = obj.nome
             c.email = obj.email
             c.fone = obj.fone
-            c.data = obj.data
+            c.senha = obj.senha
         cls.salvar()
 
     @classmethod

@@ -1,16 +1,20 @@
 from classes.cliente2 import Cliente, Clientes
 from classes.horario2 import Horario, Horarios
 from classes.servico2 import Servico, Servicos
+from classes.perfil import Perfil, Perfis
 from datetime import datetime, timedelta
 
 class View:
+    #admin
     def cliente_admin():
         for c in View.cliente_listar():
             if c.email == "admin": return
         View.cliente_inserir("admin", "admin", "1234", "1234")
-
-    def cliente_inserir(nome, email, fone, senha):
+    
+    #clientes
+    def cliente_inserir(nome, email, fone, senha, id_perfil):
         c = Cliente(0, nome, email, fone, senha)
+        c.id_perfil = id_perfil
         Clientes.inserir(c)
 
     def cliente_listar():
@@ -32,7 +36,8 @@ class View:
             if c.email == email and c.senha == senha:
                 return {"id" : c.id, "nome" : c.nome }
         return None
-
+    
+    #horarios
     def horario_inserir(data, confirmado, id_cliente, id_servico):
         c = Horario(0, data)
         c.confirmado = confirmado
@@ -74,6 +79,7 @@ class View:
 
             x = x + d
 
+    #serviços
     def servico_inserir(descricao, valor, duracao):
         c = Servico(0, descricao, valor, duracao)
         Servicos.inserir(c)
@@ -91,3 +97,22 @@ class View:
     def servico_excluir(id):
         c = Servico(id, "", 0, 0)
         Servicos.excluir(c)    
+    
+    #perfis
+    def perfil_inserir(nome, desc, beneficio):
+        c = Perfil(0, nome, desc, beneficio)
+        Perfis.inserir(c)
+
+    def perfil_listar():
+        return Perfis.listar()    
+
+    def perfil_listar_id(id):
+        return Perfis.listar_id(id)    
+
+    def perfil_atualizar(id, nome, desc, beneficio):
+        c = Perfil(id, nome, desc, beneficio)
+        Perfis.atualizar(c)
+
+    def perfil_excluir(id):
+        c = Perfil(id, "", "", "")
+        Perfis.excluir(c)    

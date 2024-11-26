@@ -1,21 +1,60 @@
-# Lista de Clientes
-# C - Create - Insere um objeto na lista
-# R - Read   - Listar os objetos da lista
-# U - Update - Atualizar um objeto na lista
-# D - Delete - Exclui um objeto da lista
-
 import json
 
 # Modelo
 class Cliente:
   def __init__(self, id, nome, email, fone, senha):
-    self.id = id
-    self.nome = nome
-    self.email = email
-    self.fone = fone
-    self.senha = senha
+    self.__id = 0
+    self.__nome = ''
+    self.__email = ''
+    self.__fone = ''
+    self.__senha = ''
+    
+    #set - atributos
+    self.set_id(id)
+    self.set_nome(nome)
+    self.set_email(email)
+    self.set_fone(fone)
+    self.set_senha(senha)
+  
+  #set
+  def set_id(self,id):
+    if id != 0:
+      self.__id = id
+    else:
+      raise ValueError
+
+  def set_nome(self,nome):
+    if nome != "":
+      self.__nome = nome
+    else:
+      raise ValueError
+  
+  def set_email(self,email):
+    if email != "":
+      self.__email = email
+    else:
+      raise ValueError
+  
+  def set_fone(self,fone):
+    if fone != "":
+      self.__fone = fone
+    else:
+      raise ValueError
+  
+  def set_senha(self,senha):
+    if senha != "":
+      self.__senha = senha
+    else:
+      raise ValueError
+  #get
+  def get_id(self): return self.__id
+  def get_nome(self): return self.__nome
+  def get_email(self): return self.__email
+  def get_fone(self): return self.__fone
+  def get_senha(self): return self.__senha
+
   def __str__(self):
-    return f"{self.nome} - {self.email} - {self.fone}"
+    return f"{self.__nome} - {self.__email} - {self.__fone}"
 
 # Persistência
 class Clientes:

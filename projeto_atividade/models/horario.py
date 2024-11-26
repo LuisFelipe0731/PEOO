@@ -51,8 +51,8 @@ class Horarios:
     cls.abrir()
     m = 0
     for c in cls.objetos:
-      if c.id > m: m = c.id
-    obj.id = m + 1
+      if c.__id > m: m = c.__id
+    obj.__id = m + 1
     cls.objetos.append(obj)
     cls.salvar()
 
@@ -60,22 +60,22 @@ class Horarios:
   def listar_id(cls, id):
     cls.abrir()
     for c in cls.objetos:
-      if c.id == id: return c
+      if c.__id == id: return c
     return None  
   
   @classmethod
   def atualizar(cls, obj):
-    c = cls.listar_id(obj.id)
+    c = cls.listar_id(obj.__id)
     if c != None:
-      c.data = obj.data
-      c.confirmado = obj.confirmado
-      c.id_cliente = obj.id_cliente
-      c.id_servico = obj.id_servico
+      c.__data = obj.__data
+      c.__confirmado = obj.__confirmado
+      c.__id_cliente = obj.__id_cliente
+      c.__id_servico = obj.__id_servico
       cls.salvar()
 
   @classmethod
   def excluir(cls, obj):
-    c = cls.listar_id(obj.id)
+    c = cls.listar_id(obj.__id)
     if c != None:
       cls.objetos.remove(c)
       cls.salvar()
@@ -98,9 +98,9 @@ class Horarios:
         texto = json.load(arquivo)
         for obj in texto:   
           c = Horario(obj["id"], datetime.strptime(obj["data"], "%d/%m/%Y %H:%M"))
-          c.confirmado = obj["confirmado"]
-          c.id_cliente = obj["id_cliente"]
-          c.id_servico = obj["id_servico"]
+          c.__confirmado = obj["confirmado"]
+          c.__id_cliente = obj["id_cliente"]
+          c.__id_servico = obj["id_servico"]
           cls.objetos.append(c)
     except FileNotFoundError:
       pass

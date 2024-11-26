@@ -7,6 +7,11 @@ class Servico:
     self.__descricao = ""
     self.__valor = ""
     self.__duracao = ""
+    #set - atributos
+    self.set_id(id)
+    self.set_descri(descricao)
+    self.set_valor(valor)
+    self.set_duracao(duracao)
   
   #set
   def set_id(self,id):

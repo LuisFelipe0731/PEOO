@@ -21,23 +21,23 @@ class Servico:
     else:
       raise ValueError
   
-  def set_valor(self,descricao):
-    if descricao != "":
-      self.__data = descricao
+  def set_valor(self,valor):
+    if valor != "":
+      self.__data = valor
     else:
       raise ValueError
   
-  def set_duracao(self,descricao):
-    if descricao != "":
-      self.__data = descricao
+  def set_duracao(self,duracao):
+    if duracao != "":
+      self.__data = duracao
     else:
       raise ValueError
   #get
   def get_id(self): return self.__id
-  def get_nome(self): return self.__data
-  def get_email(self): return self.__confirmado
-  def get_fone(self): return self.__id_cliente
-  def get_senha(self): return self.__id_servico
+  def get_descricao(self): return self.__descricao
+  def get_valor(self): return self.__valor
+  def get_duracao(self): return self.__duracao
+
 
   def __str__(self):
     return f"{self.__id} - {self.__descricao} - R$ {self.__valor:.2f} - {self.__duracao} min"

@@ -3,7 +3,7 @@ from datetime import datetime
 
 class Horario:
     def __init__(self, id, data):
-        self.__id = ''
+        self.__id = 0
         self.__data = ''
         self.__confirmado = False
         self.__id_cliente = 0

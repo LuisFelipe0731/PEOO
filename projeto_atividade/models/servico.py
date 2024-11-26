@@ -3,12 +3,32 @@ import json
 # Modelo
 class Servico:
   def __init__(self, id, descricao, valor, duracao):
-    self.id = id
-    self.descricao = descricao
-    self.valor = valor
-    self.duracao = duracao
+    self.__id = 0
+    self.__descricao = ""
+    self.__valor = ""
+    self.__duracao = ""
+  
+  #set
+  def set_id(self,id):
+    if id != 0:
+      self.__id = id
+    else:
+      raise ValueError
+
+  def set_data(self,data):
+    if data != "":
+      self.__data = datetime.strptime(data,"%d/%m/%Y %H:%M")
+    else:
+      raise ValueError
+  #get
+  def get_id(self): return self.__id
+  def get_nome(self): return self.__data
+  def get_email(self): return self.__confirmado
+  def get_fone(self): return self.__id_cliente
+  def get_senha(self): return self.__id_servico
+
   def __str__(self):
-    return f"{self.id} - {self.descricao} - R$ {self.valor:.2f} - {self.duracao} min"
+    return f"{self.__id} - {self.__descricao} - R$ {self.__valor:.2f} - {self.__duracao} min"
 
 # Persistência
 class Servicos:

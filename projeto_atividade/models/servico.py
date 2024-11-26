@@ -15,9 +15,21 @@ class Servico:
     else:
       raise ValueError
 
-  def set_data(self,data):
-    if data != "":
-      self.__data = datetime.strptime(data,"%d/%m/%Y %H:%M")
+  def set_descri(self,descricao):
+    if descricao != "":
+      self.__data = descricao
+    else:
+      raise ValueError
+  
+  def set_valor(self,descricao):
+    if descricao != "":
+      self.__data = descricao
+    else:
+      raise ValueError
+  
+  def set_duracao(self,descricao):
+    if descricao != "":
+      self.__data = descricao
     else:
       raise ValueError
   #get

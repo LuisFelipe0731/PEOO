@@ -8,6 +8,9 @@ class Horario:
         self.__confirmado = False
         self.__id_cliente = 0
         self.__id_servico = 0
+        #set - atributos
+        self.set_id(id)
+        self.set_data(data)
 
     #set
     def set_id(self,id):
@@ -23,13 +26,14 @@ class Horario:
         raise ValueError
     #get
     def get_id(self): return self.__id
-    def get_nome(self): return self.__data
-    def get_email(self): return self.__confirmado
-    def get_fone(self): return self.__id_cliente
-    def get_senha(self): return self.__id_servico
+    def get_data(self): return self.__data
+    def get_confirmado(self): return self.__confirmado
+    def get_cliente(self): return self.__id_cliente
+    def get_servico(self): return self.__id_servico
       
     def __str__(self):
         return f"{self.__id} - {self.__data}"
+    
     def to_json(self):
       dic = {}
       dic["id"] = self.__id

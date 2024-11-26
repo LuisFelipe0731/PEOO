@@ -17,19 +17,19 @@ class Servico:
 
   def set_descri(self,descricao):
     if descricao != "":
-      self.__data = descricao
+      self.__descricao = descricao
     else:
       raise ValueError
   
   def set_valor(self,valor):
     if valor != "":
-      self.__data = valor
+      self.__valor = valor
     else:
       raise ValueError
   
   def set_duracao(self,duracao):
     if duracao != "":
-      self.__data = duracao
+      self.__duracao = duracao
     else:
       raise ValueError
   #get

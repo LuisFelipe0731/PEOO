@@ -1,4 +1,3 @@
-import json
 from abc import ABC, abstractmethod
 
 class CRUD(ABC):
@@ -13,6 +12,11 @@ class CRUD(ABC):
         obj.id = m + 1
         cls.objetos.append(obj)
         cls.salvar()
+    
+    @classmethod
+    def listar(cls):
+        cls.abrir()
+        return cls.objetos
 
     @classmethod
     def listar_id(cls, id):
@@ -32,11 +36,6 @@ class CRUD(ABC):
             cls.objetos.remove(c)
         cls.salvar()
     
-    @classmethod
-    def listar(cls):
-        cls.abrir()
-        cls.objetos.sort(key=lambda objeto: objeto.nome)
-        return cls.objetos
 
     @abstractmethod
     def abrir(cls):

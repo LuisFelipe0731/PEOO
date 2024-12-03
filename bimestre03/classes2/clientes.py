@@ -21,4 +21,4 @@ class Cliente:
         return dic    
 
 class Clientes(CRUD):
-    
+    super.__init__()

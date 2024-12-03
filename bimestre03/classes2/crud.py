@@ -21,16 +21,9 @@ class CRUD(ABC):
             if c.id == id: return c
         return None  
     
-    @classmethod
+    @abstractmethod
     def atualizar(cls, obj):
-        c = cls.listar_id(obj.id)
-        if c != None:
-            c.nome = obj.nome
-            c.email = obj.email
-            c.fone = obj.fone
-            c.senha = obj.senha
-            c.id_perfil = obj.id_perfil
-        cls.salvar()
+        pass
 
     @classmethod
     def excluir(cls, obj):

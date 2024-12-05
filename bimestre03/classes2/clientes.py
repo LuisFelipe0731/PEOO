@@ -1,4 +1,5 @@
 from crud import CRUD
+import json
 
 class Cliente:
     def __init__(self, id, nome, email, fone, senha):
@@ -21,4 +22,19 @@ class Cliente:
         return dic    
 
 class Clientes(CRUD):
-    super.__init__()
+    @classmethod
+    def salvar(cls):
+        with open("clientes.json", mode="w") as arquivo:   # w - write
+            json.dump(cls.objetos, arquivo, default = vars)
+
+    @classmethod
+    def abrir(cls):
+        cls.objetos = []
+        try:
+            with open("clientes.json", mode="r") as arquivo:   # r - read
+                texto = json.load(arquivo)
+                for obj in texto:   
+                    c = Cliente(obj["id"], obj["nome"], obj["email"], obj["fone"], obj["senha"])
+                    cls.objetos.append(c)
+        except FileNotFoundError:
+            pass

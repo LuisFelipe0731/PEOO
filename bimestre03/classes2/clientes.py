@@ -23,6 +23,18 @@ class Cliente:
 
 class Clientes(CRUD):
     @classmethod
+    def atualizar(cls, obj):
+        c = cls.listar_id(obj.id)
+        if c != None:
+            c.nome = obj.nome
+            c.email = obj.email
+            c.fone = obj.fone
+            c.senha = obj.senha
+            c.id_perfil = obj.id_perfil
+        cls.salvar()
+
+    
+    @classmethod
     def salvar(cls):
         with open("clientes.json", mode="w") as arquivo:   # w - write
             json.dump(cls.objetos, arquivo, default = vars)
@@ -35,6 +47,7 @@ class Clientes(CRUD):
                 texto = json.load(arquivo)
                 for obj in texto:   
                     c = Cliente(obj["id"], obj["nome"], obj["email"], obj["fone"], obj["senha"])
+                    c.id_perfil = obj['id_perfil']
                     cls.objetos.append(c)
         except FileNotFoundError:
             pass

@@ -28,4 +28,13 @@ class Livro():
     #to_json
 
 class Livros(CRUD):
+    @classmethod
+    def atualizar(cls, obj):
+        pass
+    @classmethod
+    def abrir(cls):
+        pass
     
+    @classmethod
+    def salvar(cls):
+        pass

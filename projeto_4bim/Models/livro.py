@@ -1,5 +1,6 @@
 import json
 from datetime import datetime
+from crud import CRUD
 
 #Livro
 class Livro():
@@ -25,3 +26,6 @@ class Livro():
         return f"{self.__id} - {self.__titulo} - {self.__autor} - {self.__data_publicacao}"
     
     #to_json
+
+class Livros(CRUD):
+    

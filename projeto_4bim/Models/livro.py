@@ -42,11 +42,11 @@ class Livros(CRUD):
     @classmethod
     def atualizar(cls, obj):
         pass
+    
     @classmethod
     def salvar(cls):
         with open("livros.json", mode="w") as arquivo:   # w - write
             json.dump(cls.objetos, arquivo, default = Livro.to_json)
-
     
     @classmethod
     def abrir(cls):

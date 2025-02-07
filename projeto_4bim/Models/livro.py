@@ -14,6 +14,11 @@ class Livro():
     
     #get e set
     def Set_valores(id, t, a, d):
+        try:
+            self.__id = id
+
+        except:
+            id = 0
 
     #str
     def __str__(self):

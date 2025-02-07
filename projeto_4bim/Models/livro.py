@@ -9,12 +9,12 @@ class Livro():
         self.__titulo = ""
         self.__autor = ""
         self.__data_publicacao = ""
-        self._id_genero = 0
+        self.__id_genero = 0
 
         self.Set_valores(id, titulo, autor, data)
     
     #get e set
-    def Set_valores(id, t, a, d):
+    def Set_valores(self,id, t, a, d):
         try:
             self.__id = id
 
@@ -26,6 +26,15 @@ class Livro():
         return f"{self.__id} - {self.__titulo} - {self.__autor} - {self.__data_publicacao}"
     
     #to_json
+    def to_json(self):
+        dic = {}
+        dic["id"] = self.__id  
+        dic["titulo"] = self.__titulo
+        dic["autor"] = self.__autor 
+        dic["data"] = self.__
+        dic["genero"] = self.__id_genero
+        return dic
+
 
 class Livros(CRUD):
     @classmethod

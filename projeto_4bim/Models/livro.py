@@ -41,9 +41,20 @@ class Livros(CRUD):
     def atualizar(cls, obj):
         pass
     @classmethod
-    def abrir(cls):
+    def salvar(cls):
         pass
     
     @classmethod
-    def salvar(cls):
-        pass
+    def abrir(cls):
+        cls.objetos = []
+        try:
+            with open("horarios.json", mode="r") as arquivo:   # r - read
+                texto = json.load(arquivo)
+                for obj in texto:   
+                c = Horario(obj["id"], datetime.strptime(obj["data"], "%d/%m/%Y %H:%M"))
+                c.__confirmado = obj["confirmado"]
+                c.__id_cliente = obj["id_cliente"]
+                c.__id_servico = obj["id_servico"]
+                cls.objetos.append(c)
+        except FileNotFoundError:
+            pass

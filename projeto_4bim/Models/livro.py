@@ -20,6 +20,8 @@ class Livro():
 
         except:
             id = 0
+    def Get_valores(self):
+
 
     #str
     def __str__(self):
@@ -35,26 +37,26 @@ class Livro():
         dic["genero"] = self.__id_genero
         return dic
 
-
+#crud
 class Livros(CRUD):
     @classmethod
     def atualizar(cls, obj):
         pass
     @classmethod
     def salvar(cls):
-        pass
+        with open("livros.json", mode="w") as arquivo:   # w - write
+            json.dump(cls.objetos, arquivo, default = Livro.to_json)
+
     
     @classmethod
     def abrir(cls):
         cls.objetos = []
         try:
-            with open("horarios.json", mode="r") as arquivo:   # r - read
+            with open("Livros.json", mode="r") as arquivo:   # r - read
                 texto = json.load(arquivo)
                 for obj in texto:   
-                c = Horario(obj["id"], datetime.strptime(obj["data"], "%d/%m/%Y %H:%M"))
-                c.__confirmado = obj["confirmado"]
-                c.__id_cliente = obj["id_cliente"]
-                c.__id_servico = obj["id_servico"]
-                cls.objetos.append(c)
+                    c = Livro(obj["id"],obj["titulo"], obj["autor"], datetime.strptime(obj["data"], "%d/%m/%Y %H:%M"))
+                    c.__id_genero = obj["genero"]
+                    cls.objetos.append(c)
         except FileNotFoundError:
             pass

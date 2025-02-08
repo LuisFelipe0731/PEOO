@@ -18,8 +18,9 @@ class Livro():
         try:
             self.__id = id
 
-        except:
-            id = 0
+        except id == 0:
+            raise ValueError
+            
     def Get_valores(self):
 
 

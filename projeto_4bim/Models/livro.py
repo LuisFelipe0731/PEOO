@@ -11,18 +11,9 @@ class Livro():
         self.__data_publicacao = ""
         self.__id_genero = 0
 
-        self.Set_valores(id, titulo, autor, data)
     
     #get e set
-    def Set_valores(self,id, t, a, d):
-        try:
-            self.__id = id
-
-        except id == 0:
-            raise ValueError
-            
-    def Get_valores(self):
-        return self.__id
+    
 
 
     #str
@@ -35,7 +26,7 @@ class Livro():
         dic["id"] = self.__id  
         dic["titulo"] = self.__titulo
         dic["autor"] = self.__autor 
-        dic["data"] = self.__data_publicacao.strftime("%d/%m/%Y %H:%M")
+        dic["data"] = self.__data_publicacao.strftime("%d/%m/%Y")
         dic["genero"] = self.__id_genero
         return dic
 
@@ -57,7 +48,7 @@ class Livros(CRUD):
             with open("Livros.json", mode="r") as arquivo:   # r - read
                 texto = json.load(arquivo)
                 for obj in texto:   
-                    c = Livro(obj["id"],obj["titulo"], obj["autor"], datetime.strptime(obj["data"], "%d/%m/%Y %H:%M"))
+                    c = Livro(obj["id"],obj["titulo"], obj["autor"], datetime.strptime(obj["data"], "%d/%m/%Y"))
                     c.__id_genero = obj["genero"]
                     cls.objetos.append(c)
         except FileNotFoundError:

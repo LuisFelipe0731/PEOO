@@ -22,6 +22,7 @@ class Livro():
             raise ValueError
             
     def Get_valores(self):
+        return self.__id
 
 
     #str

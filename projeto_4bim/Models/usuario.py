@@ -3,12 +3,16 @@ from crud import CRUD
 
 class Usuario:
     def __init__(self,id,nome,email,fone,senha):
-        pass
+        self.__id = 0
+        self.__nome = ""
+        self.__email = ""
+        self.__senha = ""
+
 
     #set e get
 
     def __str__(self):
-        pass
+        return f"{self.__id} - {self.__nome} - {self.__email} - {self.__senha}"
 
 
 class Usuarios(CRUD):

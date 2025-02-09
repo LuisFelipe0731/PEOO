@@ -11,7 +11,12 @@ class Livro():
         self.__autor = ""
         self.__data_publicacao = ""
         self.__id_genero = 0
+        
+        #sets
         self.set_id(id)
+        self.set_titulo(titulo)
+        self.set_autor(autor)
+        self.set_data(data)
     #--get e set--
     
     #set

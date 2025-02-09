@@ -37,6 +37,30 @@ class Exemplar:
         dic["livro"] = self.__id_livro
         return dic
 
-        
-
 class Exemplares(CRUD):
+    @classmethod
+    def atualizar(cls, obj):
+        c = cls.listar_id(obj.id)
+        if c != None:
+            c.__ed = obj.__ed
+            c.__id_livro = obj.__id_livro
+        cls.salvar()
+        
+    
+    @classmethod
+    def salvar(cls):
+        with open("Exemplares.json", mode="w") as arquivo:   # w - write
+            json.dump(cls.objetos, arquivo, default = Exemplar.to_json)
+    
+    @classmethod
+    def abrir(cls):
+        cls.objetos = []
+        try:
+            with open("Exemplares.json", mode="r") as arquivo:   # r - read
+                texto = json.load(arquivo)
+                for obj in texto:   
+                    c = Exemplar(obj["id"],obj["edição"])
+                    c.__id_livro = obj["livro"]
+                    cls.objetos.append(c)
+        except FileNotFoundError:
+            pass

@@ -73,11 +73,11 @@ class Livros(CRUD):
     def atualizar(cls, obj):
         c = cls.listar_id(obj.id)
         if c != None:
-            c.titulo = obj.titulo
-            c.autor = obj.autor
-            c.data_publicacao = obj.data_publicacao
-            c.senha = obj.senha
-            c.id_genero = obj.id_genero
+            c.__titulo = obj.__titulo
+            c.__autor = obj.__autor
+            c.__data_publicacao = obj.__data_publicacao
+            c.__senha = obj.__senha
+            c.__id_genero = obj.__id_genero
         cls.salvar()
         
     

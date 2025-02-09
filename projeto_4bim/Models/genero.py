@@ -6,6 +6,10 @@ class Genero:
         self.__id = 0
         self.__nome = ""
         self.__desc = ""
+
+        self.set_id(id)
+        self.set_nome(nome)
+        self.set_desc(descricao)
     
     #set e get
     def set_id(self,id):

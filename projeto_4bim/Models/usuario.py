@@ -50,3 +50,28 @@ class Usuario:
 
 
 class Usuarios(CRUD):
+    def atualizar(cls, obj):
+        c = cls.listar_id(obj.id)
+        if c != None:
+            c.__nome = obj.__nome
+            c.__desc = obj.__desc
+
+        cls.salvar()
+        
+    
+    @classmethod
+    def salvar(cls):
+        with open("Generos.json", mode="w") as arquivo:   # w - write
+            json.dump(cls.objetos, arquivo, default = vars)
+    
+    @classmethod
+    def abrir(cls):
+        cls.objetos = []
+        try:
+            with open("Generos.json", mode="r") as arquivo:   # r - read
+                texto = json.load(arquivo)
+                for obj in texto:   
+                    c = Genero(obj["id"],obj["nome"], obj["desc"])
+                    cls.objetos.append(c)
+        except FileNotFoundError:
+            pass

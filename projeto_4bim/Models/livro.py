@@ -39,7 +39,7 @@ class Livro():
             raise ValueError("O livro precisa de um autor")
         
     def set_data(self,d):
-        if d < date.fromisoformat('1000-01-01') and d > date.fromisoformat('2025-12-31'):
+        if d < date(1000,1,1) and d > date(2025,4,30):
             self.__data_publicacao = d
         else:
             raise ValueError("A data é invalida")

@@ -54,24 +54,24 @@ class Usuarios(CRUD):
         c = cls.listar_id(obj.id)
         if c != None:
             c.__nome = obj.__nome
-            c.__desc = obj.__desc
-
+            c.__email = obj.__email
+            c.__senha = obj.__senha  
         cls.salvar()
         
     
     @classmethod
     def salvar(cls):
-        with open("Generos.json", mode="w") as arquivo:   # w - write
+        with open("Usuarios.json", mode="w") as arquivo:   # w - write
             json.dump(cls.objetos, arquivo, default = vars)
     
     @classmethod
     def abrir(cls):
         cls.objetos = []
         try:
-            with open("Generos.json", mode="r") as arquivo:   # r - read
+            with open("Usuarios.json", mode="r") as arquivo:   # r - read
                 texto = json.load(arquivo)
                 for obj in texto:   
-                    c = Genero(obj["id"],obj["nome"], obj["desc"])
+                    c = Usuario(obj["id"],obj["nome"], obj["desc"])
                     cls.objetos.append(c)
         except FileNotFoundError:
             pass

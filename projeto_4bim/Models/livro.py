@@ -1,5 +1,6 @@
 import json
 from datetime import datetime
+from datetime import date
 from crud import CRUD
 
 #Livro
@@ -32,7 +33,7 @@ class Livro():
             raise ValueError("O livro precisa de um autor")
         
     def set_data(self,d):
-        if d != "":
+        if d < date.fromisoformat('1000-01-01') and d > date.fromisoformat('2025-12-31'):
             self.__data_publicacao = d
         else:
             raise ValueError("A data é invalida")

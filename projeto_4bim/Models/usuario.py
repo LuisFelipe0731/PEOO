@@ -8,6 +8,11 @@ class Usuario:
         self.__email = ""
         self.__senha = ""
 
+        self.set_id(id)
+        self.set_nome(nome)
+        self.set_email(email)
+        self.set_senha(senha)
+
 
     #set e get
     def set_id(self,id):

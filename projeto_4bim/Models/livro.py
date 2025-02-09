@@ -4,7 +4,7 @@ from datetime import date
 from crud import CRUD
 
 #Livro
-class Livro():
+class Livro:
     def __init__(self,id, titulo, autor, data,):
         self.__id = 0
         self.__titulo = ""

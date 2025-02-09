@@ -10,10 +10,40 @@ class Livro():
         self.__autor = ""
         self.__data_publicacao = ""
         self.__id_genero = 0
-
-    
     #get e set
     
+    #set
+    def set_id(self,id):
+        if id != 0:
+            self.__id = id
+        else:
+            raise ValueError("Valor invalido")
+
+    def set_titulo(self,t):
+        if t != "":
+            self.__titulo = t
+        else:
+            raise ValueError("O livro precisa de um titulo")
+    
+    def set_autor(self,a):
+        if a != "":
+            self.__autor = a
+        else:
+            raise ValueError("O livro precisa de um autor")
+        
+    def set_data(self,d):
+        if d != "":
+            self.__data_publicacao = d
+        else:
+            raise ValueError("A data é invalida")
+        
+    #get
+    def get_id(self): return self.__id
+    def get_titulo(self): return self.__titulo
+    def get_autor(self): return self.__autor
+    def get_data(self): return self.__data_publicacao
+   
+        
 
 
     #str
@@ -34,7 +64,15 @@ class Livro():
 class Livros(CRUD):
     @classmethod
     def atualizar(cls, obj):
-        pass
+        c = cls.listar_id(obj.id)
+        if c != None:
+            c.titulo = obj.titulo
+            c.autor = obj.autor
+            c.data_publicacao = obj.data_publicacao
+            c.senha = obj.senha
+            c.id_genero = obj.id_genero
+        cls.salvar()
+        
     
     @classmethod
     def salvar(cls):

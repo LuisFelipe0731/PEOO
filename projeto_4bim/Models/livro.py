@@ -1,11 +1,10 @@
 import json
 from datetime import datetime
-from datetime import date
 from crud import CRUD
 
 #Livro
 class Livro:
-    def __init__(self,id, titulo, autor, data,):
+    def __init__(self, id, titulo, autor, data):
         self.__id = 0
         self.__titulo = ""
         self.__autor = ""
@@ -39,10 +38,10 @@ class Livro:
             raise ValueError("O livro precisa de um autor")
         
     def set_data(self,d):
-        if d < date(1000,1,1) and d > date(2025,4,30):
+        if d != '':
             self.__data_publicacao = d
         else:
-            raise ValueError("A data é invalida")
+            raise ValueError("É preciso ter uma data")
         
     #get
     def get_id(self): return self.__id

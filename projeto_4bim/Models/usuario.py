@@ -46,7 +46,7 @@ class Usuario:
     def get_senha(self): return self.__senha
 
     def __str__(self):
-        return f"{self.__id} - {self.__nome} - {self.__email} - {self.__senha}"
+        return f"{self.__id} - {self.__nome} - {self.__email}"
 
 
 class Usuarios(CRUD):

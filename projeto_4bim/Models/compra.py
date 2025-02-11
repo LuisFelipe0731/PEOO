@@ -28,7 +28,7 @@ class Compra:
     def get_valor(self): return self.__valor
     
     def __str__(self):
-        return f"{self.__id} - {self.__valor}"
+        return f"{self.__id} - {self.__valor} R$"
 
     def to_json(self):
         dic = {}

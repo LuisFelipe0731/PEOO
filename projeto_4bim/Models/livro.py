@@ -39,7 +39,7 @@ class Livro:
         
     def set_data(self,d):
         if d != '':
-            self.__data_publicacao = d
+            self.__data_publicacao = datetime.strptime(d,'%d/%m/%Y')
         else:
             raise ValueError("É preciso ter uma data")
         
@@ -62,7 +62,7 @@ class Livro:
         dic["id"] = self.__id  
         dic["titulo"] = self.__titulo
         dic["autor"] = self.__autor 
-        dic["data"] = self.__data_publicacao.datetime.datetime.strftime('%d/%m/%Y')
+        dic["data"] = self.__data_publicacao.strftime('%d/%m/%Y')
         dic["genero"] = self.__id_genero
         return dic
 

@@ -1,10 +1,16 @@
 from livro import *
+from genero import *
+from exemplar import *
+from compra import *
 
-x = Livro(1, "O pequeno Principe"," Antoine de Saint-Exupéry",'01/04/1943')
+x = Livro(1, "O pequeno principe"," Antoine de Saint-Exupéry",'01/04/1943')
 y = Livro(2,"Dracula","Bram Stoker",'26/05/1897')
+
 
 Livros.inserir(x)
 Livros.inserir(y)
+Livros.salvar()
+print(Livros.listar())
+  
 
-for l in Livros.listar():
-    print(l)
+

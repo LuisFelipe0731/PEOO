@@ -62,7 +62,7 @@ class Livro:
         dic["id"] = self.__id  
         dic["titulo"] = self.__titulo
         dic["autor"] = self.__autor 
-        dic["data"] = self.__data_publicacao.strftime("%d/%m/%Y")
+        dic["data"] = self.__data_publicacao.datetime.strftime("%d/%m/%Y")
         dic["genero"] = self.__id_genero
         return dic
 

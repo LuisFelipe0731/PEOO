@@ -1,5 +1,5 @@
 import streamlit as st
-import view
+from view import View
 
 
 class LoginUI:
@@ -8,7 +8,7 @@ class LoginUI:
         email = st.text_input("Informe o e-mail")
         senha = st.text_input("Informe a senha", type="password")
         if st.button("Entrar"):
-            c = view.View.Usuario_autenticar(email, senha)
+            c = View.Usuario_autenticar(email, senha)
             if c == None: st.write("E-mail ou senha inválidos")
             else:
                 st.session_state["cliente_id"] = c["id"]

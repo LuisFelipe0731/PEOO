@@ -1,6 +1,6 @@
 import json
 from datetime import datetime
-from crud import CRUD
+from Models.crud import CRUD
 
 #Livro
 class Livro:

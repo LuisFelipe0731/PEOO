@@ -14,3 +14,5 @@ class LoginUI:
                 st.session_state["cliente_id"] = c["id"]
                 st.session_state["cliente_nome"] = c["nome"]
                 st.rerun()
+
+LoginUI.main()

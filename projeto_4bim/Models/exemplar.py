@@ -1,5 +1,5 @@
 import json
-from crud import CRUD
+from Models.crud import CRUD
 
 class Exemplar:
     def __init__(self, id, edicao):

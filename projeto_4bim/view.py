@@ -1,3 +1,4 @@
+from Models.crud import CRUD
 from Models.livro import Livro, Livros
 from Models.usuario import Usuario,Usuarios
 from Models.genero import Genero, Generos

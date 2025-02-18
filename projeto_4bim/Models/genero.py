@@ -1,5 +1,5 @@
 import json
-from crud import CRUD
+from Models.crud import CRUD
 
 class Genero:
     def __init__(self,id, nome, descricao):

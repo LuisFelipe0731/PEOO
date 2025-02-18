@@ -1,5 +1,5 @@
 import streamlit as st
-from view import View
+from projeto_4bim.viewview import View
 
 
 class LoginUI:

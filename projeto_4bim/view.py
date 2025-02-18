@@ -3,7 +3,6 @@ from Models.usuario import Usuario,Usuarios
 from Models.genero import Genero, Generos
 from Models.exemplar import Exemplar, Exemplares
 from Models.compra import Compra, Compras
-from datetime import datetime, timedelta
 
 #View
 class View:

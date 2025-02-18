@@ -31,10 +31,10 @@ class View:
             if c.email == "admin": return
         View.Usuario_inserir("admin","admin","1234")
     
-    def cliente_autenticar(email, senha):
-        for c in View.cliente_listar():
+    def Usuario_autenticar(email, senha):
+        for c in View.Usuario_listar():
             if c.email == email and c.senha == senha:
-                return {"id" : c.id, "nome" : c.nome }
+                return {"id" : c.__id nome" : c.__nome }
         return None
     
     #Livros

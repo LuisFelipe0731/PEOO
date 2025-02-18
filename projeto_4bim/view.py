@@ -8,10 +8,28 @@ from datetime import datetime, timedelta
 #View
 class View:
     #Usuario - Admin
-    def cliente_admin():
-        for c in View.cliente_listar():
+    def Usuario_inserir(nome, email, senha):
+        c = Usuario(0, nome, email, senha)
+        Usuarios.inserir(c)
+
+    def Usuario_listar():
+        return Usuarios.listar()    
+
+    def Usuario_listar_id(id):
+        return Usuarios.listar_id(id)    
+
+    def Usuario_atualizar(id,nome, email, senha):
+        c = Usuario(id, nome, email, senha)
+        Usuarios.atualizar(c)
+
+    def Usuario_excluir(id):
+        c = Usuario(id, "", "", "")
+        Usuarios.excluir(c)
+    
+    def Usuario_admin():
+        for c in View.Usuario_listar():
             if c.email == "admin": return
-        View.cliente_inserir("admin", "admin", "1234", "1234",0)
+        View.Usuario_inserir("admin","admin","1234")
     
     def cliente_autenticar(email, senha):
         for c in View.cliente_listar():

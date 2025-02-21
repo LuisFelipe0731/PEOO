@@ -1,7 +1,7 @@
-from projeto_4bim.Paginas.LivrosUI import 
-from Paginas.horario2UI import ManterHorarioUI
-from Paginas.servico2UI import ManterServicoUI
-from Paginas.agenda2 import AbrirAgendaUI
+from Paginas.LivrosUI import ManterLivroUI
+from Paginas.GenerosUI import ManterGeneroUI
+from Paginas.ExemplaresUI import ManterExemplarUI
+from Paginas.ComprasUI import ManterCompraUI
 from Paginas.conta import AbrirContaUI
 from Paginas.listar_horario import ListarHorarioUI
 from Paginas.login import LoginUI

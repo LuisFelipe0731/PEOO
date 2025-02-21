@@ -19,19 +19,20 @@ class IndexUI:
         if op == "Abrir Conta": AbrirContaUI.main()
                
     def menu_admin():            
-        op = st.sidebar.selectbox("Menu", ["Cadastro de Livros", "Cadastro de Generos", "Cadastro de Exemplares","Cadastro de Compras", "Cadastro de Usuarios", "Graficos"])
+        op = st.sidebar.selectbox("Menu", ["Cadastro de Livros", "Cadastro de Generos", "Cadastro de Exemplares","Cadastro de Compras", "Graficos"])
         if op == "Cadastro de Livros": ManterLivroUI.main()
         if op == "Cadastro de Generos": ManterGeneroUI.main()
         if op == "Cadastro de Exemplares": ManterExemplarUI.main()
         if op == "Cadastro de Compras": ManterCompraUI.main()
-        if op == "Cadastro de Usuarios": ManterUsuarioUI.main()
         if op == "Graficos": GraficoUI.main()
 
     def menu_usuario():
-        op = st.sidebar.selectbox("Menu", ["Pesquisar", "Comprar","Graficos"])
+        op = st.sidebar.selectbox("Menu", ["Pesquisar", "Comprar","Graficos","Conta"])
         if op == "Graficos": GraficoUI.main()
         if op == "Comprar": ComprarUI.main()
         if op == "Pesquisar": PesquisarUI.main()
+        if op == "Conta": AbrirContaUI.main()
+
 
     def sair_do_sistema():
         if st.sidebar.button("Sair"):

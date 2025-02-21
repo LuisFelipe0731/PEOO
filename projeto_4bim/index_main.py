@@ -1,4 +1,4 @@
-from Paginas.cliente2UI import 
+from projeto_4bim.Paginas.LivrosUI import 
 from Paginas.horario2UI import ManterHorarioUI
 from Paginas.servico2UI import ManterServicoUI
 from Paginas.agenda2 import AbrirAgendaUI
@@ -43,9 +43,9 @@ class IndexUI:
             IndexUI.menu_visitante()   
         else:
             # usuário está logado, verifica se é o admin
-            admin = st.session_state["cliente_nome"] == "admin"
+            admin = st.session_state["usuario_nome"] == "admin"
             # mensagen de bem-vindo
-            st.sidebar.write("Bem-vindo(a), " + st.session_state["cliente_nome"])
+            st.sidebar.write("Bem-vindo(a), " + st.session_state["usuario_nome"])
             # menu do usuário
             if admin: IndexUI.menu_admin()
             else: IndexUI.menu_cliente()
@@ -53,9 +53,8 @@ class IndexUI:
             IndexUI.sair_do_sistema() 
     
     def main():
-        # verifica a existe o usuário admin
-        View.cliente_admin()
-        # monta o sidebar
+        View.Usuario_admin()
+       
         IndexUI.sidebar()
        
 IndexUI.main()

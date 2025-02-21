@@ -2,12 +2,12 @@ from Paginas.livrosUI import ManterLivroUI
 from Paginas.generosUI import ManterGeneroUI
 from Paginas.exemplaresUI import ManterExemplarUI
 from Paginas.comprasUI import ManterCompraUI
-from Paginas.usuariosUI import ManterUsuarioUI
 from Paginas.grafico import GraficoUI
 from Paginas.comprar import ComprarUI
 from Paginas.login_livro import LoginUI
 from Paginas.abrir_conta import AbrirContaUI
 from Paginas.pesquisa import PesquisarUI
+from Paginas.atualizar import AtualizarUI
 from view import View
 
 import streamlit as st
@@ -31,7 +31,7 @@ class IndexUI:
         if op == "Graficos": GraficoUI.main()
         if op == "Comprar": ComprarUI.main()
         if op == "Pesquisar": PesquisarUI.main()
-        if op == "Conta": ManterUsuarioUI.main()
+        if op == "Conta": AtualizarUI.main()
 
 
     def sair_do_sistema():

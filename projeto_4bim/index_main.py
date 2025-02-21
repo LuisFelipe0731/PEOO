@@ -31,7 +31,7 @@ class IndexUI:
         if op == "Graficos": GraficoUI.main()
         if op == "Comprar": ComprarUI.main()
         if op == "Pesquisar": PesquisarUI.main()
-        if op == "Conta": AbrirContaUI.main()
+        if op == "Conta": ManterUsuarioUI.main()
 
 
     def sair_do_sistema():

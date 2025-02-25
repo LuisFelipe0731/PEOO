@@ -13,50 +13,51 @@ class ManterGeneroUI:
         with tab4: ManterGeneroUI.excluir()
     
     def listar():
-        objetos = View.Genero_listar()
-        if len(objetos) == 0: 
+        objs = View.Genero_listar()
+        if len(objs) == 0: 
             st.write("Nenhum genero cadastrado")
         else:    
             
             dic = []
-            for obj in perfis: dic.append(obj.__dict__)
+            for obj in objs: dic.append(obj.__dict__)
             df = pd.DataFrame(dic)
             st.dataframe(df)
-    
+    #inserir
     def inserir():
-        t = st.text_input("Informe o titulo do livro: ")
-        a = st.text_input("Informe o autor: ")
-        data = st.text_input("Informe a data de publicação: ")
+        n = st.text_input("Informe o nome do genêro: ")
+        d = st.text_input("Informe uma descrição: ")
+        
         if st.button("Inserir"):
-            View.Livro_inserir(t,a,data)
-            st.success("Livro inserido com sucesso")
+            View.Genero_inserir(n,d)
+            st.success("Genêro inserido com sucesso")
             time.sleep(2)
             st.rerun()
     
+    #atualizar
     def atualizar():
-        objetos = View.Genero_listar()
-        if len(objetos) == 0: 
-            st.write("Nenhum genero cadastrado")
+        objs = View.Genero_listar()
+        if len(objs) == 0: 
+            st.write("Nenhum genêro cadastrado")
         else:
-            op = st.selectbox("Atualização de genêros", objetos)
-            t = st.text_input("Informe o novo titulo: ", op.__titulo)
-            a = st.text_input("Informe o novo autor: ", op.__autor)
-            data = st.text_input("Informe a nova data de publicação: ", op.__data_publicacao)
+            op = st.selectbox("Atualização de genêros", objs)
+            n = st.text_input("Informe o novo nome: ", op.__titulo)
+            d = st.text_input("Informe a nova descrição: ", op.__autor)
+    
             
             if st.button("Atualizar"):
-                View.cliente_atualizar(op.__id, t, a, data)
-                st.success("Livro atualizado com sucesso")
+                View.Genero_atualizar(op.__id, n, d)
+                st.success("Genêro atualizado com sucesso")
                 time.sleep(2)
                 st.rerun()
     
     def excluir():
-        objetos = View.Livro_listar()
-        if len(objetos) == 0: 
+        objs = View.Genero_listar()
+        if len(objs) == 0: 
             st.write("Nenhum livro cadastrado")
         else:
-            op = st.selectbox("Exclusão de perfis", objetos)
+            op = st.selectbox("Exclusão de Genêros", objs)
             if st.button("Excluir"):
-                View.Livro_excluir(op.__id)
-                st.success("Livro excluído com sucesso")
+                View.Genero_excluir(op.__id)
+                st.success("Genêro excluído com sucesso")
                 time.sleep(2)
                 st.rerun()

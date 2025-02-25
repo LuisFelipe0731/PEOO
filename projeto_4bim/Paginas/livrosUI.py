@@ -14,8 +14,8 @@ class ManterLivroUI:
         with tab4: ManterLivroUI.excluir()
     
     def listar():
-        perfis = View.Livro_listar()
-        if len(perfis) == 0: 
+        objs = View.Livro_listar()
+        if len(objs) == 0: 
             st.write("Nenhum livro cadastrado")
         else:    
             
@@ -35,11 +35,11 @@ class ManterLivroUI:
             st.rerun()
     
     def atualizar():
-        livros = View.Livro_listar()
-        if len(livros) == 0: 
+        objs = View.Livro_listar()
+        if len(objs) == 0: 
             st.write("Nenhum livro cadastrado")
         else:
-            op = st.selectbox("Atualização de livros", livros)
+            op = st.selectbox("Atualização de livros", objs)
             t = st.text_input("Informe o novo titulo: ", op.__titulo)
             a = st.text_input("Informe o novo autor: ", op.__autor)
             data = st.text_input("Informe a nova data de publicação: ", op.__data_publicacao)
@@ -51,11 +51,11 @@ class ManterLivroUI:
                 st.rerun()
     
     def excluir():
-        objetos = View.Livro_listar()
-        if len(objetos) == 0: 
+        objs = View.Livro_listar()
+        if len(objs) == 0: 
             st.write("Nenhum livro cadastrado")
         else:
-            op = st.selectbox("Exclusão de perfis", objetos)
+            op = st.selectbox("Exclusão de perfis", objs)
             if st.button("Excluir"):
                 View.Livro_excluir(op.__id)
                 st.success("Livro excluído com sucesso")

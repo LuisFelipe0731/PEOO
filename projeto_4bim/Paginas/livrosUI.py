@@ -24,28 +24,28 @@ class ManterLivroUI:
             st.dataframe(df)
     
     def inserir():
-        nome = st.text_input("Informe o titulo do livro: ")
-        desc = st.text_input("Informe a descrição: ")
-        beneficio = st.text_input("Informe o beneficio: ")
+        t = st.text_input("Informe o titulo do livro: ")
+        a = st.text_input("Informe o autor: ")
+        data = st.text_input("Informe a data de publicação: ")
         if st.button("Inserir"):
-            View.perfil_inserir(nome,desc,beneficio)
-            st.success("Perfil inserido com sucesso")
+            View.Livro_inserir(t,a,data)
+            st.success("Livro inserido com sucesso")
             time.sleep(2)
             st.rerun()
     
     def atualizar():
-        perfis = View.perfil_listar()
-        if len(perfis) == 0: 
-            st.write("Nenhum perfil cadastrado")
+        livros = View.Livro_listar()
+        if len(livros) == 0: 
+            st.write("Nenhum livro cadastrado")
         else:
-            op = st.selectbox("Atualização de perfis", perfis)
-            nome = st.text_input("Informe o novo nome do perfil: ", op.nome)
-            desc = st.text_input("Informe a nova descrição: ", op.desc)
-            beneficio = st.text_input("Informe o novo beneficio: ", op.beneficio)
+            op = st.selectbox("Atualização de livros", livros)
+            t = st.text_input("Informe o novo nome do perfil: ", op.__titulo)
+            a = st.text_input("Informe a nova descrição: ", op.__autor)
+            data = st.text_input("Informe o novo beneficio: ", op.__data_publicacao)
             
             if st.button("Atualizar"):
-                View.cliente_atualizar(op.id, nome, desc, beneficio)
-                st.success("perfil atualizado com sucesso")
+                View.cliente_atualizar(op.__id, t, a, data)
+                st.success("Livro atualizado com sucesso")
                 time.sleep(2)
                 st.rerun()
     

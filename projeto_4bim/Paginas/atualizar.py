@@ -9,6 +9,7 @@ class AtualizarUI():
         with tab1: AtualizarUI.atualizar()
         with tab2: AtualizarUI.excluir()
 
+    #Atualização de Usuario
     def atualizar():
         objs = View.Usuario_listar_id()
         if len(objs) == 0: 
@@ -24,6 +25,7 @@ class AtualizarUI():
                 time.sleep(2)
                 st.rerun()
     
+    #Exclusão de Usuario
     def excluir():
         objs = View.Usuario_listar_id()
         if len(objs) == 0: 

@@ -7,3 +7,7 @@ class AtualizarUI():
         tab1, tab2 = st.tabs(["Atualizar", "Excluir"])
         with tab1: AtualizarUI.atualizar()
         with tab2: AtualizarUI.excluir()
+
+    def atualizar():
+    
+    def excluir():

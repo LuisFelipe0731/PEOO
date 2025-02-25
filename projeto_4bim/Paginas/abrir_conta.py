@@ -8,9 +8,9 @@ class AbrirContaUI:
         AbrirContaUI.inserir()
 
     def inserir():
-        nome = st.text_input("Informe o nome")
-        email = st.text_input("Informe o e-mail")
-        senha = st.text_input("Informe a senha", type="password")
+        nome = st.text_input("Informe o nome: ")
+        email = st.text_input("Informe o e-mail: ")
+        senha = st.text_input("Informe a senha: ", type="password")
         if st.button("Inserir"):
             View.Usuario_inserir(nome, email, senha)
             st.success("Conta criada com sucesso")

@@ -10,11 +10,11 @@ class AtualizarUI():
         with tab2: AtualizarUI.excluir()
 
     def atualizar():
-        nome = st.text_input("Informe o nome")
-        email = st.text_input("Informe o e-mail")
-        senha = st.text_input("Informe a senha", type="password")
-        if st.button("Inserir"):
-            View.Usuario_inserir(nome, email, senha)
+        nome = st.text_input("Informe o novo nome: ", op.__nome)
+        email = st.text_input("Informe o novo e-mail: ", op.__email)
+        senha = st.text_input("Informe a nova senha: ", op.__senha ,type="password")
+        if st.button("Atualizar"):
+            View.Usuario_atualizar(op.__id, nome, email, senha)
             st.success("Conta criada com sucesso")
             time.sleep(2)
             st.rerun()

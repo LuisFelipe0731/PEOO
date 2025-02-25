@@ -49,7 +49,7 @@ class View:
     def Livro_listar_id(id):
         return Livros.listar_id(id)    
 
-    def Livro_atualizar(id,titulo, autor, data, genero ):
+    def Livro_atualizar(id,titulo, autor, data, genero):
         c = Livro(id, titulo, autor, data)
         c.__id_genero = genero
         Livros.atualizar(c)

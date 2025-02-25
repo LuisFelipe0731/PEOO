@@ -51,13 +51,18 @@ class ManterLivroUI:
         if len(objs) == 0: 
             st.write("Nenhum livro cadastrado")
         else:
+            generos = View.Genero_listar()
             op = st.selectbox("Atualização de livros", objs)
             t = st.text_input("Informe o novo titulo: ", op.__titulo)
             a = st.text_input("Informe o novo autor: ", op.__autor)
             data = st.text_input("Informe a nova data de publicação: ", op.__data_publicacao)
+            id_genero = None if op.id_genero in [0, None] else op.id_genero
+            genero = st.selectbox("Informe o novo genero", generos, next((i for i, c in enumerate(generos) if c.__id == id_genero), None))
             
             if st.button("Atualizar"):
-                View.cliente_atualizar(op.__id, t, a, data)
+                id_genero = None
+                if id_genero != None: id_genero = genero.__id
+                View.cliente_atualizar(op.__id, t, a, data,id_genero)
                 st.success("Livro atualizado com sucesso")
                 time.sleep(2)
                 st.rerun()

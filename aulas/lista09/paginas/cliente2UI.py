@@ -57,6 +57,7 @@ class ManterClienteUI:
             senha = st.text_input("Informe a nova senha", op.senha, type="password")
             id_perfil = None if op.id_perfil in [0, None] else op.id_perfil
             perfil = st.selectbox("Informe o novo perfil", perfis, next((i for i, c in enumerate(perfis) if c.id == id_perfil), None))
+            
             if st.button("Atualizar"):
                 id_perfil = None
                 if id_perfil != None: id_perfil = perfil.id

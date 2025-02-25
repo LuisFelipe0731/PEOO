@@ -20,7 +20,11 @@ class ManterLivroUI:
         else:    
             
             dic = []
-            for obj in perfis: dic.append(obj.__dict__)
+            for obj in objs: 
+                #id do genero
+                genero = View.Genero_listar_id(obj.__id__genero)
+                if genero != None: genero = genero.__nome
+                dic.append(obj.__dict__)
             df = pd.DataFrame(dic)
             st.dataframe(df)
     
@@ -55,7 +59,7 @@ class ManterLivroUI:
         if len(objs) == 0: 
             st.write("Nenhum livro cadastrado")
         else:
-            op = st.selectbox("Exclusão de perfis", objs)
+            op = st.selectbox("Exclusão de livros", objs)
             if st.button("Excluir"):
                 View.Livro_excluir(op.__id)
                 st.success("Livro excluído com sucesso")

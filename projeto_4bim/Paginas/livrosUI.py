@@ -34,7 +34,7 @@ class ManterLivroUI:
         generos = View.Genero_listar()
         t = st.text_input("Informe o titulo do livro: ")
         a = st.text_input("Informe o autor: ")
-        data = st.text_input("Informe a data de publicação: ")
+        data = st.text_input("Informe a data de publicação (formato: dd/mm/aa): ", datetime.now().strftime("%d/%m/%Y"))
         genero = st.selectbox("Informe o perfil: ", generos, index = None)
         
         if st.button("Inserir"):

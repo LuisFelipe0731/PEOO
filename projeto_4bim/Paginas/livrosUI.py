@@ -41,7 +41,7 @@ class ManterLivroUI:
             id_genero = None
             if id_genero != None: id_genero = genero.__id
             
-            View.Livro_inserir(t,a,data,id_genero)
+            View.Livro_inserir(t,a,datetime.strptime(data, "%d/%m/%Y %H:%M"),id_genero)
             st.success("Livro inserido com sucesso")
             time.sleep(2)
             st.rerun()

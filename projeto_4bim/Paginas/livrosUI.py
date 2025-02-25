@@ -31,11 +31,17 @@ class ManterLivroUI:
             st.dataframe(df)
     
     def inserir():
+        generos = View.Genero_listar()
         t = st.text_input("Informe o titulo do livro: ")
         a = st.text_input("Informe o autor: ")
         data = st.text_input("Informe a data de publicação: ")
+        genero = st.selectbox("Informe o perfil: ", generos, index = None)
+        
         if st.button("Inserir"):
-            View.Livro_inserir(t,a,data)
+            id_genero = None
+            if id_genero != None: id_genero = genero.__id
+            
+            View.Livro_inserir(t,a,data,id_genero)
             st.success("Livro inserido com sucesso")
             time.sleep(2)
             st.rerun()

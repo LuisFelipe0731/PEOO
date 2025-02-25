@@ -24,7 +24,9 @@ class ManterLivroUI:
                 #id do genero
                 genero = View.Genero_listar_id(obj.__id__genero)
                 if genero != None: genero = genero.__nome
-                dic.append(obj.__dict__)
+                
+                dic.append({"id":obj.__id, "titulo": obj.__titulo, "autor": obj.__autor, "data": obj.__data_publicacao, "genero": genero})
+            
             df = pd.DataFrame(dic)
             st.dataframe(df)
     

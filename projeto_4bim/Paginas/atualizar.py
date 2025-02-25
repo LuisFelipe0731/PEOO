@@ -10,7 +10,7 @@ class AtualizarUI():
         with tab2: AtualizarUI.excluir()
 
     def atualizar():
-        objs = View.Usuario_listar()
+        objs = View.Usuario_listar_id()
         if len(objs) == 0: 
             st.write("Nenhum usuario cadastrado")
         else:
@@ -25,7 +25,7 @@ class AtualizarUI():
                 st.rerun()
     
     def excluir():
-        objs = View.Usuario_listar()
+        objs = View.Usuario_listar_id()
         if len(objs) == 0: 
             st.write("Nenhum usuario cadastrado")
         else:

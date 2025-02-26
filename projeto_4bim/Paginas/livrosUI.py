@@ -62,7 +62,7 @@ class ManterLivroUI:
             if st.button("Atualizar"):
                 id_genero = None
                 if id_genero != None: id_genero = genero.__id
-                View.cliente_atualizar(op.__id, t, a, datetime.strptime(data, "%d/%m/%Y"),id_genero)
+                View.Livro_atualizar(op.__id, t, a, datetime.strptime(data, "%d/%m/%Y"),id_genero)
                 st.success("Livro atualizado com sucesso")
                 time.sleep(2)
                 st.rerun()

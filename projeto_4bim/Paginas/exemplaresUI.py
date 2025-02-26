@@ -20,7 +20,7 @@ class ManterExemplarUI:
             
             dic = []
             for obj in objs: 
-                #id do genero
+                #id do livro
                 genero = View.Genero_listar_id(obj.__id__genero)
                 if genero != None: genero = genero.__nome
                 
@@ -32,16 +32,14 @@ class ManterExemplarUI:
     def inserir():
         generos = View.Genero_listar()
         t = st.text_input("Informe o titulo do livro: ")
-        a = st.text_input("Informe o autor: ")
-        data = st.text_input("Informe a data de publicação (formato: dd/mm/aa): ", datetime.now().strftime("%d/%m/%Y"))
         genero = st.selectbox("Informe o perfil: ", generos, index = None)
         
         if st.button("Inserir"):
             id_genero = None
             if id_genero != None: id_genero = genero.__id
             
-            View.Livro_inserir(t,a,datetime.strptime(data, "%d/%m/%Y"),id_genero)
-            st.success("Livro inserido com sucesso")
+            View.Exemplar_inserir()
+            st.success("Exemplar inserido com sucesso")
             time.sleep(2)
             st.rerun()
     
@@ -61,8 +59,8 @@ class ManterExemplarUI:
             if st.button("Atualizar"):
                 id_genero = None
                 if id_genero != None: id_genero = genero.__id
-                View.cliente_atualizar(op.__id, t, a, datetime.strptime(data, "%d/%m/%Y"),id_genero)
-                st.success("Livro atualizado com sucesso")
+                View.Exemplar_atualizar(op.__id, t, a, datetime.strptime(data, "%d/%m/%Y"),id_genero)
+                st.success("Exemplar atualizado com sucesso")
                 time.sleep(2)
                 st.rerun()
     

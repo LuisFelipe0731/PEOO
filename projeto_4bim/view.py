@@ -100,10 +100,9 @@ class View:
         Exemplares.excluir(c)    
     
     #Compras
-    def Compra_inserir(usuario, exemplar):
+    def Compra_inserir(usuario):
         c = Compra(0)
         c.__id_user = usuario
-        c.__id_exemp = exemplar
         Compras.inserir(c)
 
     def Compra_listar():
@@ -112,10 +111,9 @@ class View:
     def Compra_listar_id(id):
         return Compras.listar_id(id)    
 
-    def Compra_atualizar(id,usuario,exemplar):
+    def Compra_atualizar(id,usuario):
         c = Compra(id)
         c.__id_user = usuario
-        c.__id_exemp = exemplar
         Compras.atualizar(c)
 
     def Compra_excluir(id):

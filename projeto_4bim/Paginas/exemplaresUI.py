@@ -39,7 +39,7 @@ class ManterExemplarUI:
             id_genero = None
             if id_genero != None: id_genero = genero.__id
             
-            View.Exemplar_inserir()
+            View.Exemplar_inserir(e, float(v), id_livro)
             st.success("Exemplar inserido com sucesso")
             time.sleep(2)
             st.rerun()

@@ -79,8 +79,8 @@ class View:
         Generos.excluir(c)    
 
     #Exemplares
-    def Exemplar_inserir(edicao, livro):
-        c = Exemplar(0, edicao)
+    def Exemplar_inserir(edicao, valor, livro):
+        c = Exemplar(0, edicao, valor)
         c.__id_livro = livro
         Exemplares.inserir(c)
 
@@ -90,8 +90,8 @@ class View:
     def Exemplar_listar_id(id):
         return Exemplares.listar_id(id)    
 
-    def Exemplar_atualizar(id, edicao, livro):
-        c = Exemplar(id, edicao)
+    def Exemplar_atualizar(id, edicao, valor, livro):
+        c = Exemplar(id, edicao, valor)
         c.__id_livro = livro
         Exemplares.atualizar(c)
 

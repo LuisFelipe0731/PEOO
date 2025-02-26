@@ -1,7 +1,6 @@
 from Paginas.livrosUI import ManterLivroUI
 from Paginas.generosUI import ManterGeneroUI
 from Paginas.exemplaresUI import ManterExemplarUI
-from Paginas.comprasUI import ManterCompraUI
 from Paginas.grafico import GraficoUI
 from Paginas.comprar import ComprarUI
 from Paginas.login_livro import LoginUI
@@ -19,11 +18,10 @@ class IndexUI:
         if op == "Abrir Conta": AbrirContaUI.main()
                
     def menu_admin():            
-        op = st.sidebar.selectbox("Menu", ["Cadastro de Livros", "Cadastro de Generos", "Cadastro de Exemplares","Cadastro de Compras", "Graficos"])
+        op = st.sidebar.selectbox("Menu", ["Cadastro de Livros", "Cadastro de Generos", "Cadastro de Exemplares", "Graficos"])
         if op == "Cadastro de Livros": ManterLivroUI.main()
         if op == "Cadastro de Generos": ManterGeneroUI.main()
         if op == "Cadastro de Exemplares": ManterExemplarUI.main()
-        if op == "Cadastro de Compras": ManterCompraUI.main()
         if op == "Graficos": GraficoUI.main()
 
     def menu_usuario():

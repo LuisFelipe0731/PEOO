@@ -21,8 +21,8 @@ class ManterExemplarUI:
             dic = []
             for obj in objs: 
                 #id do livro
-                genero = View.Genero_listar_id(obj.__id__genero)
-                if genero != None: genero = genero.__nome
+                livro = View.Livro_listar_id(obj.__id_livro)
+                if livro != None: livro = livro.__titulo
                 
                 dic.append({"id":obj.__id, "titulo": obj.__titulo, "autor": obj.__autor, "data": obj.__data_publicacao, "genero": genero})
             
@@ -30,9 +30,10 @@ class ManterExemplarUI:
             st.dataframe(df)
     
     def inserir():
-        generos = View.Genero_listar()
-        t = st.text_input("Informe o titulo do livro: ")
-        genero = st.selectbox("Informe o perfil: ", generos, index = None)
+        livros = View.Livro_listar()
+        e = st.text_input("Informe a edição do exemplar: ")
+        v = st.text_input("Informe o valor do exemplar: ")
+        genero = st.selectbox("Informe o livro: ", livros, index = None)
         
         if st.button("Inserir"):
             id_genero = None

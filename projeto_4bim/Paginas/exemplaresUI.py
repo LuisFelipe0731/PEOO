@@ -24,7 +24,7 @@ class ManterExemplarUI:
                 livro = View.Livro_listar_id(obj.__id_livro)
                 if livro != None: livro = livro.__titulo
                 
-                dic.append({"id":obj.__id, "titulo": obj.__titulo, "autor": obj.__autor, "data": obj.__data_publicacao, "genero": genero})
+                dic.append({"id":obj.__id, "edição": obj.__ed, "valor": obj.__valor, "livro": livro})
             
             df = pd.DataFrame(dic)
             st.dataframe(df)
@@ -45,20 +45,20 @@ class ManterExemplarUI:
             st.rerun()
     
     def atualizar():
-        objs = View.Livro_listar()
+        objs = View.Exemplar_listar()
         if len(objs) == 0: 
-            st.write("Nenhum livro cadastrado")
+            st.write("Nenhum exemplar cadastrado")
         else:
-            generos = View.Genero_listar()
-            op = st.selectbox("Atualização de livros", objs)
-            e = st.text_input("Informe o novo titulo: ", op.__titulo)
-            v = st.text_input("Informe o novo autor: ", op.__autor)
-            id_genero = None if op.id_genero in [0, None] else op.id_genero
-            genero = st.selectbox("Informe o novo genero", generos, next((i for i, c in enumerate(generos) if c.__id == id_genero), None))
+            livros = View.Livro_listar()
+            op = st.selectbox("Atualização de exemplares", objs)
+            e = st.text_input("Informe a nova edição: ", op.__ed)
+            v = st.text_input("Informe o novo valor: ", op.__valor)
+            id_livro = None if op.__id_livro in [0, None] else op.__id_livro
+            livro = st.selectbox("Informe o novo livro", livros, next((i for i, c in enumerate(livros) if c.__id == id_livro), None))
             
             if st.button("Atualizar"):
-                id_genero = None
-                if id_genero != None: id_genero = genero.__id
+                id_livro = None
+                if id_livro != None: id_livro = livro.__id
                 View.Exemplar_atualizar(op.__id, e, float(v), id_livro)
                 st.success("Exemplar atualizado com sucesso")
                 time.sleep(2)

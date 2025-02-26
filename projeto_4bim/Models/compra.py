@@ -5,7 +5,6 @@ class Compra:
     def __init__(self, id):
         self.__id = 0
         self.__id_user = 0
-        self.__id_exemp = 0
 
         self.set_id(id)
         
@@ -25,7 +24,6 @@ class Compra:
         dic = {}
         dic["id"] = self.__id  
         dic["usuario"] = self.__id_user
-        dic["exemplar"] = self.__id_exemp
         return dic
 
 
@@ -36,7 +34,6 @@ class Compras(CRUD):
         c = cls.listar_id(obj.id)
         if c != None:
             c.__id_user = obj.__id_user
-            c.__id_exemo = obj.__id_exemp
         cls.salvar()
         
     
@@ -54,7 +51,6 @@ class Compras(CRUD):
                 for obj in texto:   
                     c = Compra(obj["id"])
                     c.__id_user = obj["usuario"]
-                    c.__id_exemp = obj["exemplar"]
                     cls.objetos.append(c)
         except FileNotFoundError:
             pass

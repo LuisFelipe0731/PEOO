@@ -33,11 +33,11 @@ class ManterExemplarUI:
         livros = View.Livro_listar()
         e = st.text_input("Informe a edição do exemplar: ")
         v = st.text_input("Informe o valor do exemplar: ")
-        genero = st.selectbox("Informe o livro: ", livros, index = None)
+        livro = st.selectbox("Informe o livro: ", livros, index = None)
         
         if st.button("Inserir"):
-            id_genero = None
-            if id_genero != None: id_genero = genero.__id
+            id_livro = None
+            if id_livro != None: id_livro = livro.__id
             
             View.Exemplar_inserir(e, float(v), id_livro)
             st.success("Exemplar inserido com sucesso")

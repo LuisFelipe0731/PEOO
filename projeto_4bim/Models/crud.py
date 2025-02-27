@@ -8,8 +8,8 @@ class CRUD(ABC):
         cls.abrir()
         m = 0
         for c in cls.objetos:
-            if c.id > m: m = c.id
-        obj.id = m + 1
+            if c.__id > m: m = c.__id
+        obj.__id = m + 1
         cls.objetos.append(obj)
         cls.salvar()
     
@@ -22,7 +22,7 @@ class CRUD(ABC):
     def listar_id(cls, id):
         cls.abrir()
         for c in cls.objetos:
-            if c.id == id: return c
+            if c.__id == id: return c
         return None  
     
     @abstractmethod
@@ -31,7 +31,7 @@ class CRUD(ABC):
 
     @classmethod
     def excluir(cls, obj):
-        c = cls.listar_id(obj.id)
+        c = cls.listar_id(obj.__id)
         if c != None:
             cls.objetos.remove(c)
         cls.salvar()

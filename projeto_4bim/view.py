@@ -28,7 +28,7 @@ class View:
     
     def Usuario_admin():
         for c in View.Usuario_listar():
-            if c.email == "admin": return
+            if c.__email == "admin": return
         View.Usuario_inserir("admin","admin","1234")
     
     def Usuario_autenticar(email, senha):

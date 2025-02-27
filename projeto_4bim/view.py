@@ -81,6 +81,11 @@ class View:
     def Genero_excluir(id):
         c = Genero(id, "", "")
         Generos.excluir(c)    
+    
+    def grafico():
+        objs = View.Livro_listar()
+        for c in objs:
+            return c.__id_genero
 
     #Exemplares
     def Exemplar_inserir(edicao, valor, livro):

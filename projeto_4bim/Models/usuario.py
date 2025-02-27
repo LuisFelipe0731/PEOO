@@ -47,6 +47,14 @@ class Usuario:
 
     def __str__(self):
         return f"{self.__id} - {self.__nome} - {self.__email}"
+    #to_json
+    def to_json(self):
+        dic = {}
+        dic['id'] = self.__id  
+        dic['nome'] = self.__nome
+        dic['email'] = self.__email
+        dic['senha'] = self.__senha
+        return dic
 
 
 class Usuarios(CRUD):
@@ -62,7 +70,7 @@ class Usuarios(CRUD):
     @classmethod
     def salvar(cls):
         with open("Usuarios.json", mode="w") as arquivo:   # w - write
-            json.dump(cls.objetos, arquivo, default = vars)
+            json.dump(cls.objetos, arquivo, default = Usuario.to_json)
     
     @classmethod
     def abrir(cls):
@@ -71,7 +79,7 @@ class Usuarios(CRUD):
             with open("Usuarios.json", mode="r") as arquivo:   # r - read
                 texto = json.load(arquivo)
                 for obj in texto:   
-                    c = Usuario(obj['id'] ,obj['nome'], obj['email'], obj['senha'])
+                    c = Usuario(obj['id'], obj['nome'], obj['email'], obj['senha'])
                     cls.objetos.append(c)
         except FileNotFoundError:
             pass

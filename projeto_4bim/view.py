@@ -84,8 +84,14 @@ class View:
     
     def grafico():
         objs = View.Livro_listar()
+        objs2 = View.Genero_listar()
         for c in objs:
-            return c.__id_genero
+            for g in objs2:
+                if g.__nome == c.__id_genero:
+                    return g.__nome
+                else:
+                    raise ValueError
+
 
     #Exemplares
     def Exemplar_inserir(edicao, valor, livro):

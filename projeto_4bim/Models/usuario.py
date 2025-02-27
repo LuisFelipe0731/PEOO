@@ -71,7 +71,7 @@ class Usuarios(CRUD):
             with open("Usuarios.json", mode="r") as arquivo:   # r - read
                 texto = json.load(arquivo)
                 for obj in texto:   
-                    c = Usuario(obj["id"],obj["nome"], obj["email"], obj["senha"])
+                    c = Usuario(obj['id'] ,obj['nome'], obj['email'], obj['senha'])
                     cls.objetos.append(c)
         except FileNotFoundError:
             pass

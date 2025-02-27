@@ -56,7 +56,14 @@ class View:
 
     def Livro_excluir(id):
         c = Livro(id, "", "", "")
-        Livros.excluir(c)    
+        Livros.excluir(c) 
+
+    def Pesquisar_livro(nome):
+        for c in View.Livro_listar():
+            if c.__nome == nome:
+                
+
+
 
     
     #Generos

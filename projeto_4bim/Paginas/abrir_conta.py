@@ -4,7 +4,7 @@ import time
 
 class AbrirContaUI:
     def main():
-        st.header("Abrir Conta no Sistema")
+        st.header("Abrir Conta no Sistema ")
         AbrirContaUI.inserir()
 
     def inserir():

@@ -8,4 +8,6 @@ class PesquisarUI:
 
     def pesquisa():
         pesq = st.text_input("Procurar livro: ")
-        
+        #Butao de pesquisa:
+        if st.button("Pesquisar"):
+            View.Pesquisar_livro(pesq)

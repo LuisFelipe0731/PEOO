@@ -14,7 +14,7 @@ class View:
         View.Usuario_inserir("admin","admin","1234")
     
     def Usuario_inserir(nome, email, senha):
-        c = Usuario(0, nome, email, senha)
+        c = Usuario(1, nome, email, senha)
         Usuarios.inserir(c)
 
     def Usuario_listar():

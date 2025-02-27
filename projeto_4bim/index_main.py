@@ -2,7 +2,6 @@ from Paginas.livrosUI import ManterLivroUI
 from Paginas.generosUI import ManterGeneroUI
 from Paginas.exemplaresUI import ManterExemplarUI
 from Paginas.grafico import GraficoUI
-from Paginas.comprar import ComprarUI
 from Paginas.login_livro import LoginUI
 from Paginas.abrir_conta import AbrirContaUI
 from Paginas.pesquisa import PesquisarUI
@@ -25,9 +24,8 @@ class IndexUI:
         if op == "Graficos": GraficoUI.main()
 
     def menu_usuario():
-        op = st.sidebar.selectbox("Menu", ["Pesquisar", "Comprar","Graficos","Conta"])
+        op = st.sidebar.selectbox("Menu", ["Pesquisar","Graficos","Conta"])
         if op == "Graficos": GraficoUI.main()
-        if op == "Comprar": ComprarUI.main()
         if op == "Pesquisar": PesquisarUI.main()
         if op == "Conta": AtualizarUI.main()
 

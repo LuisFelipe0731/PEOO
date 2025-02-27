@@ -11,4 +11,4 @@ class PesquisarUI:
         #Butao de pesquisa:
         if st.button("Pesquisar"):
             View.Pesquisar_livro(pesq)
-            if 
+    

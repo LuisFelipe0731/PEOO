@@ -8,6 +8,11 @@ from Models.compra import Compra, Compras
 #View
 class View:
     #Usuario - Admin
+    def Usuario_admin():
+        for c in View.Usuario_listar():
+            if c.__email == "admin": return
+        View.Usuario_inserir("admin","admin","1234")
+    
     def Usuario_inserir(nome, email, senha):
         c = Usuario(0, nome, email, senha)
         Usuarios.inserir(c)
@@ -25,11 +30,6 @@ class View:
     def Usuario_excluir(id):
         c = Usuario(id, "", "", "")
         Usuarios.excluir(c)
-    
-    def Usuario_admin():
-        for c in View.Usuario_listar():
-            if c.__email == "admin": return
-        View.Usuario_inserir("admin","admin","1234")
     
     def Usuario_autenticar(email, senha):
         for c in View.Usuario_listar():

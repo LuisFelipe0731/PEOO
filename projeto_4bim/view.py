@@ -1,4 +1,3 @@
-from Models.crud import CRUD
 from Models.livro import Livro, Livros
 from Models.usuario import Usuario,Usuarios
 from Models.genero import Genero, Generos
@@ -10,14 +9,12 @@ class View:
     #Usuario - Admin
     def Usuario_admin():
         for c in View.Usuario_listar():
-            if c.__email == "admin": return f""
+            try:
+                if c.__email == "admin": return 
+            except AttributeError:
+                return f"Esse atributo n existe"
+        
         View.Usuario_inserir("admin","admin","1234")
-    
-    def Usuario_autenticar(email, senha):
-        for c in View.Usuario_listar():
-            if c.__email == email and c.__senha == senha:
-                return {'id' : c.__id ,'nome' : c.__nome }
-        return None
     
     def Usuario_inserir(nome, email, senha):
         c = Usuario(1, nome, email, senha)
@@ -37,10 +34,20 @@ class View:
         c = Usuario(id, "", "", "")
         Usuarios.excluir(c)
     
+    def Usuario_autenticar(email, senha):
+        for c in View.Usuario_listar():
+            try:
+                if c.__email == email and c.__senha == senha:
+                    return {'id' : c.__id,'nome' : c.__nome}
+                else:
+                    return None
+            except AttributeError:
+                return f"Esse atributo n existe"
+    
     
     #Livros
     def Livro_inserir(titulo, autor, data, genero):
-        c = Livro(0, titulo, autor, data)
+        c = Livro(1, titulo, autor, data)
         c.__id_genero = genero
         Livros.inserir(c)
 
@@ -66,7 +73,7 @@ class View:
    
     #Generos
     def Genero_inserir(nome, desc):
-        c = Genero(0, nome, desc)
+        c = Genero(1, nome, desc)
         Generos.inserir(c)
 
     def Genero_listar():
@@ -96,7 +103,7 @@ class View:
 
     #Exemplares
     def Exemplar_inserir(edicao, valor, livro):
-        c = Exemplar(0, edicao, valor)
+        c = Exemplar(1, edicao, valor)
         c.__id_livro = livro
         Exemplares.inserir(c)
 
@@ -117,7 +124,7 @@ class View:
     
     #Compras
     def Compra_inserir(usuario):
-        c = Compra(0)
+        c = Compra(1)
         c.__id_user = usuario
         Compras.inserir(c)
 

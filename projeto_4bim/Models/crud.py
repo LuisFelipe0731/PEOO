@@ -8,7 +8,10 @@ class CRUD(ABC):
         cls.abrir()
         m = 0
         for c in cls.objetos:
-            if c.__id > m: m = c.__id
+            try:
+                if c.__id > m: m = c.__id
+            except AttributeError:
+                return f"valor invalido"
         obj.__id = m + 1
         cls.objetos.append(obj)
         cls.salvar()

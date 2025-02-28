@@ -47,9 +47,9 @@ class IndexUI:
             # mensagen de bem-vindo
             st.sidebar.write("Bem-vindo(a), " + st.session_state['usuario_nome'])
           
-            if st.session_state['tipo'] == 'usuario': IndexUI.menu_admin()
+            if st.session_state['usuario_nome'] == 'admin': IndexUI.menu_admin()
             
-            else: IndexUI.menu_admin()
+            else: IndexUI.menu_usuario()
             # controle de sair do sistema
             IndexUI.sair_do_sistema() 
     

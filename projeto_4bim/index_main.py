@@ -32,8 +32,8 @@ class IndexUI:
 
     def sair_do_sistema():
         if st.sidebar.button("Sair"):
-            del st.session_state["usuario_id"]
-            del st.session_state["usuario_nome"]
+            del st.session_state['usuario_id']
+            del st.session_state['usuario_nome']
             st.rerun()
     
     def sidebar():
@@ -42,9 +42,9 @@ class IndexUI:
             IndexUI.menu_visitante()   
         else:
             # usuário está logado, verifica se é o admin
-            admin = st.session_state["usuario_nome"] == "admin"
+            admin = st.session_state['usuario_nome'] == "admin"
             # mensagen de bem-vindo
-            st.sidebar.write("Bem-vindo(a), " + st.session_state["usuario_nome"])
+            st.sidebar.write("Bem-vindo(a), " + st.session_state['usuario_nome'])
             # menu do usuário
             if admin: IndexUI.menu_admin()
             else: IndexUI.menu_cliente()

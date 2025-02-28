@@ -10,14 +10,11 @@ class LoginUI:
         
         if st.button("Entrar"):
             c = View.Usuario_autenticar(email, senha)
-            try:
-                if c == None:
-                    st.write("E-mail ou senha inválidos")
+            if c == None:
+                st.write("E-mail ou senha inválidos")
                 
-                if c != None:
-                    st.session_state['usuario_id'] = c['id']
-                    st.session_state['usuario_nome'] = c['nome']
-                    st.rerun()
+            if c != None:
+                st.session_state['usuario_id'] = c[1]
+                st.session_state['usuario_nome'] = c[2]
+                st.rerun()
             
-            except TypeError:
-                print("invalido invalido")

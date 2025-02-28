@@ -59,7 +59,7 @@ class Usuario:
 
 class Usuarios(CRUD):
     def atualizar(cls, obj):
-        c = cls.listar_id(obj.id)
+        c = cls.listar_id(obj.__id)
         if c != None:
             c.__nome = obj.__nome
             c.__email = obj.__email

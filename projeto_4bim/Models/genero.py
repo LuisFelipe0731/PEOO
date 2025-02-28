@@ -43,7 +43,7 @@ class Genero:
 class Generos(CRUD):
     @classmethod
     def atualizar(cls, obj):
-        c = cls.listar_id(obj.id)
+        c = cls.listar_id(obj.__id)
         if c != None:
             c.__nome = obj.__nome
             c.__desc = obj.__desc

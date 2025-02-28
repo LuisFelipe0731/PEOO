@@ -71,7 +71,7 @@ class Livro:
 class Livros(CRUD):
     @classmethod
     def atualizar(cls, obj):
-        c = cls.listar_id(obj.id)
+        c = cls.listar_id(obj.__id)
         if c != None:
             c.__titulo = obj.__titulo
             c.__autor = obj.__autor

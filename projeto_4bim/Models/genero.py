@@ -50,12 +50,6 @@ class Generos(CRUD):
 
         cls.salvar()
         
-    
-    @classmethod
-    def salvar(cls):
-        with open("Generos.json", mode="w") as arquivo:   # w - write
-            json.dump(cls.objetos, arquivo, default = vars)
-    
     @classmethod
     def abrir(cls):
         cls.objetos = []
@@ -67,3 +61,9 @@ class Generos(CRUD):
                     cls.objetos.append(c)
         except FileNotFoundError:
             pass
+
+    @classmethod
+    def salvar(cls):
+        with open("Generos.json", mode="w") as arquivo:   # w - write
+            json.dump(cls.objetos, arquivo, default = vars)
+    

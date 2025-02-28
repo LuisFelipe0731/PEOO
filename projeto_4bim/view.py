@@ -10,8 +10,8 @@ class View:
     #Usuario - Admin
     def Usuario_admin():
         for c in View.Usuario_listar():
-            if c.__email == "admin":
-                View.Usuario_inserir("admin","admin","1234")
+            if c.__email == "admin": return f""
+        View.Usuario_inserir("admin","admin","1234")
     
     def Usuario_autenticar(email, senha):
         for c in View.Usuario_listar():

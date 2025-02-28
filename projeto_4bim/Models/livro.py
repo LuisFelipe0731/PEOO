@@ -80,12 +80,6 @@ class Livros(CRUD):
             c.__id_genero = obj.__id_genero
         cls.salvar()
         
-    
-    @classmethod
-    def salvar(cls):
-        with open("livros.json", mode="w") as arquivo:   # w - write
-            json.dump(cls.objetos, arquivo, default = Livro.to_json)
-    
     @classmethod
     def abrir(cls):
         cls.objetos = []
@@ -98,3 +92,9 @@ class Livros(CRUD):
                     cls.objetos.append(c)
         except FileNotFoundError:
             pass
+
+    @classmethod
+    def salvar(cls):
+        with open("livros.json", mode="w") as arquivo:   # w - write
+            json.dump(cls.objetos, arquivo, default = Livro.to_json)
+    

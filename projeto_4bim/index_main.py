@@ -40,15 +40,16 @@ class IndexUI:
         if 'usuario_id' not in st.session_state:
             # usuário não está logado
             IndexUI.menu_visitante()   
+        
         else:
             # usuário está logado, verifica se é o admin
             admin = st.session_state['usuario_nome'] == 'admin'
             # mensagen de bem-vindo
             st.sidebar.write("Bem-vindo(a), " + st.session_state['usuario_nome'])
           
-            if admin: IndexUI.menu_admin()
+            if st.session_state['tipo'] == 'usuario': IndexUI.menu_usuario()
             
-            else: IndexUI.menu_usuario()
+            else: IndexUI.menu_admin()
             # controle de sair do sistema
             IndexUI.sair_do_sistema() 
     

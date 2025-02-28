@@ -16,5 +16,7 @@ class LoginUI:
             if c != None:
                 st.session_state['usuario_id'] = c[1]
                 st.session_state['usuario_nome'] = c[2]
+                st.session_state['tipo'] = 'usuario'
+
                 st.rerun()
             

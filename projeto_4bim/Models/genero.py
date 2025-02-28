@@ -57,7 +57,7 @@ class Generos(CRUD):
             with open("Generos.json", mode="r") as arquivo:   # r - read
                 texto = json.load(arquivo)
                 for obj in texto:   
-                    c = Genero(obj["id"],obj["nome"], obj["desc"])
+                    c = Genero(obj['id'], obj['nome'], obj['desc'])
                     cls.objetos.append(c)
         except FileNotFoundError:
             pass

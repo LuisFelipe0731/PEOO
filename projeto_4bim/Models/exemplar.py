@@ -41,10 +41,10 @@ class Exemplar:
     
     def to_json(self):
         dic = {}
-        dic["id"] = self.__id  
-        dic["edição"] = self.__ed
-        dic["valor"] = self.__valor
-        dic["livro"] = self.__id_livro
+        dic['id'] = self.__id  
+        dic['edição'] = self.__ed
+        dic['valor'] = self.__valor
+        dic['livro'] = self.__id_livro
         return dic
 
 class Exemplares(CRUD):
@@ -64,8 +64,8 @@ class Exemplares(CRUD):
             with open("Exemplares.json", mode="r") as arquivo:   # r - read
                 texto = json.load(arquivo)
                 for obj in texto:   
-                    c = Exemplar(obj["id"],obj["edição"],obj["valor"])
-                    c.__id_livro = obj["livro"]
+                    c = Exemplar(obj['id'], obj['edição'], obj['valor'])
+                    c.__id_livro = obj['livro']
                     cls.objetos.append(c)
         except FileNotFoundError:
             pass

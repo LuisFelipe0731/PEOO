@@ -65,7 +65,12 @@ class Usuarios(CRUD):
             c.__email = obj.__email
             c.__senha = obj.__senha  
         cls.salvar()
-        
+ 
+    @classmethod
+    def salvar(cls):
+        with open("Usuarios.json", mode="w") as arquivo:   # w - write
+            json.dump(cls.objetos, arquivo, default = Usuario.to_json)
+
     @classmethod
     def abrir(cls):
         cls.objetos = []
@@ -77,10 +82,5 @@ class Usuarios(CRUD):
                     cls.objetos.append(c)
         except FileNotFoundError:
             pass
-    
-    @classmethod
-    def salvar(cls):
-        with open("Usuarios.json", mode="w") as arquivo:   # w - write
-            json.dump(cls.objetos, arquivo, default = Usuario.to_json)
     
     

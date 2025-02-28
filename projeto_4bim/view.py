@@ -29,6 +29,7 @@ class View:
     def Usuario_atualizar(id,nome, email, senha):
         c = Usuario(id, nome, email, senha)
         Usuarios.atualizar(c)
+  
 
     def Usuario_excluir(id):
         c = Usuario(id, "", "", "")

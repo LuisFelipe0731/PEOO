@@ -12,7 +12,10 @@ class AbrirContaUI:
         email = st.text_input("Informe o e-mail: ")
         senha = st.text_input("Informe a senha: ", type="password")
         if st.button("Inserir"):
-            View.Usuario_inserir(nome, email, senha)
-            st.success("Conta criada com sucesso")
-            time.sleep(2)
-            st.rerun()
+            try:
+                View.Usuario_inserir(nome, email, senha)
+                st.success("Conta criada com sucesso")
+                time.sleep(2)
+                st.rerun()
+            except AttributeError:
+                return f"sssss"

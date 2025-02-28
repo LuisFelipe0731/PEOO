@@ -10,8 +10,14 @@ class View:
     #Usuario - Admin
     def Usuario_admin():
         for c in View.Usuario_listar():
-            if c.__email == "admin": return
-        View.Usuario_inserir("admin","admin","1234")
+            if c.__email == "admin":
+                View.Usuario_inserir("admin","admin","1234")
+    
+    def Usuario_autenticar(email, senha):
+        for c in View.Usuario_listar():
+            if c.__email == email and c.__senha == senha:
+                return {'id' : c.__id ,'nome' : c.__nome }
+        return None
     
     def Usuario_inserir(nome, email, senha):
         c = Usuario(1, nome, email, senha)
@@ -31,11 +37,6 @@ class View:
         c = Usuario(id, "", "", "")
         Usuarios.excluir(c)
     
-    def Usuario_autenticar(email, senha):
-        for c in View.Usuario_listar():
-            if c.__email == email and c.__senha == senha:
-                return {'id' : c.__id ,'nome' : c.__nome }
-        return None
     
     #Livros
     def Livro_inserir(titulo, autor, data, genero):

@@ -68,8 +68,11 @@ class Usuarios(CRUD):
  
     @classmethod
     def salvar(cls):
-        with open("Usuarios.json", mode="w") as arquivo:   # w - write
-            json.dump(cls.objetos, arquivo, default = Usuario.to_json)
+        try:
+            with open("Usuarios.json", mode="w") as arquivo:   # w - write
+                json.dump(cls.objetos, arquivo, default = Usuario.to_json)
+        except FileNotFoundError:
+            pass
 
     @classmethod
     def abrir(cls):

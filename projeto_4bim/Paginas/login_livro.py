@@ -15,8 +15,8 @@ class LoginUI:
                     st.write("E-mail ou senha inválidos")
                 
                 if c != None:
-                    c['id'] = st.session_state['usuario_id']
-                    c['nome'] = st.session_state['usuario_nome']
+                    st.session_state['usuario_id'] = c['id']
+                    st.session_state['usuario_nome'] = c['nome']
                     st.rerun()
             
             except TypeError:

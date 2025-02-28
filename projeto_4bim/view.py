@@ -34,7 +34,7 @@ class View:
     def Usuario_autenticar(email, senha):
         for c in View.Usuario_listar():
             if c.__email == email and c.__senha == senha:
-                return {"id" : c.__id ,"nome" : c.__nome }
+                return {'id' : c.__id ,'nome' : c.__nome }
         return None
     
     #Livros

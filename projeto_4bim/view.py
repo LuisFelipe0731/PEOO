@@ -69,8 +69,8 @@ class View:
     def Genero_listar():
         return Generos.listar()   
     
-    def Genero_listar_id():
-        return Generos.listar_id()    
+    def Genero_listar_id(id):
+        return Generos.listar_id(id)    
 
     def Genero_atualizar(id, nome, desc):
         c = Genero(id, nome, desc)

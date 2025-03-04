@@ -14,13 +14,16 @@ class AtualizarUI():
         if len(objs) == 0: 
             st.write("Nenhum usuario cadastrado")
         else:
-            op = st.selectbox("atulização de usuario", objs)
-            nome = st.text_input("Informe o novo nome: ", op.__nome)
-            email = st.text_input("Informe o novo e-mail: ", op.__email)
-            senha = st.text_input("Informe a nova senha: ", op.__senha ,type="password")
+            op = View.Usuario_listar_id(st.session_state['usuario_id'])
+            nome = st.text_input("Informe o novo nome: ", op.nome)
+            email = st.text_input("Informe o novo e-mail: ", op.email)
+            senha = st.text_input("Informe a nova senha: ", op.senha ,type="password")
             if st.button("Atualizar"):
-                View.Usuario_atualizar(op.__id, nome, email, senha)
+                View.Usuario_atualizar(op.id, nome, email, senha)
                 st.success("Conta atualizada com sucesso")
                 time.sleep(2)
                 st.rerun()
+    def excluir():
+        op = View.Usuario_listar_id(st.session_state['usuario_id'])
+
     

@@ -21,10 +21,10 @@ class ManterExemplarUI:
             dic = []
             for obj in objs: 
                 #id do livro
-                livro = View.Livro_listar_id(obj.__id_livro)
-                if livro != None: livro = livro.__titulo
+                livro = View.Livro_listar_id(obj.id_livro)
+                if livro != None: livro = livro.titulo
                 
-                dic.append({"id":obj.__id, "edição": obj.__ed, "valor": obj.__valor, "livro": livro})
+                dic.append({"id":obj.id, "edição": obj.ed, "valor": obj.valor, "livro": livro})
             
             df = pd.DataFrame(dic)
             st.dataframe(df)
@@ -37,7 +37,7 @@ class ManterExemplarUI:
         
         if st.button("Inserir"):
             id_livro = None
-            if id_livro != None: id_livro = livro.__id
+            if id_livro != None: id_livro = livro.id
             
             View.Exemplar_inserir(e, float(v), id_livro)
             st.success("Exemplar inserido com sucesso")
@@ -51,15 +51,15 @@ class ManterExemplarUI:
         else:
             livros = View.Livro_listar()
             op = st.selectbox("Atualização de exemplares", objs)
-            e = st.text_input("Informe a nova edição: ", op.__ed)
-            v = st.text_input("Informe o novo valor: ", op.__valor)
-            id_livro = None if op.__id_livro in [0, None] else op.__id_livro
-            livro = st.selectbox("Informe o novo livro", livros, next((i for i, c in enumerate(livros) if c.__id == id_livro), None))
+            e = st.text_input("Informe a nova edição: ", op.ed)
+            v = st.text_input("Informe o novo valor: ", op.valor)
+            id_livro = None if op.id_livro in [0, None] else op.id_livro
+            livro = st.selectbox("Informe o novo livro", livros, next((i for i, c in enumerate(livros) if c.id == id_livro), None))
             
             if st.button("Atualizar"):
                 id_livro = None
-                if id_livro != None: id_livro = livro.__id
-                View.Exemplar_atualizar(op.__id, e, float(v), id_livro)
+                if id_livro != None: id_livro = livro.id
+                View.Exemplar_atualizar(op.id, e, float(v), id_livro)
                 st.success("Exemplar atualizado com sucesso")
                 time.sleep(2)
                 st.rerun()
@@ -71,7 +71,7 @@ class ManterExemplarUI:
         else:
             op = st.selectbox("Exclusão de exemplares", objs)
             if st.button("Excluir"):
-                View.Exemplar_excluir(op.__id)
+                View.Exemplar_excluir(op.id)
                 st.success("exemplar excluído com sucesso")
                 time.sleep(2)
                 st.rerun()

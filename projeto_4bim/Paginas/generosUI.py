@@ -40,12 +40,12 @@ class ManterGeneroUI:
             st.write("Nenhum genêro cadastrado")
         else:
             op = st.selectbox("Atualização de genêros", objs)
-            n = st.text_input("Informe o novo nome: ", op.__titulo)
-            d = st.text_input("Informe a nova descrição: ", op.__autor)
+            n = st.text_input("Informe o novo nome: ", op.titulo)
+            d = st.text_input("Informe a nova descrição: ", op.autor)
     
             
             if st.button("Atualizar"):
-                View.Genero_atualizar(op.__id, n, d)
+                View.Genero_atualizar(op.id, n, d)
                 st.success("Genêro atualizado com sucesso")
                 time.sleep(2)
                 st.rerun()
@@ -57,7 +57,7 @@ class ManterGeneroUI:
         else:
             op = st.selectbox("Exclusão de Genêros", objs)
             if st.button("Excluir"):
-                View.Genero_excluir(op.__id)
+                View.Genero_excluir(op.id)
                 st.success("Genêro excluído com sucesso")
                 time.sleep(2)
                 st.rerun()

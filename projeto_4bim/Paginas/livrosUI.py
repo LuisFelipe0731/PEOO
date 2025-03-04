@@ -22,11 +22,11 @@ class ManterLivroUI:
             dic = []
             for obj in objs: 
                 #id do genero
-                genero = View.Genero_listar_id(obj.__id__genero)
-                if genero != None: genero = genero.__nome
+                genero = View.Genero_listar_id(obj.id__genero)
+                if genero != None: genero = genero.nome
                 
-                dic.append({"id":obj.__id, "titulo": obj.__titulo, "autor": obj.__autor, "data": obj.__data_publicacao, "genero": genero})
-            
+                dic.append({"id":obj.id, "titulo": obj.titulo, "autor": obj.autor, "data": obj.data_publicacao, "genero": genero})
+        
             df = pd.DataFrame(dic)
             st.dataframe(df)
     
@@ -39,7 +39,7 @@ class ManterLivroUI:
         
         if st.button("Inserir"):
             id_genero = None
-            if id_genero != None: id_genero = genero.__id
+            if id_genero != None: id_genero = genero.id
             
             View.Livro_inserir(t,a,datetime.strptime(data, "%d/%m/%Y"),id_genero)
             st.success("Livro inserido com sucesso")
@@ -53,16 +53,16 @@ class ManterLivroUI:
         else:
             generos = View.Genero_listar()
             op = st.selectbox("Atualização de livros", objs)
-            t = st.text_input("Informe o novo titulo: ", op.__titulo)
-            a = st.text_input("Informe o novo autor: ", op.__autor)
-            data = st.text_input("Informe a nova data de publicação (formato: dd/mm/aa): ", op.__data_publicacao.strftime("%d/%m/%Y"))
+            t = st.text_input("Informe o novo titulo: ", op.titulo)
+            a = st.text_input("Informe o novo autor: ", op.autor)
+            data = st.text_input("Informe a nova data de publicação (formato: dd/mm/aa): ", op.data_publicacao.strftime("%d/%m/%Y"))
             id_genero = None if op.id_genero in [0, None] else op.id_genero
-            genero = st.selectbox("Informe o novo genero", generos, next((i for i, c in enumerate(generos) if c.__id == id_genero), None))
+            genero = st.selectbox("Informe o novo genero", generos, next((i for i, c in enumerate(generos) if c.id == id_genero), None))
             
             if st.button("Atualizar"):
                 id_genero = None
-                if id_genero != None: id_genero = genero.__id
-                View.Livro_atualizar(op.__id, t, a, datetime.strptime(data, "%d/%m/%Y"),id_genero)
+                if id_genero != None: id_genero = genero.id
+                View.Livro_atualizar(op.id, t, a, datetime.strptime(data, "%d/%m/%Y"),id_genero)
                 st.success("Livro atualizado com sucesso")
                 time.sleep(2)
                 st.rerun()
@@ -74,7 +74,7 @@ class ManterLivroUI:
         else:
             op = st.selectbox("Exclusão de livros", objs)
             if st.button("Excluir"):
-                View.Livro_excluir(op.__id)
+                View.Livro_excluir(op.id)
                 st.success("Livro excluído com sucesso")
                 time.sleep(2)
                 st.rerun()

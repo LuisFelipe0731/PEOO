@@ -5,7 +5,9 @@ import time
 class AtualizarUI():
     def main():
         st.header("Editar Perfil")
-        AtualizarUI.atualizar()
+        op = st.sidebar.selectbox("Menu", ["Atulizar Conta", "Excluir Conta"])
+        if op == "Atulizar Conta": AtualizarUI.atualizar()
+        if op == "Excluir Conta": AtualizarUI.excluir()
 
 
     #Atualização de Usuario
@@ -25,5 +27,11 @@ class AtualizarUI():
                 st.rerun()
     def excluir():
         op = View.Usuario_listar_id(st.session_state['usuario_id'])
+        st.write("Excluir conta? ")
+        if st.button("Confirmar"):
+            View.Usuario_excluir(op.id)
+            st.success("Conta excluida com sucesso")
+            time.sleep(2)
+            st.rerun()
 
     

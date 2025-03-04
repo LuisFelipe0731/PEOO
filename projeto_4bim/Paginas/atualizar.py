@@ -12,7 +12,7 @@ class AtualizarUI():
 
     #Atualização de Usuario
     def atualizar():
-        objs = View.Usuario_listar_id()
+        objs = View.Usuario_listar()
         if len(objs) == 0: 
             st.write("Nenhum usuario cadastrado")
         else:

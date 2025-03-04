@@ -40,8 +40,8 @@ class ManterGeneroUI:
             st.write("Nenhum genêro cadastrado")
         else:
             op = st.selectbox("Atualização de genêros", objs)
-            n = st.text_input("Informe o novo nome: ", op.titulo)
-            d = st.text_input("Informe a nova descrição: ", op.autor)
+            n = st.text_input("Informe o novo nome: ", op.nome)
+            d = st.text_input("Informe a nova descrição: ", op.desc)
     
             
             if st.button("Atualizar"):

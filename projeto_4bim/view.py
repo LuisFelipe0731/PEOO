@@ -2,27 +2,19 @@ from Models.livro import Livro, Livros
 from Models.usuario import Usuario,Usuarios
 from Models.genero import Genero, Generos
 from Models.exemplar import Exemplar, Exemplares
-from Models.compra import Compra, Compras
 
 #View
 class View:
     #Usuario - Admin
     def Usuario_admin():
         for c in View.Usuario_listar():
-            try:
-                if c.__email == "admin": return 
-            except AttributeError:
-                return f"Esse atributo n existe"
-        
+            if c.email == "admin": return 
         View.Usuario_inserir("admin","admin","1234")
     
     def Usuario_inserir(nome, email, senha):
-        try:
-            c = Usuario(0, nome, email, senha)
-            Usuarios.inserir(c)
-        except ValueError:
-            return f"Return of the rat oh no no"
-
+        c = Usuario(0, nome, email, senha)
+        Usuarios.inserir(c)
+    
     def Usuario_listar():
         return Usuarios.listar()    
 
@@ -33,26 +25,20 @@ class View:
         c = Usuario(id, nome, email, senha)
         Usuarios.atualizar(c)
   
-
     def Usuario_excluir(id):
         c = Usuario(id, "", "", "")
         Usuarios.excluir(c)
     
     def Usuario_autenticar(email, senha):
         for c in View.Usuario_listar():
-            try:
-                if c.__email == email and c.__senha == senha:
-                    return {'id' : c.__id,'nome' : c.__nome}
-                else:
-                    return None
-            except AttributeError:
-                return f"Esse atributo n existe"
-    
-    
+            if c.email == email and c.senha == senha:
+                return {'id' : c.id,'nome' : c.nome}
+        return None
+
     #Livros
     def Livro_inserir(titulo, autor, data, genero):
-        c = Livro(1, titulo, autor, data)
-        c.__id_genero = genero
+        c = Livro(0, titulo, autor, data)
+        c.id_genero = genero
         Livros.inserir(c)
 
     def Livro_listar():
@@ -63,7 +49,7 @@ class View:
 
     def Livro_atualizar(id,titulo, autor, data, genero):
         c = Livro(id, titulo, autor, data)
-        c.__id_genero = genero
+        c.id_genero = genero
         Livros.atualizar(c)
 
     def Livro_excluir(id):
@@ -72,12 +58,12 @@ class View:
 
     def Pesquisar_livro(nome):
         for c in View.Livro_listar():
-            if c.__nome == nome:
+            if c.nome == nome:
                 return c
    
     #Generos
     def Genero_inserir(nome, desc):
-        c = Genero(1, nome, desc)
+        c = Genero(0, nome, desc)
         Generos.inserir(c)
 
     def Genero_listar():
@@ -99,16 +85,15 @@ class View:
         objs2 = View.Genero_listar()
         for c in objs:
             for g in objs2:
-                if g.__nome == c.__id_genero:
-                    return g.__nome
+                if g.nome == c.id_genero:
+                    return g.nome
                 else:
                     raise ValueError
 
-
     #Exemplares
     def Exemplar_inserir(edicao, valor, livro):
-        c = Exemplar(1, edicao, valor)
-        c.__id_livro = livro
+        c = Exemplar(0, edicao, valor)
+        c.id_livro = livro
         Exemplares.inserir(c)
 
     def Exemplar_listar():
@@ -119,30 +104,11 @@ class View:
 
     def Exemplar_atualizar(id, edicao, valor, livro):
         c = Exemplar(id, edicao, valor)
-        c.__id_livro = livro
+        c.id_livro = livro
         Exemplares.atualizar(c)
 
     def Exemplar_excluir(id):
         c = Exemplar(id, "")
         Exemplares.excluir(c)    
     
-    #Compras
-    def Compra_inserir(usuario):
-        c = Compra(1)
-        c.__id_user = usuario
-        Compras.inserir(c)
-
-    def Compra_listar():
-        return Compras.listar()    
-
-    def Compra_listar_id(id):
-        return Compras.listar_id(id)    
-
-    def Compra_atualizar(id,usuario):
-        c = Compra(id)
-        c.__id_user = usuario
-        Compras.atualizar(c)
-
-    def Compra_excluir(id):
-        c = Compra(id)
-        Compras.excluir(c)
+    

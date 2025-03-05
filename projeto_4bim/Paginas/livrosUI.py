@@ -18,7 +18,6 @@ class ManterLivroUI:
         if len(objs) == 0: 
             st.write("Nenhum livro cadastrado")
         else:    
-            
             dic = []
             for obj in objs: 
                 dic.append(obj.__dict__)

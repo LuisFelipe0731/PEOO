@@ -21,11 +21,7 @@ class ManterLivroUI:
             
             dic = []
             for obj in objs: 
-                #id do genero
-                genero = View.Genero_listar_id(obj.id_genero)
-                if genero != None: genero = genero.nome
-                dic.append({"id":obj.id, "titulo": obj.titulo, "autor": obj.autor, "data": obj.data_publicacao, "genero": genero})
-        
+                dic.append(obj.__dict__)
             df = pd.DataFrame(dic)
             st.dataframe(df)
     

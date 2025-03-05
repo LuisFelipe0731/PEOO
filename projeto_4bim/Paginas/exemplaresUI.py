@@ -18,16 +18,12 @@ class ManterExemplarUI:
             st.write("Nenhum exemplar cadastrado")
         else:    
             
-            dic = []
-            for obj in objs: 
-                #id do livro
-                livro = View.Livro_listar_id(obj.id_livro)
-                if livro != None: livro = livro.titulo
-                
-                dic.append({"id":obj.id, "edição": obj.ed, "valor": obj.valor, "livro": livro})
-            
-            df = pd.DataFrame(dic)
-            st.dataframe(df)
+           dic = []
+        for obj in objs: 
+            dic.append(obj.__dict__)
+        df = pd.DataFrame(dic)
+        st.dataframe(df)
+          
     
     def inserir():
         livros = View.Livro_listar()

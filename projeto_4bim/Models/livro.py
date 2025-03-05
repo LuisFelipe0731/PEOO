@@ -35,7 +35,6 @@ class Livros(CRUD):
             c.titulo = obj.titulo
             c.autor = obj.autor
             c.data_publicacao = obj.data_publicacao
-            c.senha = obj.senha
             c.id_genero = obj.id_genero
         cls.salvar()
         

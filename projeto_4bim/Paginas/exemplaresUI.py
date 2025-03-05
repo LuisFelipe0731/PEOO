@@ -18,11 +18,11 @@ class ManterExemplarUI:
             st.write("Nenhum exemplar cadastrado")
         else:    
             
-           dic = []
-        for obj in objs: 
-            dic.append(obj.__dict__)
-        df = pd.DataFrame(dic)
-        st.dataframe(df)
+            dic = []
+            for obj in objs: 
+                dic.append(obj.__dict__)
+            df = pd.DataFrame(dic)
+            st.dataframe(df)
           
     
     def inserir():

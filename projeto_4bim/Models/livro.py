@@ -48,7 +48,7 @@ class Livros(CRUD):
     def abrir(cls):
         cls.objetos = []
         try:
-            with open("Livros.json", mode="r") as arquivo:   # r - read
+            with open("livros.json", mode="r") as arquivo:   # r - read
                 texto = json.load(arquivo)
                 for obj in texto:   
                     c = Livro(obj["id"],obj["titulo"], obj["autor"], datetime.strptime(obj["data"], "%d/%m/%Y"),obj["genero"])

@@ -57,9 +57,10 @@ class View:
         Livros.excluir(c) 
 
     def Pesquisar_livro(nome):
+        obj = []
         for c in View.Livro_listar():
-            if c.nome == nome:
-                return c
+            if c.titulo == nome:
+                obj.append(c)
    
     #Generos
     def Genero_inserir(nome, desc):

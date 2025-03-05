@@ -4,17 +4,17 @@ from Models.crud import CRUD
 
 #Livro
 class Livro:
-    def __init__(self, id, titulo, autor, data):
+    def __init__(self, id, titulo, autor, data, genero):
         self.id = id
         self.titulo = titulo
         self.autor = autor
         self.data_publicacao = data
-        self.id_genero = 0
+        self.id_genero = genero
         
         
     #str
     def __str__(self):
-        return f"{self.id} - {self.titulo} - {self.autor} - {self.data_publicacao}"
+        return f"{self.id} - {self.titulo} - {self.autor} - {self.data_publicacao} - {self.id_genero}"
     
     #to_json
     def to_json(self):
@@ -51,8 +51,7 @@ class Livros(CRUD):
             with open("Livros.json", mode="r") as arquivo:   # r - read
                 texto = json.load(arquivo)
                 for obj in texto:   
-                    c = Livro(obj["id"],obj["titulo"], obj["autor"], datetime.strptime(obj["data"], "%d/%m/%Y"))
-                    c.id_genero = obj["genero"]
+                    c = Livro(obj["id"],obj["titulo"], obj["autor"], datetime.strptime(obj["data"], "%d/%m/%Y"),obj["genero"])
                     cls.objetos.append(c)
         except FileNotFoundError:
             pass

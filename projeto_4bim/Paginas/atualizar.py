@@ -26,12 +26,16 @@ class AtualizarUI():
                 time.sleep(2)
                 st.rerun()
     def excluir():
-        op = View.Usuario_listar_id(st.session_state['usuario_id'])
-        st.write("Excluir conta? ")
-        if st.button("Confirmar"):
-            View.Usuario_excluir(op.id)
-            st.success("Conta excluida com sucesso")
-            time.sleep(2)
-            st.rerun()
+        objs = View.Usuario_listar()
+        if len(objs) == 0: 
+            st.write("Nenhum usuario cadastrado")
+        else:
+            op = View.Usuario_listar_id(st.session_state['usuario_id'])
+            st.write("Excluir conta? ")
+            if st.button("Confirmar"):
+                View.Usuario_excluir(op.id)
+                st.success("Conta excluida com sucesso")
+                time.sleep(2)
+                st.rerun()
 
     

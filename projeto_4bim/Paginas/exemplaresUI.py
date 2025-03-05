@@ -32,10 +32,7 @@ class ManterExemplarUI:
         livro = st.selectbox("Informe o livro: ", livros, index = None)
         
         if st.button("Inserir"):
-            id_livro = None
-            if id_livro != None: id_livro = livro.id
-            
-            View.Exemplar_inserir(e, float(v), id_livro)
+            View.Exemplar_inserir(e, float(v), livro.titulo)
             st.success("Exemplar inserido com sucesso")
             time.sleep(2)
             st.rerun()

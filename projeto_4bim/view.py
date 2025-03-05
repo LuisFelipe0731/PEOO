@@ -37,8 +37,7 @@ class View:
 
     #Livros
     def Livro_inserir(titulo, autor, data, genero):
-        c = Livro(0, titulo, autor, data)
-        c.id_genero = genero
+        c = Livro(0, titulo, autor, data, genero)
         Livros.inserir(c)
 
     def Livro_listar():
@@ -48,8 +47,7 @@ class View:
         return Livros.listar_id(id)    
 
     def Livro_atualizar(id,titulo, autor, data, genero):
-        c = Livro(id, titulo, autor, data)
-        c.id_genero = genero
+        c = Livro(id, titulo, autor, data, genero)
         Livros.atualizar(c)
 
     def Livro_excluir(id):

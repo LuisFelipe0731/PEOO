@@ -33,10 +33,8 @@ class ManterLivroUI:
         genero = st.selectbox("Informe o genero: ", generos, index = None)
         
         if st.button("Inserir"):
-            id_genero = None
-            if id_genero != None: id_genero = genero.id
-            
-            View.Livro_inserir(t,a,datetime.strptime(data, "%d/%m/%Y"),id_genero)
+
+            View.Livro_inserir(t,a,datetime.strptime(data, "%d/%m/%Y"),genero.nome)
             st.success("Livro inserido com sucesso")
             time.sleep(2)
             st.rerun()

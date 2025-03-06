@@ -25,6 +25,7 @@ class AtualizarUI():
                 st.success("Conta atualizada com sucesso")
                 time.sleep(2)
                 st.rerun()
+    
     def excluir():
         objs = View.Usuario_listar()
         if len(objs) == 0: 

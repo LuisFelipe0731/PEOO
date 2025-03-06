@@ -51,7 +51,7 @@ class View:
         Livros.atualizar(c)
 
     def Livro_excluir(id):
-        c = Livro(id, "", "", "")
+        c = Livro(id, "", "", "","")
         Livros.excluir(c) 
 
     def Pesquisar_livro(nome):

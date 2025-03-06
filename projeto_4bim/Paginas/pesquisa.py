@@ -18,7 +18,7 @@ class PesquisarUI:
             else:    
                 dic = []
                 for obj in objs: 
-                    if obj.titulo == pesq:
+                    if obj.titulo == pesq or obj.autor == pesq:
                         dic.append(obj.__dict__)
                 df = pd.DataFrame(dic)
                 st.dataframe(df)

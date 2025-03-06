@@ -13,9 +13,9 @@ class PesquisarUI:
         if st.button("Pesquisar"):
             objs = View.Pesquisar_livro(pesq)
 
-            dic = []
+            lista = []
             for obj in objs: 
-                dic.append(obj.__dict__)
-            df = pd.DataFrame(dic)
+                lista.append(obj.titulo)
+            df = pd.DataFrame(lista)
             st.dataframe(df)
     

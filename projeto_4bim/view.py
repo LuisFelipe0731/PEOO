@@ -57,7 +57,7 @@ class View:
     def Pesquisar_livro(nome):
         for c in View.Livro_listar():
             if c.titulo == nome:
-                return c.titulo
+                return c
    
     #Generos
     def Genero_inserir(nome, desc):

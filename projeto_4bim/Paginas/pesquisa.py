@@ -11,11 +11,12 @@ class PesquisarUI:
         pesq = st.text_input("Procurar livro: ")
         #Butao de pesquisa:
         if st.button("Pesquisar"):
-            objs = View.Pesquisar_livro(pesq)
+            objs = View.Livro_listar()
 
             lista = []
             for obj in objs: 
-                lista.append(obj.titulo)
+                if obj.titulo == pesq:
+                    lista.append(obj.titulo)
             df = pd.DataFrame(lista)
             st.dataframe(df)
     

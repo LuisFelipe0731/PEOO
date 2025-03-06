@@ -53,11 +53,6 @@ class View:
     def Livro_excluir(id):
         c = Livro(id, "", "", "","")
         Livros.excluir(c) 
-
-    def Pesquisar_livro(nome):
-        for c in View.Livro_listar():
-            if c.titulo == nome:
-                return c
    
     #Generos
     def Genero_inserir(nome, desc):

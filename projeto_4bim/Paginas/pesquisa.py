@@ -12,11 +12,14 @@ class PesquisarUI:
         #Butao de pesquisa:
         if st.button("Pesquisar"):
             objs = View.Livro_listar()
-
-            lista = []
-            for obj in objs: 
-                if obj.titulo == pesq:
-                    lista.append(obj.titulo)
-            df = pd.DataFrame(lista)
-            st.dataframe(df)
-    
+            if len(objs) == 0: 
+                st.write("Nenhum livro cadastrado")
+            
+            else:    
+                dic = []
+                for obj in objs: 
+                    if obj.titulo == pesq:
+                        dic.append(obj.__dict__)
+                df = pd.DataFrame(dic)
+                st.dataframe(df)
+        

@@ -6,7 +6,7 @@ from Models.crud import CRUD
 class Livro:
     def __init__(self, id, titulo, autor, data, genero):
         
-        if id == 0: raise ValueError
+        if id < 0: raise ValueError
         if titulo == "": raise ValueError
         if autor == "": raise ValueError
         if data == "": raise ValueError

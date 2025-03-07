@@ -14,6 +14,8 @@ class Usuario:
         self.email = email
         self.senha = senha
 
+        
+
     def __str__(self):
         return f"{self.id} - {self.nome} - {self.email}"
     #to_json

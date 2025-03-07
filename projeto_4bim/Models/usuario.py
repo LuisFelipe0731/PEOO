@@ -3,6 +3,12 @@ from Models.crud import CRUD
 
 class Usuario:
     def __init__(self,id, nome, email, senha):
+        
+        if id == 0: raise ValueError
+        if nome == "": raise ValueError
+        if email == "": raise ValueError
+        if senha == "": raise ValueError
+        
         self.id = id
         self.nome = nome
         self.email = email

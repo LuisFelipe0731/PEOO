@@ -3,6 +3,11 @@ from Models.crud import CRUD
 
 class Exemplar:
     def __init__(self, id, edicao, valor):
+        
+        if id == 0: raise ValueError
+        if edicao == "": raise ValueError
+        if valor == 0: raise ValueError
+        
         self.id = id
         self.ed = edicao
         self.valor = float(valor)

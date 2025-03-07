@@ -3,6 +3,11 @@ from Models.crud import CRUD
 
 class Genero:
     def __init__(self,id, nome, descricao):
+        
+        if id == 0: raise ValueError
+        if nome == "": raise ValueError
+        if descricao == "": raise ValueError
+    
         self.id = id
         self.nome = nome
         self.desc = descricao

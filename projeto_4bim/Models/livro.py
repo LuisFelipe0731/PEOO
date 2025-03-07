@@ -5,6 +5,13 @@ from Models.crud import CRUD
 #Livro
 class Livro:
     def __init__(self, id, titulo, autor, data, genero):
+        
+        if id == 0: raise ValueError
+        if titulo == "": raise ValueError
+        if autor == "": raise ValueError
+        if data == "": raise ValueError
+        if genero == "": raise ValueError
+
         self.id = id
         self.titulo = titulo
         self.autor = autor

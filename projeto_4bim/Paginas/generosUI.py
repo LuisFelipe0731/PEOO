@@ -5,7 +5,7 @@ import time
 
 class ManterGeneroUI:
     def main():
-        st.header("Cadastro de Livros")
+        st.header("Cadastro de Generos")
         tab1, tab2, tab3, tab4 = st.tabs(["Listar", "Inserir", "Atualizar", "Excluir"])
         with tab1: ManterGeneroUI.listar()
         with tab2: ManterGeneroUI.inserir()
